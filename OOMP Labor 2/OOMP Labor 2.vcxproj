@@ -139,7 +139,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionField.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="GoToJail.cpp" />
+    <ClCompile Include="Monopoly.cpp" />
+    <ClCompile Include="NoAction.cpp" />
     <ClCompile Include="OOMP Labor 2.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Property.cpp" />
+    <ClCompile Include="Railroad.cpp" />
+    <ClCompile Include="Street.cpp" />
+    <ClCompile Include="Tax.cpp" />
+    <ClCompile Include="Utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActionField.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="GoToJail.h" />
+    <ClInclude Include="Monopoly.h" />
+    <ClInclude Include="NoAction.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="Railroad.h" />
+    <ClInclude Include="Street.h" />
+    <ClInclude Include="Tax.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
