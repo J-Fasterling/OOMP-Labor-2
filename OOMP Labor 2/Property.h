@@ -19,33 +19,3 @@ public:
     ~Property();
 
 };
-
-class Railroad :
-       public Property {
-private:
-    int rent[4];
-
-public:
-    int get_rent();
-};
-
-class Street :
-    public Property {
-private:
-    int rent[6];
-    int houses;
-
-public:
-    int get_rent();
-};
-
-class Utility :
-    public Property {
-private: 
-    int dice_factor_single;
-    int dice_factor_monopoly;
-
-public:
-    int get_rent();
-};
-
