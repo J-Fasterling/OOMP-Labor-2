@@ -13,36 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Headerdateien\Field">
+      <UniqueIdentifier>{66f866b5-66ea-4e80-9fe7-e7130d3ad8d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Field\Property">
+      <UniqueIdentifier>{49a84dab-39aa-42de-a554-1300f8148900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Field">
+      <UniqueIdentifier>{2054ccba-e7d9-4925-a9b7-6ca3b35a62b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Field\Property">
+      <UniqueIdentifier>{9c130e09-848b-4a19-bb5e-fadf57f9ba47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OOMP Labor 2.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="GoToJail.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Tax.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="NoAction.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionField.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Property.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Railroad.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Street.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Utility.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -54,35 +39,35 @@
     <ClCompile Include="Monopoly.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="ActionField.cpp">
+      <Filter>Quelldateien\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="NoAction.cpp">
+      <Filter>Quelldateien\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Tax.cpp">
+      <Filter>Quelldateien\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="GoToJail.cpp">
+      <Filter>Quelldateien\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Railroad.cpp">
+      <Filter>Quelldateien\Field\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Property.cpp">
+      <Filter>Quelldateien\Field\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Street.cpp">
+      <Filter>Quelldateien\Field\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Quelldateien\Field\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Quelldateien\Field</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Field.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="GoToJail.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Tax.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="NoAction.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionField.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Property.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Railroad.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Street.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Utility.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -91,6 +76,33 @@
     </ClInclude>
     <ClInclude Include="Monopoly.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionField.h">
+      <Filter>Headerdateien\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="NoAction.h">
+      <Filter>Headerdateien\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Tax.h">
+      <Filter>Headerdateien\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="GoToJail.h">
+      <Filter>Headerdateien\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Headerdateien\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Headerdateien\Field\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Headerdateien\Field\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Street.h">
+      <Filter>Headerdateien\Field\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Railroad.h">
+      <Filter>Headerdateien\Field\Property</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
