@@ -13,6 +13,7 @@ private:
 
 public:
 	Board();
-	~Board();
+	Board(Field* fGo, Player pPlayer[], Monopoly mMonopolies[], int iDice[2]);
+	virtual ~Board();
 };
 

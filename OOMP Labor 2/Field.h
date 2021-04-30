@@ -9,7 +9,7 @@ private:
 	std::string name;
 	Field* next;
 	Field* prev;
-	Board* Boad;
+	Board* boad;
 
 public:
 	Field();
