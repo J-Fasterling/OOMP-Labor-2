@@ -8,5 +8,7 @@ private:
 
 public:
     int get_rent();
+    Street();
+    ~Street();
 };
 

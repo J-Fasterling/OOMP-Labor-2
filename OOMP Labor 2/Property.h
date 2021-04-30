@@ -3,7 +3,7 @@
 #include "Field.h"
 #include "Player.h"
 #include "Monopoly.h"
-
+using namespace std
 class Property :
     public Field {
 private:

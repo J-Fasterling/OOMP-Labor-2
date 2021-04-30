@@ -7,5 +7,7 @@ private:
 
 public:
     int get_rent();
+    Railroad();
+    ~Railroad();
 };
 

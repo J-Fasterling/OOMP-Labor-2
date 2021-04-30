@@ -8,6 +8,8 @@ private:
 
 public:
     int get_rent();
+    Utility();
+    ~Utility();
 };
 
 
