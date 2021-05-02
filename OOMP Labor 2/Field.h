@@ -12,9 +12,9 @@ private:
 	Board* board;
 
 public:
-	Field(std::string _name, Field* _next, Field* _prev, Board* _board = NULL);
+	Field(std::string _name, Field* _next, Field* _prev,);
 	~Field();
 
-	void enter(Player& player, int fields_to_go);
+	virtual void enter(Player& player, int fields_to_go);
 };
 

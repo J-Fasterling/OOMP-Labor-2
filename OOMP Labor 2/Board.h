@@ -13,7 +13,7 @@ private:
 	int dice[2];
 
 public:
-	Board(Field* fGo, Player pPlayer[], Monopoly mMonopolies[], int iDice[2]);
+	Board(Player pPlayer[], Monopoly mMonopolies[], int iDice[2]);
 	virtual ~Board();
 	void Anfangsfeld(string _name, Field* next, Field* prev, Board* board);
 };
