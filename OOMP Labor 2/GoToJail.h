@@ -7,9 +7,9 @@ private:
     Field* jail;
 
 public:
-    GoToJail();
+    GoToJail(Field* _jail, std::string _name, Field* _next, Field* _prev);
     ~GoToJail();
 
-    void enter(Player& player, int fields_to_go);
+   // void enter(Player& player, int fields_to_go);
 };
 

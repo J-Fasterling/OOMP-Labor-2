@@ -1,4 +1,7 @@
 #include "Property.h"
+#include<iostream>
+
+
 
 int Property::get_Rent()
 {

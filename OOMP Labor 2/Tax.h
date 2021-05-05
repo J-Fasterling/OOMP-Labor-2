@@ -6,9 +6,9 @@ private:
 	int amount;
 
 public:
-	Tax();
+	Tax(int _amount, std::string _name, Field* _next, Field* _prev);
 	~Tax();
 
-	void enter(Player& player, int fields_to_go);
+	//void enter(Player& player, int fields_to_go);
 };
 
