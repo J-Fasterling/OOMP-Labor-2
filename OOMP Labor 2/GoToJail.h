@@ -7,8 +7,8 @@ private:
     Field* jail;
 
 public:
-    GoToJail(Field* _jail, std::string _name, Field* _next, Field* _prev);
-    ~GoToJail();
+    GoToJail(std::string _name = "Neues Feld", Field* _next = NULL, Field* _prev = NULL, Field* _jail = NULL);
+    //~GoToJail();
 
    // void enter(Player& player, int fields_to_go);
 };
