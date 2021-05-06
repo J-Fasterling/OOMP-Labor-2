@@ -3,7 +3,8 @@
 #include "Field.h"
 #include "Player.h"
 #include "Monopoly.h"
-using namespace std
+using namespace std;
+
 class Property :
     public Field {
 private:
@@ -12,7 +13,7 @@ private:
     Monopoly* monopoly;
 
 public:
-    int get_Rent();
+    int get_Rent(std::string _name, Field* _next, Field* _prev);
     void enter(player:Player&, int fields_to_go);
 
     Property();
