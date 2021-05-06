@@ -1,4 +1,4 @@
-/*#include "Field.h"
+#include "Field.h"
 #include "Player.h"
 #include "Monopoly.h"
 #include <string>
@@ -8,13 +8,13 @@ class Board
 {
 private:
 	Field* go;
-	Player player[];
-	Monopoly monopolies[];
+	vector <Player> player;
+	vector <Monopoly> monopolies;
 	int dice[2];
 
 public:
-	Board(Player pPlayer[], Monopoly mMonopolies[], int iDice[2]);
+	Board();
 	virtual ~Board();
 	void Anfangsfeld(string _name, Field* next, Field* prev, Board* board);
-};*/
+};
 

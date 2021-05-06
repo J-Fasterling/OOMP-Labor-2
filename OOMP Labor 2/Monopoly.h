@@ -1,4 +1,4 @@
-/*#include "Property.h"
+#include "Property.h"
 #include <string>
 
 #pragma once
@@ -12,5 +12,5 @@ private:
 public:
 	Monopoly();
 	~Monopoly();
-};*/
+};
 
