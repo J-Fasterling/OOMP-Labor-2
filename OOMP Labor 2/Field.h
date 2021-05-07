@@ -1,12 +1,13 @@
 #include <string>
-//#include "Board.h"
-//#include "Player.h"
+#include <iostream>
+
+#include "Board.h"
 
 #pragma once
 class Field
 {
 private:
-	std::string name;
+	
 	Field* next;
 	Field* prev;
 
