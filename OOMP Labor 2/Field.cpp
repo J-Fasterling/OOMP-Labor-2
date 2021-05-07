@@ -8,3 +8,5 @@ Field::Field(std::string _name, Field* _next, Field* _prev) : name{ _name }, nex
 	std::cout << "Es wurde ein Feld erzeugt"<< std::endl;
 }
 
+Field::~Field() {}
+

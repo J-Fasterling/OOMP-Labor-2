@@ -1,16 +1,17 @@
-
 #pragma once
 
 #include <string>
 #include <iostream>
-#include "Board.h"
 
+class Board;
 class Field
 {
 private:
 	
 	Field* next;
 	Field* prev;
+	std::string name;
+	Board* board;
 
 public:
 	Field();

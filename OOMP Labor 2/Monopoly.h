@@ -2,8 +2,9 @@
 
 #include <stdio.h>
 #include <vector>
-#include "Property.h"
-
+#include <string>
+//#include "Property.h"
+class Property;
 class Monopoly
 {
 private:
