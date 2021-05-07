@@ -33,12 +33,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Board.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Monopoly.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="ActionField.cpp">
       <Filter>Quelldateien\Field</Filter>
     </ClCompile>
@@ -66,15 +60,15 @@
     <ClCompile Include="Field.cpp">
       <Filter>Quelldateien\Field</Filter>
     </ClCompile>
+    <ClCompile Include="Monopoly.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Board.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Monopoly.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="ActionField.h">
@@ -103,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="Railroad.h">
       <Filter>Headerdateien\Field\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Monopoly.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

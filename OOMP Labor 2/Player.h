@@ -1,5 +1,5 @@
 #include "Field.h"
-#include <string>
+#include <stdio.h>
 
 #pragma once
 class Player
@@ -11,6 +11,6 @@ private:
 
 public:
 	Player();
+	Player(int iMoney, Field* fField, std::string sName);
 	~Player();
 };
-

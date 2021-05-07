@@ -1,7 +1,9 @@
 #pragma once
 #include "Property.h"
+
  class Railroad :
-    public Property {
+    public Property 
+ {
 private:
     int rent[4];
 

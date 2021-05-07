@@ -1,6 +1,6 @@
 #include "Railroad.h"
 
-Railroad::Railroad() :  {
+Railroad::Railroad()   {
 
 
 }

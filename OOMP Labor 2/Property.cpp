@@ -1,12 +1,15 @@
 #include "Property.h"
-#include<iostream>
 
 
+Property::Property() {}
 
-int Property::get_Rent()
+Property::~Property() {}
+
+int Property::get_Rent(std::string _name, Field* _next, Field* _prev)
 {
+	return 1;
 }
 
-void Property::enter(player : Player&, int fields_to_go)
+void Property::enter(Player player, int fields_to_go)
 {
 }
