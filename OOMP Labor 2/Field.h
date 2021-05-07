@@ -17,5 +17,8 @@ public:
 	//Field();
 	Field(std::string _name, Field* _next = NULL, Field* _prev = NULL);
 	~Field();
+	void setNext(Field* fNext);
+	void setPrev(Field* fPrev);
+
 };
 

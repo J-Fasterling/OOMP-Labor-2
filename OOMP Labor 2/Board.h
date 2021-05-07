@@ -8,14 +8,16 @@ class Board
 {
 private:
 	Field* playField;
-	std::vector <Player> player;
-	//Monopoly monopolies[6];
+	std::vector <Player*> vPlayer;
+	Monopoly* monopolies[6];
 	int dice[2];
-	//void addField(Field fField);
 	std::vector <Field*> vBoard;
 
+	void createPlayboard(std::vector<Field*> vField);
+	void choosePlayers();
+
 public:
-	Board(int iPlayer);
+	Board();
 	~Board();
 };
 

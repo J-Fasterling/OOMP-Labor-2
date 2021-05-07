@@ -9,3 +9,13 @@ Field::Field(std::string _name, Field* _next, Field* _prev)
 
 Field::~Field() {}
 
+void Field::setNext(Field* fNext)
+{
+	next = fNext;
+}
+
+void Field::setPrev(Field* fPrev)
+{
+	prev = fPrev;
+}
+

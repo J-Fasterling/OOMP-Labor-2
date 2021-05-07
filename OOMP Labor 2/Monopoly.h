@@ -14,6 +14,7 @@ private:
 
 public:
 	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Property> _properties = std::vector<Property>());
+	Monopoly();
 	~Monopoly();
 };
 
