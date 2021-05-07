@@ -1,9 +1,9 @@
+#pragma once
 #include <vector>
 #include "Field.h"
 #include "Player.h"
 #include "Monopoly.h"
 
-#pragma once
 class Board
 {
 private:

@@ -1,7 +1,9 @@
+
+#pragma once
+
 #include "Field.h"
 #include <stdio.h>
 
-#pragma once
 class Player
 {
 private:
