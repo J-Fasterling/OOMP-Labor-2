@@ -1,8 +1,6 @@
 #include "Player.h"
 
-Player::Player(int iMoney, Field* fField, std::string sName)
-	: money{ iMoney }, field{ fField }, name{ sName } {}
-
-Player::Player() {}
+Player::Player(Field* fField, std::string sName)
+	: money{ 1500 }, field{ fField }, name{ sName } {}
 
 Player::~Player() {}

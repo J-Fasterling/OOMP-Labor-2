@@ -9,13 +9,13 @@ class Board
 private:
 	Field* playField;
 	std::vector <Player> player;
-	std::vector <Monopoly> monopolies;
+	//Monopoly monopolies[6];
 	int dice[2];
+	//void addField(Field fField);
+	std::vector <Field*> vBoard;
 
 public:
-	Board();
-	Board(Field* fPlayField);
+	Board(int iPlayer);
 	~Board();
-	void Anfangsfeld(std::string sName, Field* next, Field* prev);
 };
 

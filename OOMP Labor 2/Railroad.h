@@ -8,8 +8,8 @@ private:
     int rent[4];
 
 public:
-    int get_rent();
-    Railroad();
+    int get_rent(int _type);
+    Railroad(std::string _name, Monopoly* _monopoly);
     ~Railroad();
 };
 

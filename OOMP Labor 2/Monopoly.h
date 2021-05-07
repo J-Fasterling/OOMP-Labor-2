@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
-//#include "Property.h"
+
 class Property;
 class Monopoly
 {
@@ -13,8 +13,7 @@ private:
 	std::vector <Property> properties;
 
 public:
-	Monopoly();
-	Monopoly(std::string sName, int iPrFoHo = 0);
+	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Property> _properties = std::vector<Property>());
 	~Monopoly();
 };
 

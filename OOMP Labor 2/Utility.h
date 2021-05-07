@@ -8,7 +8,7 @@ private:
 
 public:
     int get_rent();
-    Utility();
+    Utility(std::string _name, Monopoly* _monopoly);
     ~Utility();
 };
 

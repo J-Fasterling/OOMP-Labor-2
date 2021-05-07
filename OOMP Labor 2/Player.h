@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "Field.h"
@@ -12,7 +11,6 @@ private:
 	std::string name;
 
 public:
-	Player();
-	Player(int iMoney, Field* fField, std::string sName);
+	Player(Field* fField, std::string sName);
 	~Player();
 };

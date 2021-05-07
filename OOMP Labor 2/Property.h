@@ -11,12 +11,11 @@ class Property :
 private:
     Player* owner;
     int value;
-    Monopoly* mMonopoly;
+    Monopoly* monopoly;
 
 public:
-    int get_Rent(std::string _name, Field* _next, Field* _prev);
+    int get_Rent();
     void enter(Player player, int fields_to_go);
-
-    Property();
+    Property(std::string _name, int _value = 0, Monopoly* _monopoly = NULL, Player* _owner = NULL);
     ~Property();
 };
