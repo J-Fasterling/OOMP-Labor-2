@@ -8,3 +8,6 @@ GoToJail::GoToJail(std::string _name, Field* _jail) : Field(_name), jail{ _jail 
 }
 
 GoToJail::~GoToJail() {}
+
+
+void enter(Player& player) {}

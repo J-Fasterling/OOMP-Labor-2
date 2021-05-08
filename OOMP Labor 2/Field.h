@@ -2,7 +2,7 @@
 
 #include <string>
 #include <iostream>
-
+class Player;
 class Board;
 class Field
 {

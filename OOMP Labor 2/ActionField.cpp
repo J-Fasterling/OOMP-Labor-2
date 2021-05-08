@@ -6,3 +6,5 @@ ActionField::ActionField(std::string _name) : Field(_name) {
 }
 
 ActionField::~ActionField() {}
+
+void enter(Player& player) {}

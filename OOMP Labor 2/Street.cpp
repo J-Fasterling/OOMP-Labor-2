@@ -16,3 +16,6 @@ Street::Street(std::string _name, int _value, Monopoly* _monopoly,
 Street::~Street() {}
 
 int Street::get_rent(int _type) {return rent[_type];}
+
+void enter(Player& player) {}
+

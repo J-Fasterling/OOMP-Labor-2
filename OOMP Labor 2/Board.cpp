@@ -25,9 +25,9 @@ Board::Board()
 	//Fuellen des Spielbretts
 	NoAction* Go = new NoAction(200, "Go");
 	vBoard.push_back(Go);
-	Field* sBad = new Street("Badstrasse", 60, monopolies[0], 2, 10, 30, 90, 160, 250);
+	Field *sBad = new Street("Badstrasse", 60, monopolies[0], 2, 10, 30, 90, 160, 250);
 	vBoard.push_back(sBad);
-	Field* aGem1 = new ActionField("Gemeinschaftsfeld");
+	Field *aGem1 = new ActionField("Gemeinschaftsfeld");
 	vBoard.push_back(aGem1);
 	Field* sTurm = new Street("Turmstrasse", 60, monopolies[0], 4, 20, 60, 180, 320, 450);
 	vBoard.push_back(sTurm);
