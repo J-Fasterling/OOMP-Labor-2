@@ -21,6 +21,7 @@ Board::Board()
 	monopolies[4] = new Monopoly(0,"Bahnhof");
 	monopolies[5] = new Monopoly(0, "Versorgungswerk");
 
+
 	//Fuellen des Spielbretts
 	NoAction* Go = new NoAction(200, "Go");
 	vBoard.push_back(Go);

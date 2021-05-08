@@ -7,5 +7,7 @@ class ActionField :
 public:
     ActionField(std::string _name = "Action Field");
     ~ActionField();
+    void enter(Player& player);
+
 };
 

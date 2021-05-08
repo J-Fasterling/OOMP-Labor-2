@@ -18,4 +18,6 @@ public:
     void enter(Player player, int fields_to_go);
     Property(std::string _name, int _value = 0, Monopoly* _monopoly = NULL, Player* _owner = NULL);
     ~Property();
+    void enter(Player& player);
+
 };

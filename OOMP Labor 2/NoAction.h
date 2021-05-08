@@ -9,7 +9,6 @@ private:
 public:
     NoAction(int _get_money, std::string _name = "No Action");
     ~NoAction();
-
-    //void enter(Player& player, int fields_to_go);
+    void enter(Player& player);
 };
 
