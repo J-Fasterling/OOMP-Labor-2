@@ -82,6 +82,8 @@ Board::Board()
 	//Mitspieler bestimmen
 	choosePlayers();
 
+	vBoard.at(2)->enter(*vPlayer.at(0));
+
 	//Anfangfeld merken
 	playField = Go;
 }
@@ -159,4 +161,16 @@ void Board::choosePlayers()
 
 		vPlayer.push_back(new Player(vBoard.at(0), sName));
 	}
+}
+
+
+void playerDice(Player& player)
+{
+
+}
+
+
+void throwDice()
+{
+
 }

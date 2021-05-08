@@ -15,4 +15,5 @@ private:
 public:
 	Player(Field* fField, std::string sName);
 	~Player();
+	std::string get_Name();
 };

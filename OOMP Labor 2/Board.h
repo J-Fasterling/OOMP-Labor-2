@@ -15,6 +15,7 @@ private:
 
 	void createPlayboard(std::vector<Field*> vField);
 	void choosePlayers();
+	void playerDice(Player& player);
 
 public:
 	Board();

@@ -20,4 +20,7 @@ void Field::setPrev(Field* fPrev)
 	prev = fPrev;
 }
 
-void Field::enter(Player& player) {}
+void Field::enter(Player& player)
+{
+	std::cout << player.get_Name() << " betritt " << name << "." << std::endl;
+}
