@@ -23,7 +23,7 @@ Board::Board()
 
 
 	//Fuellen des Spielbretts
-	NoAction* Go = new NoAction(200, "Go");
+	Field* Go = new NoAction(200, "Go");
 	vBoard.push_back(Go);
 	Field* sBad = new Street("Badstrasse", 60, monopolies[0], 2, 10, 30, 90, 160, 250);
 	vBoard.push_back(sBad);
@@ -81,6 +81,9 @@ Board::Board()
 
 	//Mitspieler bestimmen
 	choosePlayers();
+
+	//Anfangfeld merken
+	playField = Go;
 }
 
 

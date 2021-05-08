@@ -8,3 +8,5 @@ NoAction::NoAction(int _get_money, std::string _name) : Field(_name), get_money{
 }
 
 NoAction::~NoAction() {}
+
+void enter(Player& player) {}

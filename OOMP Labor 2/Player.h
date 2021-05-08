@@ -1,8 +1,10 @@
 #pragma once
 
-#include "Field.h"
+//#include "Field.h"
 #include <stdio.h>
+#include <string>
 
+class Field;
 class Player
 {
 private:

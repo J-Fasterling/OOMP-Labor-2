@@ -8,3 +8,5 @@ Tax::Tax(int _amount, std::string _name) : amount{_amount}, Field(_name) {
 }
 
 Tax::~Tax() {}
+
+void enter(Player& player) {}

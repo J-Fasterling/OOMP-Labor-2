@@ -10,6 +10,6 @@ int Property::get_Rent()
 	return 1;
 }
 
-void Property::enter(Player player, int fields_to_go)
+void Property::enter(Player &player)
 {
 }

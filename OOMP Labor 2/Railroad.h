@@ -11,7 +11,7 @@ public:
     int get_rent(int _type);
     Railroad(std::string _name, Monopoly* _monopoly);
     ~Railroad();
-    void enter(Player& player);
+    //void enter(Player& player);
 
 };
 
