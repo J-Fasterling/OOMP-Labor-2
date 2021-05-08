@@ -10,9 +10,9 @@ int Property::get_Rent()
 	return 1;
 }
 
-void Property::enter(Player &player)
-{
+void Property::enter(Player& player) {
+	Field::enter(Player& player);
 }
 
 
-void enter(Player& player) {}
+
