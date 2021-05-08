@@ -18,5 +18,3 @@ Railroad::Railroad(std::string _name, Monopoly* _monopoly)
 Railroad::~Railroad() {}
 
 int Railroad::get_rent(int _type) { return rent[_type]; }
-
-void enter(Player& player) {}

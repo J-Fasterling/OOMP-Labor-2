@@ -17,5 +17,4 @@ Street::~Street() {}
 
 int Street::get_rent(int _type) {return rent[_type];}
 
-void enter(Player& player) {}
 

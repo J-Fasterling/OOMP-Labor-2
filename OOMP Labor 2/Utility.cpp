@@ -11,4 +11,3 @@ int Utility::get_rent()
 	return 1;
 }
 
-void enter(Player& player) {}
