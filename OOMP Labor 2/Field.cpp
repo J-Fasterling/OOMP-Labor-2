@@ -20,4 +20,4 @@ void Field::setPrev(Field* fPrev)
 	prev = fPrev;
 }
 
-void enter(Player& player) {}
+void Field::enter(Player& player) {}

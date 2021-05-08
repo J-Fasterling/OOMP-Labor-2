@@ -10,5 +10,5 @@ GoToJail::GoToJail(std::string _name, Field* _jail) : Field(_name), jail{ _jail 
 GoToJail::~GoToJail() {}
 
 void GoToJail::enter(Player& player) {
-	Field::enter(Player & player);
+	Field::enter(player);
 }
