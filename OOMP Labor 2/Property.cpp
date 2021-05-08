@@ -11,7 +11,7 @@ int Property::get_Rent()
 }
 
 void Property::enter(Player& player) {
-	Field::enter(Player& player);
+	Field::enter(player);
 }
 
 
