@@ -10,6 +10,7 @@ Street::Street(std::string _name, int _value, Monopoly* _monopoly,
 	rent[3] = m4;
 	rent[4] = m5;
 	rent[5] = m6;
+	std::cout << "Feldname " << _name << std::endl;
 }
 
 
