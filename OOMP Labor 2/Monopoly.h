@@ -8,8 +8,11 @@ class Property;
 class Monopoly
 {
 private:
+	//Name des Monopols
 	std::string name;
+	//Preis pro Haus
 	int price_for_house;
+	//Container aller Grundtuecke des Monopols
 	std::vector <Property*> properties;
 
 public:

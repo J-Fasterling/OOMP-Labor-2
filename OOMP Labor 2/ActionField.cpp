@@ -9,4 +9,5 @@ ActionField::~ActionField() {}
 
 void ActionField::enter(Player& player) {
 	Field::enter(player);
+	
 }

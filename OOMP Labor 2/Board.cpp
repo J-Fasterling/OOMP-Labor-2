@@ -1,3 +1,4 @@
+#include <random>
 #include "Board.h"
 #include "NoAction.h"
 #include "Street.h"
@@ -82,8 +83,8 @@ Board::Board()
 	//Mitspieler bestimmen
 	choosePlayers();
 
-	vBoard.at(2)->enter(*vPlayer.at(0));
-
+	//vBoard.at(2)->enter(*vPlayer.at(0));
+	gameEngine();
 	//Anfangfeld merken
 	playField = Go;
 }
@@ -119,7 +120,7 @@ void Board::createPlayboard(std::vector<Field*> vField)
 	for (unsigned int i = 0; i < vField.size(); i++)
 	{
 		//Verknuepfung unter den Feldern herstellen
-		if (i < vField.size() - 2)
+		if (i < vField.size() - 1)
 		{
 			vField.at(i)->setNext(vField.at(i + 1));
 			vField.at(i + 1)->setPrev(vField.at(i));
@@ -164,13 +165,43 @@ void Board::choosePlayers()
 }
 
 
-void playerDice(Player& player)
+void Board::gameEngine()
 {
-
+	//Timer Seed zuruecksetzen
+	srand(time(NULL));
+	while (1)
+	{
+		//Spielzug fuer jeden Spieler
+		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
+		{
+			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
+			go_X_Steps(throwDice(), *vPlayer.at(i));
+		}
+		break;
+	}
 }
 
 
-void throwDice()
+int Board::throwDice()
 {
+	//Zufaellig beide Wuerfel wuerfeln
+	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
+	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
 
+	return dice[0] + dice[1];
+}
+
+
+void Board::go_X_Steps(int iDice, Player player)
+{
+	std::cout << player.get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << std::endl;
+
+	//so viele Felder wie gewuerfelt fortbewegen
+	for (int i = 0; i <= iDice; i++)
+	{
+		//Aktuelles Feld auf das nachfolgende setzen
+		player.setField(player.getField()->getNext());
+	}
+	//Ausgabe des aktuellen Felds
+	player.getField()->enter(player);
 }

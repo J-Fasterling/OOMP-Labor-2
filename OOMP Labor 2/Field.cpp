@@ -24,3 +24,15 @@ void Field::enter(Player& player)
 {
 	std::cout << player.get_Name() << " betritt " << name << "." << std::endl;
 }
+
+
+Field* Field::getNext()
+{
+	return next;
+}
+
+
+std::string Field::getName()
+{
+	return name;
+}
