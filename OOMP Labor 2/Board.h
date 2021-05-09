@@ -10,7 +10,7 @@ private:
 	//Container mit allen spielenden Spielern
 	std::vector <Player*> vPlayer;
 	//Array aller Monopole
-	Monopoly* monopolies[6];
+	Monopoly* monopolies[10];
 	//Array der Wuerfel Augenzahlen
 	int dice[2];
 	//Alle Felder des Spielbrettes

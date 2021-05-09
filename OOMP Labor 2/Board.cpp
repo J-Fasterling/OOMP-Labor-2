@@ -88,8 +88,8 @@ Board::Board()
 	vBoard.push_back(sGoet);
 	Field* gGTJ = new GoToJail("Gehe ins Gefaengnis", gef1);
 	vBoard.push_back(gGTJ);
-	Field* sIsle = new Street("Isle of Men", 300, monopolies[6], 26, 130, 390, 900, 1100, 1275);
-	vBoard.push_back(sIsle);
+	Field* sBoule = new Street("Boulevard South", 300, monopolies[6], 26, 130, 390, 900, 1100, 1275);
+	vBoard.push_back(sBoule);
 	Field* aGem4 = new ActionField("Ereignisfeld");
 	vBoard.push_back(aGem4);
 	Field* sHigh = new Street("Highway 1", 300, monopolies[6], 26, 130, 390, 900, 1100, 1275);
