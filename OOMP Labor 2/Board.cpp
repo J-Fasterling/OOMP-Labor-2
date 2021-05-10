@@ -11,8 +11,8 @@
 
 Board::Board()
 {
-	std::cout << "           MONOPOLY              " << std::endl;
-	std::cout << "---------------------------------" << std::endl << std::endl;
+	cout << "           MONOPOLY              " << endl;
+	cout << "---------------------------------" << endl << endl;
 
 	//Erstellen der Monopole
 	monopolies[0] = new Monopoly(50, "Braun");
@@ -110,15 +110,13 @@ Board::Board()
 	vBoard.push_back(sSchl);
 
 	//Verknuepfung der Felder
-	createPlayboard(vBoard);
+	createPlayboard();
 
 	//Mitspieler bestimmen
 	choosePlayers();
 
 	//vBoard.at(2)->enter(*vPlayer.at(0));
 	gameEngine();
-	//Anfangfeld merken
-	//playField = Go;
 }
 
 
@@ -147,7 +145,7 @@ Board::~Board()
 
 
 
-void Board::createPlayboard(std::vector<Field*> vField)
+void Board::createPlayboard()
 {
 	for (unsigned int i = 0; i < vBoard.size(); i++)
 	{
@@ -169,36 +167,45 @@ void Board::createPlayboard(std::vector<Field*> vField)
 
 void Board::choosePlayers()
 {
-	std::cout << std::endl << std::endl;
+	cout <<"=====================================================";
+	cout << endl << endl;
+	cout << "                 SPIELERAUSWAHL" << endl;
+	cout << "                ----------------" << endl << endl;
 	int playerCount;
 
-	std::cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
-	std::cin >> playerCount;
+	cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
+	cin >> playerCount;
 
 	//Fehlerhafte Eingabe abfangen
 	while (std::cin.fail() || playerCount > 4 || playerCount < 1)
 	{
-		std::cin.clear();
-		std::cin.ignore();
-		std::cout << "Fehlerhafte eingabe! " << std::endl;
-		std::cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
-		std::cin >> playerCount;
+		cin.clear();
+		cin.ignore();
+		cout << "Fehlerhafte eingabe! " << endl;
+		cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
+		cin >> playerCount;
 	}
 
 	//Gefragte Anzahl an Spielern erzeugen
 	for (int i = 1; i <= playerCount; i++)
 	{
-		std::cout << "Geben Sie den Namen des " << i << ". Spielers an: ";
-		std::string sName;
-		std::cin >> sName;
+		cout << endl << "Geben Sie den Namen des " << i << ". Spielers an: ";
+		string sName;
+		cin >> sName;
 
 		vPlayer.push_back(new Player(vBoard.at(0), sName));
 	}
+
+	cout << "=====================================================" << endl << endl;
 }
 
 
 void Board::gameEngine()
 {
+	cout << "                 LOS GEHTS!" << endl;
+	cout << "                ------------" << endl << endl;
+	bool gameBreak = false;
+
 	//Timer Seed zuruecksetzen
 	srand((unsigned int)time(NULL));
 	while (1)
@@ -208,8 +215,25 @@ void Board::gameEngine()
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
 			go_X_Steps(throwDice(), *vPlayer.at(i));
+			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
+
+			vPlayer.at(vPlayer.size() - 1)->setMoney(0);
+
+			//Spiel wird beendet sobald ein Spieler pleite ist
+			if (vPlayer.at(i)->getMoney() <= 0) 
+			{
+				std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
+				//Festlegen, dass das Programm beendet werden soll
+				gameBreak = true;
+				break; 
+			}
 		}
-		break;
+
+		//Spiel wird beendet
+		if (gameBreak)
+		{
+			break;
+		}
 	}
 }
 
@@ -226,7 +250,7 @@ int Board::throwDice()
 
 void Board::go_X_Steps(int iDice, Player player)
 {
-	std::cout << player.get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << std::endl;
+	cout << player.get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
 	//so viele Felder wie gewuerfelt fortbewegen
 	for (int i = 0; i <= iDice - 1; i++)

@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Monopoly.h"
 
+using namespace std;
+
 class Board
 {
 private:
@@ -17,7 +19,7 @@ private:
 	std::vector <Field*> vBoard;
 
 	//Verknuepft die einzelnen Spielfelder
-	void createPlayboard(std::vector<Field*> vField);
+	void createPlayboard();
 
 	//bestimmt die Anzahl der Spieler und weist ihnen Namen zu
 	void choosePlayers();
