@@ -36,6 +36,6 @@ public:
 	//Gibt den Kontostand des Spielers aus
 	int getMoney();
 
-	bool want_to_buy(Property& property);
+	bool want_to_buy(Property& property, Player& player);
 
 };

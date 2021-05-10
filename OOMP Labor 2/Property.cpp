@@ -23,7 +23,7 @@ void Property::enter(Player& player)
 	}
 	else
 	{
-		if (player.want_to_buy(*this))
+		if (player.want_to_buy(*this, player))
 		{
 			if (player.getMoney() >= value)
 			{

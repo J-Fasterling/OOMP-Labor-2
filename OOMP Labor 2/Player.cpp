@@ -34,9 +34,10 @@ int Player::getMoney()
 	return money;
 }
 
-bool Player::want_to_buy(Property& property)
+bool Player::want_to_buy(Property& property, Player& player)
 {
 	char eingabe;
+	std::cout << player.get_Name() << " hat noch " << player.getMoney() << " $."<< std::endl;
 	std::cout << "Moechtest du dieses Grundstueck kaufen? (j/n): ";
 	std::cin >> eingabe;
 

@@ -13,7 +13,7 @@ Railroad::Railroad(std::string _name, Monopoly* _monopoly)
 	rent[1] = 50;
 	rent[2] = 100;
 	rent[3] = 200;
-	std::cout << "Feldname " << _name << std::endl;
+	std::cout <<  " Feldname " << _name << std::endl;
 }
 
 Railroad::~Railroad() {}
