@@ -12,3 +12,7 @@ Tax::~Tax() {}
 void Tax::enter(Player& player) {
 	Field::enter(player);
 }
+
+Monopoly* Tax::getMonopoly() {
+
+}

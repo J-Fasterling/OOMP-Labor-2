@@ -12,3 +12,7 @@ NoAction::~NoAction() {}
 void NoAction::enter(Player& player) {
 	Field::enter(player);
 }
+
+Monopoly* NoAction::getMonopoly() {
+
+}

@@ -12,3 +12,7 @@ GoToJail::~GoToJail() {}
 void GoToJail::enter(Player& player) {
 	Field::enter(player);
 }
+
+Monopoly* GoToJail::getMonopoly() {
+
+}

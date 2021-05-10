@@ -8,6 +8,6 @@ public:
     ActionField(std::string _name = "Action Field");
     ~ActionField();
     void enter(Player& player);
-
+    Monopoly* getMonopoly();
 };
 

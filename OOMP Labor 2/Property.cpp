@@ -15,4 +15,7 @@ void Property::enter(Player& player) {
 }
 
 
+Monopoly* Property::getMonopoly() {
 
+	return monopoly;
+}

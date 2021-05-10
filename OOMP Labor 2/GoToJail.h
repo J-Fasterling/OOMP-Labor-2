@@ -10,5 +10,6 @@ public:
     GoToJail(std::string _name = "Neues Feld", Field* _jail = NULL);
     ~GoToJail();
     void enter(Player& player);
+    Monopoly* getMonopoly();
 };
 

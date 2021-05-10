@@ -6,6 +6,7 @@
 
 
 class Board;
+class Monopoly;
 class Field
 {
 private:
@@ -34,5 +35,8 @@ public:
 
 	//Gibt den Namen des Felds zurueck
 	std::string getName();
+
+	//gibt das zugehörige Monopol eines Feldes zurück
+	virtual Monopoly* getMonopoly();
 };
 

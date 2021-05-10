@@ -36,3 +36,7 @@ std::string Field::getName()
 {
 	return name;
 }
+
+Monopoly* Field::getMonopoly(){
+
+}
