@@ -38,5 +38,5 @@ std::string Field::getName()
 }
 
 Monopoly* Field::getMonopoly(){
-
+	return NULL;
 }

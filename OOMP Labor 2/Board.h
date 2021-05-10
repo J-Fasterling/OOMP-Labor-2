@@ -33,6 +33,8 @@ private:
 	//Bewegt den Spieler auf dem Feld X Schritte vorwaerts
 	void go_X_Steps(int iDice, Player player);
 
+	void setMonopolies();
+
 
 public:
 	Board();

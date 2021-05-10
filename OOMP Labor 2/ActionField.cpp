@@ -13,5 +13,5 @@ void ActionField::enter(Player& player) {
 }
 
 Monopoly* ActionField::getMonopoly() {
-
+	return NULL;
 }

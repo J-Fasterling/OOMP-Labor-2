@@ -5,6 +5,7 @@
 #include <string>
 
 class Property;
+class Field;
 class Monopoly
 {
 private:
@@ -13,11 +14,12 @@ private:
 	//Preis pro Haus
 	int price_for_house;
 	//Container aller Grundtuecke des Monopols
-	std::vector <Property*> properties;
+	std::vector <Field*> properties;
 
 public:
-	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Property*> _properties = std::vector<Property*>());
+	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Field*> _properties = std::vector<Field*>());
 	Monopoly();
 	~Monopoly();
+	void setProperties(Field* property);
 };
 

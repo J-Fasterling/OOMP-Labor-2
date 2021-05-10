@@ -14,5 +14,5 @@ void GoToJail::enter(Player& player) {
 }
 
 Monopoly* GoToJail::getMonopoly() {
-
+	return NULL;
 }

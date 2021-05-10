@@ -14,5 +14,5 @@ void Tax::enter(Player& player) {
 }
 
 Monopoly* Tax::getMonopoly() {
-
+	return NULL;
 }

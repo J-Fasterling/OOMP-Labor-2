@@ -14,5 +14,5 @@ void NoAction::enter(Player& player) {
 }
 
 Monopoly* NoAction::getMonopoly() {
-
+	return NULL;
 }

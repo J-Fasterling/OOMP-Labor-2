@@ -112,6 +112,9 @@ Board::Board()
 	//Verknuepfung der Felder
 	createPlayboard();
 
+	//Weist den Monopolen die Objekte zu
+	setMonopolies();
+
 	//Mitspieler bestimmen
 	choosePlayers();
 
@@ -260,4 +263,46 @@ void Board::go_X_Steps(int iDice, Player player)
 	}
 	//Ausgabe des aktuellen Felds
 	player.getField()->enter(player);
+}
+
+
+void Board::setMonopolies() {
+
+	for (unsigned int i = 0; i <= vBoard.size() - 1; i++)
+	{
+		if (vBoard.at(i)->getMonopoly() != NULL) {
+			if (vBoard.at(i)->getMonopoly() == monopolies[0]) {
+				monopolies[0]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[1]) {
+				monopolies[1]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[2]) {
+				monopolies[2]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[3]) {
+				monopolies[3]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[4]) {
+				monopolies[4]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[5]) {
+				monopolies[5]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[6]) {
+				monopolies[6]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[7]) {
+				monopolies[7]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[8]) {
+				monopolies[8]->setProperties(vBoard.at(i));
+			}
+			else if (vBoard.at(i)->getMonopoly() == monopolies[9]) {
+				monopolies[9]->setProperties(vBoard.at(i));
+			}
+			
+		}
+	}
+
 }
