@@ -114,7 +114,7 @@ Board::Board()
 	//vBoard.at(2)->enter(*vPlayer.at(0));
 	gameEngine();
 	//Anfangfeld merken
-	playField = Go;
+	//playField = Go;
 }
 
 
@@ -145,19 +145,19 @@ Board::~Board()
 
 void Board::createPlayboard(std::vector<Field*> vField)
 {
-	for (unsigned int i = 0; i < vField.size(); i++)
+	for (unsigned int i = 0; i < vBoard.size(); i++)
 	{
 		//Verknuepfung unter den Feldern herstellen
-		if (i < vField.size() - 1)
+		if (i < vBoard.size() - 1)
 		{
-			vField.at(i)->setNext(vField.at(i + 1));
-			vField.at(i + 1)->setPrev(vField.at(i));
+			vBoard.at(i)->setNext(vBoard.at(i + 1));
+			vBoard.at(i + 1)->setPrev(vBoard.at(i));
 		}
 		//Letztes und erstes Feld miteinander verknuepfen
-		else if (i == vField.size() - 1)
+		else if (i == vBoard.size() - 1)
 		{
-			vField.at(vField.size() - 1)->setNext(vField.at(0));
-			vField.at(0)->setPrev(vField.at(vField.size() - 1));
+			vBoard.at(vBoard.size() - 1)->setNext(vBoard.at(0));
+			vBoard.at(0)->setPrev(vBoard.at(vBoard.size() - 1));
 		}
 	}
 }
@@ -196,7 +196,7 @@ void Board::choosePlayers()
 void Board::gameEngine()
 {
 	//Timer Seed zuruecksetzen
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 	while (1)
 	{
 		//Spielzug fuer jeden Spieler
@@ -225,7 +225,7 @@ void Board::go_X_Steps(int iDice, Player player)
 	std::cout << player.get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << std::endl;
 
 	//so viele Felder wie gewuerfelt fortbewegen
-	for (int i = 0; i <= iDice; i++)
+	for (int i = 0; i <= iDice - 1; i++)
 	{
 		//Aktuelles Feld auf das nachfolgende setzen
 		player.setField(player.getField()->getNext());
