@@ -39,5 +39,6 @@ private:
 public:
 	Board();
 	~Board();
+	int getDice();
 };
 

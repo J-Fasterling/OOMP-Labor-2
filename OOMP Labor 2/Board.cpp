@@ -223,8 +223,6 @@ void Board::gameEngine()
 			
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
 
-			//vPlayer.at(vPlayer.size() - 1)->setMoney(0);
-
 			//Spiel wird beendet sobald ein Spieler pleite ist
 			if (vPlayer.at(i)->getMoney() <= 0) 
 			{
@@ -248,14 +246,15 @@ void Board::gameEngine()
 int Board::throwDice()
 {
 	//Zufaellig beide Wuerfel wuerfeln
-	//dice[0] = (rand() % ((6 + 1) - 1)) + 1;
-	//dice[1] = (rand() % ((6 + 1) - 1)) + 1;
-
-	dice[0] = 1;
-	dice[1] = 1;
+	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
+	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
 
 	return dice[0] + dice[1];
-	// return 1;
+}
+
+int Board::getDice()
+{
+	return dice[0] + dice[1];
 }
 
 
@@ -274,6 +273,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 			if (player->getField()->getName() == "Go")
 			{
 				player->setMoney(player->getMoney() + 200);
+				std::cout << player->get_Name() << " erhaelt 200$." << std::endl;
 			}
 		}
 		player->getField()->enter(*player);

@@ -10,8 +10,6 @@ public:
     int get_rent();
     Utility(std::string _name, Monopoly* _monopoly);
     ~Utility();
-    //void enter(Player& player);
-
 };
 
 

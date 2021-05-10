@@ -1,6 +1,5 @@
 #include "Player.h"
 #include <iostream>
-//#include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
 	: money{ 1500 }, field{ fField }, name{ sName } {}

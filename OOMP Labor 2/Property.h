@@ -14,7 +14,7 @@ private:
     Monopoly* monopoly;
 
 public:
-    virtual int get_Rent();
+    virtual int get_rent();
     Property(std::string _name, int _value = 0, Monopoly* _monopoly = NULL, Player* _owner = NULL);
     ~Property();
     void enter(Player& player);

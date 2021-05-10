@@ -9,7 +9,14 @@ Utility::Utility(std::string _name, Monopoly* _monopoly)
 Utility::~Utility() {}
 
 int Utility::get_rent()
-{
-	return 1;
+{	
+	if (this->getMonopoly()->has_all(*this->getOwner()))
+	{
+		return dice_factor_monopoly * ((rand() % ((12 + 2) - 2)) + 2);
+	}
+	else
+	{
+		return dice_factor_single * ((rand() % ((12 + 2) - 2)) + 2);
+	}
 }
 

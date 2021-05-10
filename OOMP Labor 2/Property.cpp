@@ -5,7 +5,7 @@ Property::Property(std::string _name, int _value, Monopoly* _monopoly, Player* _
 
 Property::~Property() {}
 
-int Property::get_Rent()
+int Property::get_rent()
 {
 	return 0;
 }
@@ -16,9 +16,9 @@ void Property::enter(Player& player)
 
 	if (owner)
 	{
-		player.setMoney(player.getMoney() - get_Rent());
-		owner->setMoney(owner->getMoney() + get_Rent());
-		std::cout << player.get_Name() << " bezahlt " << get_Rent() << "$ miete an " << owner->get_Name() << std::endl;
+		player.setMoney(player.getMoney() - get_rent());
+		owner->setMoney(owner->getMoney() + get_rent());
+		std::cout << player.get_Name() << " bezahlt " << get_rent() << "$ miete an " << owner->get_Name() << std::endl;
 	}
 	else
 	{
