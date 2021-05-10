@@ -9,8 +9,11 @@ GoToJail::GoToJail(std::string _name, Field* _jail) : Field(_name), jail{ _jail 
 
 GoToJail::~GoToJail() {}
 
-void GoToJail::enter(Player& player) {
+void GoToJail::enter(Player& player)
+{
+	player.setField(jail);
 	Field::enter(player);
+	std::cout << player.get_Name() << " muss ins " << player.getField()->getName() << std::endl;
 }
 
 Monopoly* GoToJail::getMonopoly() {

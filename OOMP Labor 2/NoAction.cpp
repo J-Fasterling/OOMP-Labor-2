@@ -9,10 +9,13 @@ NoAction::NoAction(int _get_money, std::string _name) : Field(_name), get_money{
 
 NoAction::~NoAction() {}
 
-void NoAction::enter(Player& player) {
+void NoAction::enter(Player& player)
+{
 	Field::enter(player);
+	player.setMoney(player.getMoney() + get_money);
 }
 
-Monopoly* NoAction::getMonopoly() {
+Monopoly* NoAction::getMonopoly() 
+{
 	return NULL;
 }

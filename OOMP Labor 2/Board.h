@@ -31,7 +31,7 @@ private:
 	int throwDice();
 
 	//Bewegt den Spieler auf dem Feld X Schritte vorwaerts
-	void go_X_Steps(int iDice, Player player);
+	void go_X_Steps(int iDice, Player* player);
 
 	void setMonopolies();
 

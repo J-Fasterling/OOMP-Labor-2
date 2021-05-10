@@ -208,19 +208,21 @@ void Board::gameEngine()
 	cout << "                 LOS GEHTS!" << endl;
 	cout << "                ------------" << endl << endl;
 	bool gameBreak = false;
+	int cnt = 0;
 
 	//Timer Seed zuruecksetzen
 	srand((unsigned int)time(NULL));
 	while (1)
 	{
+		cnt++;
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
-			go_X_Steps(throwDice(), *vPlayer.at(i));
+			go_X_Steps(throwDice(), vPlayer.at(i));
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
 
-			vPlayer.at(vPlayer.size() - 1)->setMoney(0);
+			//vPlayer.at(vPlayer.size() - 1)->setMoney(0);
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
 			if (vPlayer.at(i)->getMoney() <= 0) 
@@ -231,6 +233,7 @@ void Board::gameEngine()
 				break; 
 			}
 		}
+		cout << cnt << endl;
 
 		//Spiel wird beendet
 		if (gameBreak)
@@ -247,22 +250,27 @@ int Board::throwDice()
 	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
 	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
 
-	return dice[0] + dice[1];
+	//return dice[0] + dice[1];
+	return 1;
 }
 
 
-void Board::go_X_Steps(int iDice, Player player)
+void Board::go_X_Steps(int iDice, Player* player)
 {
-	cout << player.get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
 	//so viele Felder wie gewuerfelt fortbewegen
 	for (int i = 0; i <= iDice - 1; i++)
 	{
 		//Aktuelles Feld auf das nachfolgende setzen
-		player.setField(player.getField()->getNext());
+		player->setField(player->getField()->getNext());
+		if (player->getField()->getName() == "Go")
+		{
+			player->setMoney(player->getMoney() + 200);
+		}
 	}
 	//Ausgabe des aktuellen Felds
-	player.getField()->enter(player);
+	player->getField()->enter(*player);
 }
 
 
@@ -300,9 +308,7 @@ void Board::setMonopolies() {
 			}
 			else if (vBoard.at(i)->getMonopoly() == monopolies[9]) {
 				monopolies[9]->setProperties(vBoard.at(i));
-			}
-			
+			}			
 		}
 	}
-
 }

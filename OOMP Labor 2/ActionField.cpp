@@ -7,11 +7,13 @@ ActionField::ActionField(std::string _name) : Field(_name) {
 
 ActionField::~ActionField() {}
 
-void ActionField::enter(Player& player) {
+void ActionField::enter(Player& player) 
+{
 	Field::enter(player);
 	
 }
 
-Monopoly* ActionField::getMonopoly() {
+Monopoly* ActionField::getMonopoly() 
+{
 	return NULL;
 }

@@ -5,6 +5,7 @@
 #include <string>
 
 class Field;
+class Property;
 class Player
 {
 private:
@@ -14,6 +15,7 @@ private:
 	Field* field;
 	//Name des Spielers
 	std::string name;
+
 
 public:
 	Player(Field* fField, std::string sName);
@@ -33,4 +35,7 @@ public:
 
 	//Gibt den Kontostand des Spielers aus
 	int getMoney();
+
+	bool want_to_buy(Property& property);
+
 };
