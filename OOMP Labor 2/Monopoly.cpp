@@ -4,7 +4,6 @@
 Monopoly::Monopoly(int _price_for_house, std::string _name, std::vector <Field*> _properties)
 	: price_for_house{ _price_for_house }, vProperties {_properties}, name{ _name } {}
 
-Monopoly::Monopoly() {}
 
 Monopoly::~Monopoly() {}
 
@@ -23,7 +22,7 @@ int Monopoly::count_owned_properties(Player& player)
 {
 	int iCnt = 0;
 
-	for (int i = 0; i < vProperties.size(); i++)
+	for (unsigned int i = 0; i < vProperties.size(); i++)
 	{
 		if (vProperties.at(i)->getOwner() == &player)
 		{
@@ -36,6 +35,13 @@ int Monopoly::count_owned_properties(Player& player)
 
 bool Monopoly::has_all(Player& player)
 {
-	return true;
+	if (count_owned_properties(player) == vProperties.size())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 

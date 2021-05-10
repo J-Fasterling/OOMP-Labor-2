@@ -220,6 +220,7 @@ void Board::gameEngine()
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
 			go_X_Steps(throwDice(), vPlayer.at(i));
+			
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
 
 			//vPlayer.at(vPlayer.size() - 1)->setMoney(0);
@@ -247,30 +248,80 @@ void Board::gameEngine()
 int Board::throwDice()
 {
 	//Zufaellig beide Wuerfel wuerfeln
-	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
-	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
+	//dice[0] = (rand() % ((6 + 1) - 1)) + 1;
+	//dice[1] = (rand() % ((6 + 1) - 1)) + 1;
 
-	//return dice[0] + dice[1];
-	return 1;
+	dice[0] = 1;
+	dice[1] = 1;
+
+	return dice[0] + dice[1];
+	// return 1;
 }
 
 
 void Board::go_X_Steps(int iDice, Player* player)
 {
+	bool Pasch = false;
+
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
-	//so viele Felder wie gewuerfelt fortbewegen
-	for (int i = 0; i <= iDice - 1; i++)
+	if (dice[0] == dice[1])
 	{
-		//Aktuelles Feld auf das nachfolgende setzen
-		player->setField(player->getField()->getNext());
-		if (player->getField()->getName() == "Go")
+		Pasch = true;
+		for (int i = 0; i <= iDice - 1; i++)
 		{
-			player->setMoney(player->getMoney() + 200);
+			player->setField(player->getField()->getNext());
+			if (player->getField()->getName() == "Go")
+			{
+				player->setMoney(player->getMoney() + 200);
+			}
+		}
+		player->getField()->enter(*player);
+		throwDice();
+		cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+
+
+		if (dice[0] == dice[1])
+		{
+			for (int i = 0; i <= iDice - 1; i++)
+			{
+				player->setField(player->getField()->getNext());
+				if (player->getField()->getName() == "Go")
+				{
+					player->setMoney(player->getMoney() + 200);
+				}
+			}
+			player->getField()->enter(*player);
+			throwDice();
+			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+
+
+			if (dice[0] == dice[1])
+			{
+				player->setField(vBoard.at(10));
+				player->getField()->enter(*player);
+			}
 		}
 	}
-	//Ausgabe des aktuellen Felds
-	player->getField()->enter(*player);
+
+
+	if (!Pasch)
+	{
+		//so viele Felder wie gewuerfelt fortbewegen
+		for (int i = 0; i <= iDice - 1; i++)
+		{
+			//Aktuelles Feld auf das nachfolgende setzen
+			player->setField(player->getField()->getNext());
+			if (player->getField()->getName() == "Go")
+			{
+				player->setMoney(player->getMoney() + 200);
+			}
+		}
+		//Ausgabe des aktuellen Felds
+		player->getField()->enter(*player);
+	}
+
+	
 }
 
 

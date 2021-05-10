@@ -16,6 +16,16 @@ Street::Street(std::string _name, int _value, Monopoly* _monopoly,
 
 Street::~Street() {}
 
-int Street::get_rent(int _type) {return rent[_type];}
+int Street::get_rent() 
+{
+	if (this->getMonopoly()->has_all(*this->getOwner()) && houses == 0)
+	{
+		return rent[0] * 2;
+	}
+	else
+	{
+		return rent[houses];
+	}
+}
 
 

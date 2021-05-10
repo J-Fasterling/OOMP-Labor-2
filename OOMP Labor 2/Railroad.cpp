@@ -18,4 +18,7 @@ Railroad::Railroad(std::string _name, Monopoly* _monopoly)
 
 Railroad::~Railroad() {}
 
-int Railroad::get_rent(int _type) { return rent[_type]; }
+int Railroad::get_rent() 
+{
+	return rent[this->getMonopoly()->count_owned_properties(*this->getOwner()) - 1]; 
+}

@@ -19,7 +19,6 @@ private:
 
 public:
 	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Field*> _properties = std::vector<Field*>());
-	Monopoly();
 	~Monopoly();
 	void setProperties(Field* property);
 	std::string get_name();
