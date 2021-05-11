@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
 	: money{ 1500 }, field{ fField }, name{ sName } {}
@@ -36,12 +37,12 @@ int Player::getMoney()
 }
 
 
-bool Player::want_to_buy(Property& property, Player& player)
+bool Player::want_to_buy(Property* property, Player* player)
 {
 	//Eingabechar
 	char eingabe;
-	std::cout << player.get_Name() << " hat noch " << player.getMoney() << " $."<< std::endl;
-	std::cout << "Moechtest du dieses Grundstueck kaufen? (j/n): ";
+	std::cout << player->get_Name() << " hat noch " << player->getMoney() << " $."<< std::endl;
+	std::cout << "Moechtest du dieses Grundstueck fuer "<< property->GetValue() << "$ kaufen? (j/n): ";
 	std::cin >> eingabe;
 
 	//Fehlerhafte Eingabe !(j/n) abfangen
@@ -49,8 +50,8 @@ bool Player::want_to_buy(Property& property, Player& player)
 	{
 		std::cin.clear();
 		std::cin.ignore();
-		std::cout << "Fehlerhafte eingabe! " << std::endl;
-		std::cout << "Moechtest du dieses Grundstueck kaufen? (j/n): ";
+		std::cout << "Fehlerhafte eingabe! " << std::endl << std::endl;
+		std::cout << "Moechtest du dieses Grundstueck fuer " << property->GetValue() << "$ kaufen? (j/n): ";
 		std::cin >> eingabe;
 	}
 

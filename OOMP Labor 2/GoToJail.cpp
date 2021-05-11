@@ -11,6 +11,7 @@ GoToJail::~GoToJail() {}
 
 void GoToJail::enter(Player& player)
 {
+	//Spieler in das Gefaengnis setzen
 	player.setField(jail);
 	Field::enter(player);
 	std::cout << player.get_Name() << " muss ins " << player.getField()->getName() << std::endl;

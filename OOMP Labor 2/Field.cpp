@@ -10,15 +10,18 @@ Field::Field(std::string _name, Field* _next, Field* _prev)
 
 Field::~Field() {}
 
+
 void Field::setNext(Field* fNext)
 {
 	next = fNext;
 }
 
+
 void Field::setPrev(Field* fPrev)
 {
 	prev = fPrev;
 }
+
 
 void Field::enter(Player& player)
 {
@@ -37,9 +40,11 @@ std::string Field::getName()
 	return name;
 }
 
+
 Monopoly* Field::getMonopoly(){
 	return NULL;
 }
+
 
 Player* Field::getOwner()
 {

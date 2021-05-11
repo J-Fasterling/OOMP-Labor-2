@@ -38,7 +38,7 @@ void Property::enter(Player& player)
 	}
 	else
 	{
-		if (player.want_to_buy(*this, player))
+		if (player.want_to_buy(this, &player))
 		{
 			if (player.getMoney() >= value)
 			{
@@ -64,7 +64,14 @@ Monopoly* Property::getMonopoly()
 	return monopoly;
 }
 
+
 Player* Property::getOwner()
 {
 	return owner;
+}
+
+
+int Property::GetValue()
+{
+	return value;
 }

@@ -28,4 +28,6 @@ public:
     Monopoly* getMonopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* getOwner();
+    //Gibt den Preis des Grundstuecks zurueck
+    int GetValue();
 };

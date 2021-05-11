@@ -11,6 +11,7 @@
 
 Board::Board()
 {
+	//Konsoelenschriftfarbe auf weiss setzen
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 15);
 
@@ -296,6 +297,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 			}
 		}
 		player->getField()->enter(*player);
+		//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
 		if (player->getField()->getName() != "Gehe ins Gefaengnis")
 		{
 			throwDice();
@@ -318,6 +320,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 					}
 				}
 				player->getField()->enter(*player);
+				//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
 				if (player->getField()->getName() != "Gehe ins Gefaengnis")
 				{
 					throwDice();
@@ -402,6 +405,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 
 void Board::setMonopolies() {
 
+	//Die Felder jeweils den Monopolen zuordnen
 	for (unsigned int i = 0; i <= vBoard.size() - 1; i++)
 	{
 		if (vBoard.at(i)->getMonopoly() != NULL) {
