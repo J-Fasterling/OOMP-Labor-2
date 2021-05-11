@@ -6,6 +6,7 @@
 
 class Field;
 class Property;
+class Monopoly;
 class Player
 {
 private:
@@ -37,6 +38,9 @@ public:
 	int getMoney();
 
 	//Abfrage ob der Spieler ein freies Feld kaufen moechte
-	bool want_to_buy(Property& property, Player& player);
+	bool want_to_buy_Property(Property& property, Player& player);
+
+	//Abfrage ob Spieler Haeser kaufen will
+	bool want_to_buy_Houses(Property& property, Player& player, Monopoly& _price_for_house);
 
 };

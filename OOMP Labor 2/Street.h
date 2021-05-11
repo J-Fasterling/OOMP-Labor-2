@@ -16,5 +16,8 @@ public:
 
     //Gibt die miete auf diesem Feld zurueck
     int get_rent();
+
+    //Haeuser kaufen
+    int build_houses();
 };
 

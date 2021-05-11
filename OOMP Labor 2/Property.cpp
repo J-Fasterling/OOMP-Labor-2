@@ -33,12 +33,29 @@ void Property::enter(Player& player)
 			std::cout << "an Miete von " << player.get_Name() << std::endl;
 			std::cout << owner->get_Name() << " hat jetzt " << owner->getMoney() << " $."<< std::endl;
 		}
-		else{
+		else
+		{
+			//Wenn Feld einen Besitzer habt, pruefen, ob dieser ein Haus kaufen kann und will
+			/*if (this->getMonopoly()->has_all(*this->getOwner())) 
+			{
+				if (player.want_to_buy_Houses(*this, player, _price_for_house))
+				{
+					if (player.getMoney() >= _price_for_house )
+					{
+						build_houses();
+						player.getMoney() - _price_for_house;
+						std::cout << player.get_Name() << " hat jetzt noch " << player.getMoney() << " $." << std::endl;
+					}
+					else{}
+				}
+				else{}
+			}
+			else {}*/
 		}
 	}
 	else
 	{
-		if (player.want_to_buy(*this, player))
+		if (player.want_to_buy_Property(*this, player))
 		{
 			if (player.getMoney() >= value)
 			{
@@ -67,4 +84,9 @@ Monopoly* Property::getMonopoly()
 Player* Property::getOwner()
 {
 	return owner;
+}
+
+int Property::build_houses()
+{
+	return 0;
 }

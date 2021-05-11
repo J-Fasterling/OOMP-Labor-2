@@ -28,4 +28,6 @@ public:
     Monopoly* getMonopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* getOwner();
+    //Haeuser bauen
+    virtual int build_houses();
 };

@@ -28,4 +28,15 @@ int Street::get_rent()
 	}
 }
 
+int Street::build_houses()
+{
+	if (houses < 5)
+	{
+		return houses + 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 
