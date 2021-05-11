@@ -11,6 +11,9 @@
 
 Board::Board()
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 15);
+
 	cout << "           MONOPOLY              " << endl;
 	cout << "---------------------------------" << endl << endl;
 
@@ -260,6 +263,7 @@ int Board::getDice()
 
 void Board::go_X_Steps(int iDice, Player* player)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	bool Pasch = false;
 
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
@@ -275,7 +279,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 			if (player->getField()->getName() == "Go")
 			{
 				player->setMoney(player->getMoney() + 200);
-				std::cout << player->get_Name() << " erhaelt 200$." << std::endl;
+				std::cout << player->get_Name() << " erhaelt ";
+				SetConsoleTextAttribute(hConsole, 12);
+				std::cout << "200$." << std::endl;
+				SetConsoleTextAttribute(hConsole, 15);
 			}
 		}
 		player->getField()->enter(*player);

@@ -11,9 +11,14 @@ Tax::~Tax() {}
 
 void Tax::enter(Player& player) 
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	Field::enter(player);
 	player.setMoney(player.getMoney() - amount);
-	std::cout << player.get_Name() << " muss " << amount << "$ an Steuern bezahlen." << std::endl;
+	std::cout << player.get_Name() << " muss ";
+	SetConsoleTextAttribute(hConsole, 12);
+	std::cout << amount << "$";
+	SetConsoleTextAttribute(hConsole, 15);
+	std::cout << " an Steuern bezahlen." << std::endl;
 }
 
 Monopoly* Tax::getMonopoly() 
