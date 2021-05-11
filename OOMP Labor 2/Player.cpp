@@ -29,18 +29,22 @@ void Player::setMoney(int iMoney)
 	money = iMoney;
 }
 
+
 int Player::getMoney()
 {
 	return money;
 }
 
+
 bool Player::want_to_buy(Property& property, Player& player)
 {
+	//Eingabechar
 	char eingabe;
 	std::cout << player.get_Name() << " hat noch " << player.getMoney() << " $."<< std::endl;
 	std::cout << "Moechtest du dieses Grundstueck kaufen? (j/n): ";
 	std::cin >> eingabe;
 
+	//Fehlerhafte Eingabe !(j/n) abfangen
 	while (std::cin.fail() || (eingabe != 'j' && eingabe != 'n'))
 	{
 		std::cin.clear();
@@ -50,6 +54,7 @@ bool Player::want_to_buy(Property& property, Player& player)
 		std::cin >> eingabe;
 	}
 
+	//j = true / n = false
 	if (eingabe == 'j')
 	{
 		return true;

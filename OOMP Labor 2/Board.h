@@ -33,12 +33,15 @@ private:
 	//Bewegt den Spieler auf dem Feld X Schritte vorwaerts
 	void go_X_Steps(int iDice, Player* player);
 
+	//Setzt die Monopole
 	void setMonopolies();
 
 
 public:
 	Board();
 	~Board();
+
+	//Gibt die Wuerfelzahl zurueck
 	int getDice();
 };
 

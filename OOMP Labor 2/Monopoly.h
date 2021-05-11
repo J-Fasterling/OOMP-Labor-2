@@ -20,11 +20,17 @@ private:
 public:
 	Monopoly(int _price_for_house, std::string _name = "Monopoly", std::vector <Field*> _properties = std::vector<Field*>());
 	~Monopoly();
+
+	//Setzt die Properties
 	void setProperties(Field* property);
+	
+	//Gibt den Namen des Monopols zurueck
 	std::string get_name();
 
+	//Zaehlt die Grundstuecke eines Monopols eines Spielers
 	int count_owned_properties(Player& player);
 
+	//Abfrage ob ein Spieler alle Felder eines Monopols besitzt
 	bool has_all(Player& player);
 };
 

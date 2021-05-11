@@ -7,7 +7,10 @@ class ActionField :
 public:
     ActionField(std::string _name = "Action Field");
     ~ActionField();
+
+    //Ereignis wenn man das Feld betritt
     void enter(Player& player);
+    //Gibt das zugehoerige Monopol zurueck
     Monopoly* getMonopoly();
 };
 

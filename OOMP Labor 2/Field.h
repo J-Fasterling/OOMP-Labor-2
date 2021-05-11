@@ -40,6 +40,7 @@ public:
 	//gibt das zugehörige Monopol eines Feldes zurück
 	virtual Monopoly* getMonopoly();
 
+	//Gibt den Besitzer des Felds zurueck
 	virtual Player* getOwner();
 };
 

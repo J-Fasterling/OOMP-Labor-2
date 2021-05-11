@@ -121,7 +121,7 @@ Board::Board()
 	//Mitspieler bestimmen
 	choosePlayers();
 
-	//vBoard.at(2)->enter(*vPlayer.at(0));
+	//Eiegentlische Spielmechanik wird gestartet
 	gameEngine();
 }
 
@@ -211,19 +211,22 @@ void Board::gameEngine()
 	cout << "                 LOS GEHTS!" << endl;
 	cout << "                ------------" << endl << endl;
 	bool gameBreak = false;
-	int cnt = 0;
+	int cnt = 1;
 
 	//Timer Seed zuruecksetzen
 	srand((unsigned int)time(NULL));
 	while (1)
 	{
+		//Spielrunden zaehlen
+		cout << "Runde " << cnt << ":" << endl;
+		cout << "---------" << endl;
 		cnt++;
+
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
 			go_X_Steps(throwDice(), vPlayer.at(i));
-			
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
@@ -235,7 +238,7 @@ void Board::gameEngine()
 				break; 
 			}
 		}
-		cout << cnt << endl;
+		
 
 		//Spiel wird beendet
 		if (gameBreak)
@@ -255,6 +258,7 @@ int Board::throwDice()
 	return dice[0] + dice[1];
 }
 
+
 int Board::getDice()
 {
 	return dice[0] + dice[1];
@@ -263,11 +267,14 @@ int Board::getDice()
 
 void Board::go_X_Steps(int iDice, Player* player)
 {
+	//Handle initialisieren um Konsolenfarbe anzupassen
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	//bool ob ein Pasch gewuerfelt wurde
 	bool Pasch = false;
 
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
+	//Wuerfelaugen auf Pasch ueberpruefen
 	if (dice[0] == dice[1])
 	{
 		Pasch = true;
@@ -303,7 +310,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 			throwDice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
-
+			//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
 			if (dice[0] == dice[1])
 			{
 				player->setField(vBoard.at(10));

@@ -36,6 +36,7 @@ public:
 	//Gibt den Kontostand des Spielers aus
 	int getMoney();
 
+	//Abfrage ob der Spieler ein freies Feld kaufen moechte
 	bool want_to_buy(Property& property, Player& player);
 
 };

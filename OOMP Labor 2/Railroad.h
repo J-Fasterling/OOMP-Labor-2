@@ -5,13 +5,14 @@
     public Property 
  {
 private:
+    //Array mit allen Mieten
     int rent[4];
 
 public:
-    int get_rent();
     Railroad(std::string _name, Monopoly* _monopoly);
     ~Railroad();
-    //void enter(Player& player);
 
+    //Gibt die Miete auf diesem Feld zurueck
+    int get_rent();
 };
 
