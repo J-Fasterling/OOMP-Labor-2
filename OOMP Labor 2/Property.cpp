@@ -19,8 +19,9 @@ void Property::enter(Player& player)
 		if (&player != owner)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-			player.setMoney(player.getMoney() - get_rent());
-			owner->setMoney(owner->getMoney() + get_rent());
+
+			player.setMoney(player.get_Money() - get_rent());
+			owner->setMoney(owner->get_Money() + get_rent());
 			std::cout << player.get_Name() << " bezahlt ";
 			SetConsoleTextAttribute(hConsole, 12);
 			std::cout << get_rent() << "$ ";
@@ -31,7 +32,7 @@ void Property::enter(Player& player)
 			std::cout << get_rent() << "$ ";
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "an Miete von " << player.get_Name() << std::endl;
-			std::cout << owner->get_Name() << " hat jetzt " << owner->getMoney() << " $."<< std::endl;
+			std::cout << owner->get_Name() << " hat jetzt " << owner->get_Money() << " $."<< std::endl;
 		}
 		else{
 		}
@@ -40,38 +41,38 @@ void Property::enter(Player& player)
 	{
 		if (player.want_to_buy(this, &player))
 		{
-			if (player.getMoney() >= value)
+			if (player.get_Money() >= value)
 			{
-				player.setMoney(player.getMoney() - value);
+				player.setMoney(player.get_Money() - value);
 				owner = &player;
 
-				std::cout << player.get_Name() << " ist nun Inhaber von " << this->getName() << std::endl;
-				int test = player.getField()->getMonopoly()->count_owned_properties(player);
+				std::cout << player.get_Name() << " ist nun Inhaber von " << this->get_Name() << std::endl;
+				int test = player.get_Field()->get_Monopoly()->count_owned_properties(player);
 				std::cout << "Monopole: " << test << std::endl;
 			}
 			else 
 			{
-				std::cout << "Du kannst dir " << this->getName() << " nicht leisten." << std::endl;
+				std::cout << "Du kannst dir " << this->get_Name() << " nicht leisten." << std::endl;
 			}
 		}
 	}
 }
 
 
-Monopoly* Property::getMonopoly() 
+Monopoly* Property::get_Monopoly() 
 {
 
 	return monopoly;
 }
 
 
-Player* Property::getOwner()
+Player* Property::get_Owner()
 {
 	return owner;
 }
 
 
-int Property::GetValue()
+int Property::get_Value()
 {
 	return value;
 }

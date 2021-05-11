@@ -25,9 +25,9 @@ public:
     //loest Ereigniss beim betreten des Felds aus
     void enter(Player& player);
     //gibt das zugehoreige Monopol aus
-    Monopoly* getMonopoly();
+    Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
-    Player* getOwner();
+    Player* get_Owner();
     //Gibt den Preis des Grundstuecks zurueck
-    int GetValue();
+    int get_Value();
 };
