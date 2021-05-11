@@ -49,10 +49,10 @@ void Property::enter(Player& player)
 				if (player.want_to_buy_Houses(*this, player))
 				{
 					
-					if (player.get_Money() >= player.get_Field()->get_House_price())
+					if (player.get_Money() >= player.get_Field()->get_Monopoly()->get_PriceforHouse())
 					{
 						build_houses();
-						player.set_Money(player.get_Money() - player.get_Field()->get_House_price());
+						player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());//player.get_Money() - player.get_Field()->get_House_price());
 						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
 					}
 					else{}
@@ -89,10 +89,10 @@ Monopoly* Property::get_Monopoly()
 	return monopoly;
 }
 
-Monopoly* Property::get_House_price()
+/*Monopoly* Property::get_House_price()
 {
 	return price_for_house;
-}
+}*/
 
 Player* Property::get_Owner()
 {

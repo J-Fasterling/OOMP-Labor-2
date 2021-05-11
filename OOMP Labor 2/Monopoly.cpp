@@ -49,4 +49,7 @@ bool Monopoly::has_all(Player& player)
 	}
 }
 
-
+int Monopoly::get_PriceforHouse()
+{
+	return price_for_house;
+}

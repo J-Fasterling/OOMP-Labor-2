@@ -33,5 +33,7 @@ public:
 	//Abfrage ob ein Spieler alle Felder eines Monopols besitzt
 	bool has_all(Player& player);
 
+	//Preis eines Hauses
+	int get_PriceforHouse();
 };
 

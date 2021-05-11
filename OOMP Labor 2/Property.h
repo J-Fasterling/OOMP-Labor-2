@@ -29,7 +29,7 @@ public:
     //gibt das zugehoreige Monopol aus
     Monopoly* get_Monopoly();
     //Haueser Preis
-    Monopoly* get_House_price();
+    //Monopoly* get_House_price();
     //gibt den zugehoreigen Besitzer aus
     Player* get_Owner();
     //Preis des Grunstuecks zurueckgeben
