@@ -125,7 +125,7 @@ Board::Board()
 	cin >> cPlaymode;
 
 	//Fehlerhafte Eingabe
-	while (std::cin.fail() || cPlaymode != 'a' || cPlaymode != 'm')
+	while (std::cin.fail() || cPlaymode != 'a' && cPlaymode != 'm')
 	{
 		cin.clear();
 		cin.ignore();
