@@ -20,21 +20,22 @@ void Property::enter(Player& player)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+			int rent = get_rent();
 			//Abziehen und zuschreiben der Miete vom Mieter an der Vermieter
-			player.set_Money(player.get_Money() - get_rent());
-			owner->set_Money(owner->get_Money() + get_rent());
+			player.set_Money(player.get_Money() - rent);
+			owner->set_Money(owner->get_Money() + rent);
 
 			std::cout << player.get_Name() << " bezahlt ";
 			//Konsolentextfarbe auf rot setzen
 			SetConsoleTextAttribute(hConsole, 12);
-			std::cout << get_rent() << "$ ";
+			std::cout << rent << "$ ";
 			//Konsolentextfarbe zuruecksetzen
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "Miete an " << owner->get_Name() << std::endl;
 			std::cout << owner->get_Name() << " bekommt ";
 			//Konsolentextfarbe auf gruen setzen
 			SetConsoleTextAttribute(hConsole, 10);
-			std::cout << get_rent() << "$ ";
+			std::cout << rent << "$ ";
 			//Konsolentextfarbe zuruecksetzen
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "an Miete von " << player.get_Name() << std::endl;

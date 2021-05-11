@@ -13,6 +13,10 @@ private:
 	std::vector <Player*> vPlayer;
 	//Array aller Monopole
 	Monopoly* monopolies[10];
+
+	//gibt an welcher Modus
+	bool demo_Mode;
+
 	//Array der Wuerfel Augenzahlen
 	int dice[2];
 	//Alle Felder des Spielbrettes
@@ -43,5 +47,11 @@ public:
 
 	//Gibt die Wuerfelzahl zurueck
 	int get_Dice();
+
+	//gibt den Spielmodus zurueck
+	bool get_Playmode();
+
+	//Setzt den Spielmodus
+	void set_Playmode(bool playmode);
 };
 

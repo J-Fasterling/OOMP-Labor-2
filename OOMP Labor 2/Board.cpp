@@ -119,6 +119,32 @@ Board::Board()
 	//Weist den Monopolen die Objekte zu
 	set_Monopolies();
 
+	//Auswahl des Spielmodus freies Spiel oder Testversion
+	char cPlaymode;
+	cout << endl << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
+	cin >> cPlaymode;
+
+	//Fehlerhafte Eingabe
+	while (std::cin.fail() || cPlaymode != 'a' || cPlaymode != 'm')
+	{
+		cin.clear();
+		cin.ignore();
+		cout << "Fehlerhafte eingabe! " << endl;
+		cout << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
+		cin >> cPlaymode;
+	}
+
+	cout << endl << endl;
+
+	//Playmode setzen
+	if (cPlaymode == 'a')
+	{
+		set_Playmode(false);
+	}
+	else
+	{
+		set_Playmode(true);
+	}
 	//Mitspieler bestimmen
 	choose_Players();
 
@@ -252,10 +278,43 @@ void Board::game_Engine()
 
 int Board::throw_Dice()
 {
-	//Zufaellig beide Wuerfel wuerfeln
-	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
-	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
+	if (get_Playmode() == false)
+	{
+		//Zufaellig beide Wuerfel wuerfeln
+		dice[0] = (rand() % ((6 + 1) - 1)) + 1;
+		dice[1] = (rand() % ((6 + 1) - 1)) + 1;
+	}
+		
+	else
+	{
+		//Augenzahl des 1. Wuerfel eingeben
+		cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+		cin >> dice[0];
 
+		//Fehlerhafte Eingabe
+		while (std::cin.fail() || dice[0] < 1 || dice[0] > 6)
+		{
+			cin.clear();
+			cin.ignore();
+			cout << "Fehlerhafte eingabe! " << endl;
+			cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+			cin >> dice[0];
+		}
+
+		//Augenzahl des 2. Wuerfel eingeben
+		cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+		cin >> dice[1];
+
+		//Fehlerhafte Eingabe
+		while (std::cin.fail() || dice[1] < 1  || dice[1] > 6)
+		{
+			cin.clear();
+			cin.ignore();
+			cout << "Fehlerhafte eingabe! " << endl;
+			cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+			cin >> dice[1];
+		}
+	}
 	return dice[0] + dice[1];
 }
 
@@ -265,6 +324,15 @@ int Board::get_Dice()
 	return dice[0] + dice[1];
 }
 
+bool Board::get_Playmode()
+{
+	return demo_Mode;
+}
+
+void Board::set_Playmode(bool playmode)
+{
+	demo_Mode = playmode;
+}
 
 void Board::go_X_Steps(int iDice, Player* player)
 {
@@ -453,3 +521,5 @@ void Board::set_Monopolies() {
 		}
 	}
 }
+
+
