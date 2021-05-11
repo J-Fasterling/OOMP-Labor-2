@@ -256,7 +256,8 @@ int Board::throw_Dice()
 	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
 	dice[1] = (rand() % ((6 + 1) - 1)) + 1;
 
-	return dice[0] + dice[1];
+	//return dice[0] + dice[1];
+	return 1;
 }
 
 
