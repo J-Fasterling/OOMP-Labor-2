@@ -14,24 +14,24 @@ std::string Player::get_Name()
 }
 
 
-void Player::setField(Field* fField)
+void Player::set_Field(Field* fField)
 {
 	field = fField;
 }
 
 
-Field* Player::getField()
+Field* Player::get_Field()
 {
 	return field;
 }
 
-void Player::setMoney(int iMoney)
+void Player::set_Money(int iMoney)
 {
 	money = iMoney;
 }
 
 
-int Player::getMoney()
+int Player::get_Money()
 {
 	return money;
 }
@@ -41,8 +41,8 @@ bool Player::want_to_buy_Property(Property& property, Player& player)
 {
 	//Eingabechar
 	char eingabe;
-	std::cout << player->get_Name() << " hat noch " << player->getMoney() << " $."<< std::endl;
-	std::cout << "Moechtest du dieses Grundstueck fuer "<< property->GetValue() << "$ kaufen? (j/n): ";
+	std::cout << player.get_Name() << " hat noch " << player.get_Money() << " $." << std::endl;
+	std::cout << "Moechtest du dieses Grundstueck fuer "<< property.get_Value() << "$ kaufen? (j/n): ";
 	std::cin >> eingabe;
 
 	//Fehlerhafte Eingabe !(j/n) abfangen
@@ -51,7 +51,7 @@ bool Player::want_to_buy_Property(Property& property, Player& player)
 		std::cin.clear();
 		std::cin.ignore();
 		std::cout << "Fehlerhafte eingabe! " << std::endl << std::endl;
-		std::cout << "Moechtest du dieses Grundstueck fuer " << property->GetValue() << "$ kaufen? (j/n): ";
+		std::cout << "Moechtest du dieses Grundstueck fuer " << property.get_Value() << "$ kaufen? (j/n): ";
 		std::cin >> eingabe;
 	}
 
@@ -70,7 +70,7 @@ bool Player::want_to_buy_Houses(Property& property, Player& player, Monopoly& _p
 {
 	//Eingabechar
 	char eingabe;
-	std::cout << player.get_Name() << " hat noch " << player.getMoney() << " $." << std::endl;
+	std::cout << player.get_Name() << " hat noch " << player.get_Money() << " $." << std::endl;
 	std::cout << "Moechtest du auf diesem Grundstuek Haueser kaufen? (j/n): ";
 	std::cin >> eingabe;
 

@@ -26,16 +26,16 @@ public:
 	std::string get_Name();
 
 	//Setzt den Spieler auf ein angegebenes Feld
-	void setField(Field* fField);
+	void set_Field(Field* fField);
 
 	//Gibt das Feld zurueck, auf dem sich der Spieler befindet
-	Field* getField();
+	Field* get_Field();
 
 	//Setzt den Kontostand des Spielers 
-	void setMoney(int iMoney);
+	void set_Money(int iMoney);
 
 	//Gibt den Kontostand des Spielers aus
-	int getMoney();
+	int get_Money();
 
 	//Abfrage ob der Spieler ein freies Feld kaufen moechte
 	bool want_to_buy_Property(Property& property, Player& player);

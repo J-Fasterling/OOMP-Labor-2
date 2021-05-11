@@ -26,21 +26,21 @@ public:
 	virtual void enter(Player& player) = 0;
 
 	//Setzt das nachfolgende Feld
-	void setNext(Field* fNext);
+	void set_Next(Field* fNext);
 
 	//setzt das vorangegangene Feld
-	void setPrev(Field* fPrev);
+	void set_Prev(Field* fPrev);
 
 	//Gibt das nachfolgende Feld zurueck
-	Field* getNext();
+	Field* get_Next();
 
 	//Gibt den Namen des Felds zurueck
-	std::string getName();
+	std::string get_Name();
 
 	//gibt das zugehörige Monopol eines Feldes zurück
-	virtual Monopoly* getMonopoly();
+	virtual Monopoly* get_Monopoly();
 
 	//Gibt den Besitzer des Felds zurueck
-	virtual Player* getOwner();
+	virtual Player* get_Owner();
 };
 

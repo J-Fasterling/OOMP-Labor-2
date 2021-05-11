@@ -12,7 +12,7 @@ Utility::~Utility() {}
 int Utility::get_rent()
 {	
 	//ueberpruefen, ob Spieler Monopol besitzt
-	if (this->getMonopoly()->has_all(*this->getOwner()))
+	if (this->get_Monopoly()->has_all(*this->get_Owner()))
 	{
 		//Wuerfelzahl mit Monopolfaktor multiplizieren
 		return dice_factor_monopoly * ((rand() % ((12 + 2) - 2)) + 2);

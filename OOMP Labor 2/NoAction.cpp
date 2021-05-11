@@ -14,7 +14,7 @@ void NoAction::enter(Player& player)
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	Field::enter(player);
 	//Spieler Geld zuschreiben
-	player.setMoney(player.getMoney() + get_money);
+	player.set_Money(player.get_Money() + get_money);
 	std::cout << player.get_Name() << " ist auf Los gekommen und bekommt zusaetzlich ";
 	//Konsolenschriftfarbe auf gruen setzen
 	SetConsoleTextAttribute(hConsole, 10);
@@ -24,7 +24,7 @@ void NoAction::enter(Player& player)
 	
 }
 
-Monopoly* NoAction::getMonopoly() 
+Monopoly* NoAction::get_Monopoly() 
 {
 	return NULL;
 }

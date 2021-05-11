@@ -14,6 +14,6 @@ public:
     //Ereignis wenn man das Feld betritt
     void enter(Player& player);
     //GIbt das zugehoreige Monopol aus
-    Monopoly* getMonopoly();
+    Monopoly* get_Monopoly();
 };
 

@@ -11,13 +11,13 @@ Field::Field(std::string _name, Field* _next, Field* _prev)
 Field::~Field() {}
 
 
-void Field::setNext(Field* fNext)
+void Field::set_Next(Field* fNext)
 {
 	next = fNext;
 }
 
 
-void Field::setPrev(Field* fPrev)
+void Field::set_Prev(Field* fPrev)
 {
 	prev = fPrev;
 }
@@ -29,24 +29,24 @@ void Field::enter(Player& player)
 }
 
 
-Field* Field::getNext()
+Field* Field::get_Next()
 {
 	return next;
 }
 
 
-std::string Field::getName()
+std::string Field::get_Name()
 {
 	return name;
 }
 
 
-Monopoly* Field::getMonopoly(){
+Monopoly* Field::get_Monopoly(){
 	return NULL;
 }
 
 
-Player* Field::getOwner()
+Player* Field::get_Owner()
 {
 	return NULL;
 }

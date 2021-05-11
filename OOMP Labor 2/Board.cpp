@@ -114,16 +114,16 @@ Board::Board()
 	vBoard.push_back(sSchl);
 
 	//Verknuepfung der Felder
-	createPlayboard();
+	create_Playboard();
 
 	//Weist den Monopolen die Objekte zu
-	setMonopolies();
+	set_Monopolies();
 
 	//Mitspieler bestimmen
-	choosePlayers();
+	choose_Players();
 
 	//Eiegentlische Spielmechanik wird gestartet
-	gameEngine();
+	game_Engine();
 }
 
 
@@ -132,8 +132,8 @@ Board::~Board()
 	//Spielbrett freigeben
 	for (unsigned int i = vBoard.size() - 1; i > 0; i--)
 	{
-		vBoard.at(i)->setNext(NULL);
-		vBoard.at(i)->setNext(NULL);
+		vBoard.at(i)->set_Next(NULL);
+		vBoard.at(i)->set_Next(NULL);
 		delete(vBoard.at(i));
 	}
 
@@ -152,27 +152,27 @@ Board::~Board()
 
 
 
-void Board::createPlayboard()
+void Board::create_Playboard()
 {
 	for (unsigned int i = 0; i < vBoard.size(); i++)
 	{
 		//Verknuepfung unter den Feldern herstellen
 		if (i < vBoard.size() - 1)
 		{
-			vBoard.at(i)->setNext(vBoard.at(i + 1));
-			vBoard.at(i + 1)->setPrev(vBoard.at(i));
+			vBoard.at(i)->set_Next(vBoard.at(i + 1));
+			vBoard.at(i + 1)->set_Prev(vBoard.at(i));
 		}
 		//Letztes und erstes Feld miteinander verknuepfen
 		else if (i == vBoard.size() - 1)
 		{
-			vBoard.at(vBoard.size() - 1)->setNext(vBoard.at(0));
-			vBoard.at(0)->setPrev(vBoard.at(vBoard.size() - 1));
+			vBoard.at(vBoard.size() - 1)->set_Next(vBoard.at(0));
+			vBoard.at(0)->set_Prev(vBoard.at(vBoard.size() - 1));
 		}
 	}
 }
 
 
-void Board::choosePlayers()
+void Board::choose_Players()
 {
 	cout <<"=====================================================";
 	cout << endl << endl;
@@ -207,7 +207,7 @@ void Board::choosePlayers()
 }
 
 
-void Board::gameEngine()
+void Board::game_Engine()
 {
 	cout << "                 LOS GEHTS!" << endl;
 	cout << "                ------------" << endl << endl;
@@ -227,11 +227,11 @@ void Board::gameEngine()
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
-			go_X_Steps(throwDice(), vPlayer.at(i));
-			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->getMoney() << "$." << endl << endl;
+			go_X_Steps(throw_Dice(), vPlayer.at(i));
+			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
-			if (vPlayer.at(i)->getMoney() <= 0) 
+			if (vPlayer.at(i)->get_Money() <= 0) 
 			{
 				std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
 				//Festlegen, dass das Programm beendet werden soll
@@ -250,7 +250,7 @@ void Board::gameEngine()
 }
 
 
-int Board::throwDice()
+int Board::throw_Dice()
 {
 	//Zufaellig beide Wuerfel wuerfeln
 	dice[0] = (rand() % ((6 + 1) - 1)) + 1;
@@ -260,7 +260,7 @@ int Board::throwDice()
 }
 
 
-int Board::getDice()
+int Board::get_Dice()
 {
 	return dice[0] + dice[1];
 }
@@ -283,11 +283,11 @@ void Board::go_X_Steps(int iDice, Player* player)
 		//Anzahl an Wuerfelaugen-Schritte auf dem Feld bewegen
 		for (int i = 0; i <= iDice - 1; i++)
 		{
-			player->setField(player->getField()->getNext());
-			if (player->getField()->getName() == "Go")
+			player->set_Field(player->get_Field()->get_Next());
+			if (player->get_Field()->get_Name() == "Go")
 			{
 				//Geld erhalten wenn ueber Go laeuft
-				player->setMoney(player->getMoney() + 200);
+				player->set_Money(player->get_Money() + 200);
 				std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
 				//verdienst wird gruen angezeigt
 				SetConsoleTextAttribute(hConsole, 10);
@@ -296,11 +296,11 @@ void Board::go_X_Steps(int iDice, Player* player)
 				SetConsoleTextAttribute(hConsole, 15);
 			}
 		}
-		player->getField()->enter(*player);
+		player->get_Field()->enter(*player);
 		//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-		if (player->getField()->getName() != "Gehe ins Gefaengnis")
+		if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
 		{
-			throwDice();
+			throw_Dice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
 			//Zweiter Pasch
@@ -308,10 +308,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 			{
 				for (int i = 0; i <= iDice - 1; i++)
 				{
-					player->setField(player->getField()->getNext());
-					if (player->getField()->getName() == "Go")
+					player->set_Field(player->get_Field()->get_Next());
+					if (player->get_Field()->get_Name() == "Go")
 					{
-						player->setMoney(player->getMoney() + 200);
+						player->set_Money(player->get_Money() + 200);
 						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
 						SetConsoleTextAttribute(hConsole, 10);
 						std::cout << "200$." << std::endl;
@@ -319,18 +319,18 @@ void Board::go_X_Steps(int iDice, Player* player)
 
 					}
 				}
-				player->getField()->enter(*player);
+				player->get_Field()->enter(*player);
 				//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-				if (player->getField()->getName() != "Gehe ins Gefaengnis")
+				if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
 				{
-					throwDice();
+					throw_Dice();
 					cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
 					//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
 					if (dice[0] == dice[1])
 					{
-						player->setField(vBoard.at(10));
-						player->getField()->enter(*player);
+						player->set_Field(vBoard.at(10));
+						player->get_Field()->enter(*player);
 					}
 
 					//kein dritter Pasch
@@ -340,10 +340,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 						for (int i = 0; i <= iDice - 1; i++)
 						{
 							//Aktuelles Feld auf das nachfolgende setzen
-							player->setField(player->getField()->getNext());
-							if (player->getField()->getName() == "Go")
+							player->set_Field(player->get_Field()->get_Next());
+							if (player->get_Field()->get_Name() == "Go")
 							{
-								player->setMoney(player->getMoney() + 200);
+								player->set_Money(player->get_Money() + 200);
 								std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
 								SetConsoleTextAttribute(hConsole, 10);
 								std::cout << "200$." << std::endl;
@@ -351,7 +351,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 							}
 						}
 						//Ausgabe des aktuellen Felds
-						player->getField()->enter(*player);
+						player->get_Field()->enter(*player);
 					}
 				}
 			}
@@ -363,10 +363,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 			for (int i = 0; i <= iDice - 1; i++)
 			{
 				//Aktuelles Feld auf das nachfolgende setzen
-				player->setField(player->getField()->getNext());
-				if (player->getField()->getName() == "Go")
+				player->set_Field(player->get_Field()->get_Next());
+				if (player->get_Field()->get_Name() == "Go")
 				{
-					player->setMoney(player->getMoney() + 200);
+					player->set_Money(player->get_Money() + 200);
 					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
 					SetConsoleTextAttribute(hConsole, 10);
 					std::cout << "200$." << std::endl;
@@ -374,7 +374,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 				}
 			}
 			//Ausgabe des aktuellen Felds
-			player->getField()->enter(*player);
+			player->get_Field()->enter(*player);
 		}
 	}
 
@@ -385,10 +385,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 		for (int i = 0; i <= iDice - 1; i++)
 		{
 			//Aktuelles Feld auf das nachfolgende setzen
-			player->setField(player->getField()->getNext());
-			if (player->getField()->getName() == "Go")
+			player->set_Field(player->get_Field()->get_Next());
+			if (player->get_Field()->get_Name() == "Go")
 			{
-				player->setMoney(player->getMoney() + 200);
+				player->set_Money(player->get_Money() + 200);
 				std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
 				SetConsoleTextAttribute(hConsole, 10);
 				std::cout << "200$." << std::endl;
@@ -396,48 +396,59 @@ void Board::go_X_Steps(int iDice, Player* player)
 			}
 		}
 		//Ausgabe des aktuellen Felds
-		player->getField()->enter(*player);
+		player->get_Field()->enter(*player);
 	}
 
 	
 }
 
 
-void Board::setMonopolies() {
+void Board::set_Monopolies() {
 
 	//Die Felder jeweils den Monopolen zuordnen
 	for (unsigned int i = 0; i <= vBoard.size() - 1; i++)
 	{
-		if (vBoard.at(i)->getMonopoly() != NULL) {
-			if (vBoard.at(i)->getMonopoly() == monopolies[0]) {
-				monopolies[0]->setProperties(vBoard.at(i));
+		if (vBoard.at(i)->get_Monopoly() != NULL) 
+		{
+			if (vBoard.at(i)->get_Monopoly() == monopolies[0]) 
+			{
+				monopolies[0]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[1]) {
-				monopolies[1]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[1]) 
+			{
+				monopolies[1]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[2]) {
-				monopolies[2]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[2]) 
+			{
+				monopolies[2]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[3]) {
-				monopolies[3]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[3]) 
+			{
+				monopolies[3]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[4]) {
-				monopolies[4]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[4]) 
+			{
+				monopolies[4]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[5]) {
-				monopolies[5]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[5])
+			{
+				monopolies[5]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[6]) {
-				monopolies[6]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[6]) 
+			{
+				monopolies[6]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[7]) {
-				monopolies[7]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[7]) 
+			{
+				monopolies[7]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[8]) {
-				monopolies[8]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[8]) 
+			{
+				monopolies[8]->set_Properties(vBoard.at(i));
 			}
-			else if (vBoard.at(i)->getMonopoly() == monopolies[9]) {
-				monopolies[9]->setProperties(vBoard.at(i));
+			else if (vBoard.at(i)->get_Monopoly() == monopolies[9])
+			{
+				monopolies[9]->set_Properties(vBoard.at(i));
 			}			
 		}
 	}

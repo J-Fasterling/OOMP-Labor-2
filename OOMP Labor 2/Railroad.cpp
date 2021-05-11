@@ -16,5 +16,5 @@ Railroad::~Railroad() {}
 
 int Railroad::get_rent() 
 {
-	return rent[this->getMonopoly()->count_owned_properties(*this->getOwner()) - 1]; 
+	return rent[this->get_Monopoly()->count_owned_properties(*this->get_Owner()) - 1]; 
 }

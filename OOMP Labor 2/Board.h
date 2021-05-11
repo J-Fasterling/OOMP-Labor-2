@@ -19,22 +19,22 @@ private:
 	std::vector <Field*> vBoard;
 
 	//Verknuepft die einzelnen Spielfelder
-	void createPlayboard();
+	void create_Playboard();
 
 	//bestimmt die Anzahl der Spieler und weist ihnen Namen zu
-	void choosePlayers();
+	void choose_Players();
 
 	//erzeugt den allgemeine Spielablauf
-	void gameEngine();
+	void game_Engine();
 
 	//wuerfelt eine Zufallszahl
-	int throwDice();
+	int throw_Dice();
 
 	//Bewegt den Spieler auf dem Feld X Schritte vorwaerts
 	void go_X_Steps(int iDice, Player* player);
 
 	//Setzt die Monopole
-	void setMonopolies();
+	void set_Monopolies();
 
 
 public:
@@ -42,6 +42,6 @@ public:
 	~Board();
 
 	//Gibt die Wuerfelzahl zurueck
-	int getDice();
+	int get_Dice();
 };
 

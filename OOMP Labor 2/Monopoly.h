@@ -22,7 +22,7 @@ public:
 	~Monopoly();
 
 	//Setzt die Properties
-	void setProperties(Field* property);
+	void set_Properties(Field* property);
 	
 	//Gibt den Namen des Monopols zurueck
 	std::string get_name();

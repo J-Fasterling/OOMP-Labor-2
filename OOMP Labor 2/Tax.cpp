@@ -16,7 +16,7 @@ void Tax::enter(Player& player)
 	Field::enter(player);
 
 	//Spieler bezahlt Steuern
-	player.setMoney(player.getMoney() - amount);
+	player.set_Money(player.get_Money() - amount);
 	std::cout << player.get_Name() << " muss ";
 	//Konsolenschriftfarbe auf rot setzen
 	SetConsoleTextAttribute(hConsole, 12);
@@ -26,7 +26,7 @@ void Tax::enter(Player& player)
 	std::cout << " an Steuern bezahlen." << std::endl;
 }
 
-Monopoly* Tax::getMonopoly() 
+Monopoly* Tax::get_Monopoly() 
 {
 	return NULL;
 }

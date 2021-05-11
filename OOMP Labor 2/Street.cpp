@@ -19,7 +19,7 @@ Street::~Street() {}
 int Street::get_rent() 
 {
 	//ueberpruefen, ob Spieler das Monopol und Haeuser hat
-	if (this->getMonopoly()->has_all(*this->getOwner()) && houses == 0)
+	if (this->get_Monopoly()->has_all(*this->get_Owner()) && houses == 0)
 	{
 		//Grundmiete multipliziert mit zwei zurueckgeben
 		return rent[0] * 2;

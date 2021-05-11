@@ -7,7 +7,7 @@ Monopoly::Monopoly(int _price_for_house, std::string _name, std::vector <Field*>
 Monopoly::~Monopoly() {}
 
 
-void Monopoly::setProperties(Field* property) 
+void Monopoly::set_Properties(Field* property) 
 {
 
 	vProperties.push_back(property);
@@ -27,7 +27,7 @@ int Monopoly::count_owned_properties(Player& player)
 	//Alle Grundstuecke des Monopols durchgehen und auf Owner ueberpruefen
 	for (unsigned int i = 0; i < vProperties.size(); i++)
 	{
-		if (vProperties.at(i)->getOwner() == &player)
+		if (vProperties.at(i)->get_Owner() == &player)
 		{
 			iCnt++;
 		}

@@ -20,16 +20,22 @@ void Property::enter(Player& player)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-			player.setMoney(player.get_Money() - get_rent());
-			owner->setMoney(owner->get_Money() + get_rent());
+			//Abziehen und zuschreiben der Miete vom Mieter an der Vermieter
+			player.set_Money(player.get_Money() - get_rent());
+			owner->set_Money(owner->get_Money() + get_rent());
+
 			std::cout << player.get_Name() << " bezahlt ";
+			//Konsolentextfarbe auf rot setzen
 			SetConsoleTextAttribute(hConsole, 12);
 			std::cout << get_rent() << "$ ";
+			//Konsolentextfarbe zuruecksetzen
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "Miete an " << owner->get_Name() << std::endl;
 			std::cout << owner->get_Name() << " bekommt ";
+			//Konsolentextfarbe auf gruen setzen
 			SetConsoleTextAttribute(hConsole, 10);
 			std::cout << get_rent() << "$ ";
+			//Konsolentextfarbe zuruecksetzen
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "an Miete von " << player.get_Name() << std::endl;
 			std::cout << owner->get_Name() << " hat jetzt " << owner->get_Money() << " $."<< std::endl;
@@ -60,7 +66,7 @@ void Property::enter(Player& player)
 		{
 			if (player.get_Money() >= value)
 			{
-				player.setMoney(player.get_Money() - value);
+				player.set_Money(player.get_Money() - value);
 				owner = &player;
 
 				std::cout << player.get_Name() << " ist nun Inhaber von " << this->get_Name() << std::endl;
@@ -87,6 +93,13 @@ Player* Property::get_Owner()
 {
 	return owner;
 }
+
+
+int Property::get_Value()
+{
+	return value;
+}
+
 
 int Property::build_houses()
 {

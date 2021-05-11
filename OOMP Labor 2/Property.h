@@ -27,7 +27,9 @@ public:
     //gibt das zugehoreige Monopol aus
     Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
-    Player* getOwner();
+    Player* get_Owner();
+    //Preis des Grunstuecks zurueckgeben
+    int get_Value();
     //Haeuser bauen
     virtual int build_houses();
 };
