@@ -16,19 +16,24 @@ void Property::enter(Player& player)
 
 	if (owner)
 	{
-		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		player.setMoney(player.getMoney() - get_rent());
-		owner->setMoney(owner->getMoney() + get_rent());
-		std::cout << player.get_Name() << " bezahlt ";
-		SetConsoleTextAttribute(hConsole, 12);
-		std::cout << get_rent() << "$ ";
-		SetConsoleTextAttribute(hConsole, 15);
-		std::cout << "miete an " << owner->get_Name() << std::endl;
-		std::cout << owner->get_Name() << " bekommt "; 
-		SetConsoleTextAttribute(hConsole, 10);
-		std::cout << get_rent() << "$ ";
-		SetConsoleTextAttribute(hConsole, 15);
-		std::cout << "an Miete von " << player.get_Name() << std::endl;
+		if (&player != owner)
+		{
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+			player.setMoney(player.getMoney() - get_rent());
+			owner->setMoney(owner->getMoney() + get_rent());
+			std::cout << player.get_Name() << " bezahlt ";
+			SetConsoleTextAttribute(hConsole, 12);
+			std::cout << get_rent() << "$ ";
+			SetConsoleTextAttribute(hConsole, 15);
+			std::cout << "Miete an " << owner->get_Name() << std::endl;
+			std::cout << owner->get_Name() << " bekommt ";
+			SetConsoleTextAttribute(hConsole, 10);
+			std::cout << get_rent() << "$ ";
+			SetConsoleTextAttribute(hConsole, 15);
+			std::cout << "an Miete von " << player.get_Name() << std::endl;
+		}
+		else{
+		}
 	}
 	else
 	{
