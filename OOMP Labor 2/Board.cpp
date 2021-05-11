@@ -264,6 +264,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
+	//Falls Pasch gewürfelt
 	if (dice[0] == dice[1])
 	{
 		Pasch = true;
@@ -281,7 +282,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		throwDice();
 		cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
-
+		//ZWeiter Pasch
 		if (dice[0] == dice[1])
 		{
 			for (int i = 0; i <= iDice - 1; i++)
@@ -296,10 +297,26 @@ void Board::go_X_Steps(int iDice, Player* player)
 			throwDice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
-
+			//Falls dritter Pasch in Folge gewürfelt
 			if (dice[0] == dice[1])
 			{
 				player->setField(vBoard.at(10));
+				player->getField()->enter(*player);
+			}
+
+			else
+			{
+				//so viele Felder wie gewuerfelt fortbewegen
+				for (int i = 0; i <= iDice - 1; i++)
+				{
+					//Aktuelles Feld auf das nachfolgende setzen
+					player->setField(player->getField()->getNext());
+					if (player->getField()->getName() == "Go")
+					{
+						player->setMoney(player->getMoney() + 200);
+					}
+				}
+				//Ausgabe des aktuellen Felds
 				player->getField()->enter(*player);
 			}
 		}

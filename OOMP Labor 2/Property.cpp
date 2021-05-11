@@ -18,8 +18,8 @@ void Property::enter(Player& player)
 	{
 		player.setMoney(player.getMoney() - get_rent());
 		owner->setMoney(owner->getMoney() + get_rent());
-		std::cout << player.get_Name() << " bezahlt " << get_rent() << "$ miete an " << owner->get_Name() << std::endl;
-		std::cout << owner->get_Name() << " bekommt " << get_rent() << "$ an Miete von " << player.get_Name() << std::endl;
+		std::cout << player.get_Name() << " bezahlt " << get_rent() << "$ Miete an " << owner->get_Name() << std::endl;
+		std::cout << owner->get_Name() << " hat jetzt " << owner->getMoney() << " $." << std::endl;
 	}
 	else
 	{
