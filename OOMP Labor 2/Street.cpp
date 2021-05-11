@@ -13,17 +13,20 @@ Street::Street(std::string _name, int _value, Monopoly* _monopoly,
 	std::cout << "Feldname " << _name << std::endl;
 }
 
-
 Street::~Street() {}
+
 
 int Street::get_rent() 
 {
+	//ueberpruefen, ob Spieler das Monopol und Haeuser hat
 	if (this->getMonopoly()->has_all(*this->getOwner()) && houses == 0)
 	{
+		//Grundmiete multipliziert mit zwei zurueckgeben
 		return rent[0] * 2;
 	}
 	else
 	{
+		//Haeuser spezifische Miete zurueckgeben 
 		return rent[houses];
 	}
 }

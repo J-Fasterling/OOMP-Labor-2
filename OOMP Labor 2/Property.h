@@ -25,7 +25,7 @@ public:
     //loest Ereigniss beim betreten des Felds aus
     void enter(Player& player);
     //gibt das zugehoreige Monopol aus
-    Monopoly* getMonopoly();
+    Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* getOwner();
     //Haeuser bauen
