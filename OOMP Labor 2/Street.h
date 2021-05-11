@@ -10,11 +10,11 @@ private:
     int houses;
 
 public:
-    Street(std::string _name, int _value, Monopoly* _monopoly, 
+    Street(std::string _name, int _value, Monopoly* _monopoly, Monopoly* _price_for_house,
         int m1 = 0, int m2 = 0, int m3 = 0, int m4 = 0, int m5 = 0, int m6 = 0);
     ~Street();
 
-    //Gibt die miete auf diesem Feld zurueck
+    //Gibt die Miete auf diesem Feld zurueck
     int get_rent();
 
     //Haeuser kaufen

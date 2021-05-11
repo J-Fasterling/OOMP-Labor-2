@@ -66,7 +66,7 @@ bool Player::want_to_buy_Property(Property& property, Player& player)
 	}
 }
 
-bool Player::want_to_buy_Houses(Property& property, Player& player, Monopoly& _price_for_house)
+bool Player::want_to_buy_Houses(Property& property, Player& player)
 {
 	//Eingabechar
 	char eingabe;

@@ -41,6 +41,6 @@ public:
 	bool want_to_buy_Property(Property& property, Player& player);
 
 	//Abfrage ob Spieler Haeser kaufen will
-	bool want_to_buy_Houses(Property& property, Player& player, Monopoly& _price_for_house);
+	bool want_to_buy_Houses(Property& property, Player& player);
 
 };

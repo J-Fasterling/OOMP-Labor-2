@@ -1,7 +1,7 @@
 #include "Property.h"
 
-Property::Property(std::string _name, int _value, Monopoly* _monopoly, Player* _owner) 
-	: Field(_name), value{ _value }, monopoly{ _monopoly }, owner{ _owner } {}
+Property::Property(std::string _name, int _value, Monopoly* _monopol, Monopoly* _price_for_house, Player* _owner) 
+	: Field(_name), value{ _value }, monopoly{ _monopol }, owner{ _owner }, price_for_house{ _price_for_house }{}
 
 Property::~Property() {}
 
@@ -44,21 +44,22 @@ void Property::enter(Player& player)
 		else
 		{
 			//Wenn Feld einen Besitzer habt, pruefen, ob dieser ein Haus kaufen kann und will
-			/*if (this->getMonopoly()->has_all(*this->getOwner())) 
+			if (this->get_Monopoly()->has_all(*this->get_Owner())) 
 			{
-				if (player.want_to_buy_Houses(*this, player, _price_for_house))
+				if (player.want_to_buy_Houses(*this, player))
 				{
-					if (player.getMoney() >= _price_for_house )
+					
+					if (player.get_Money() >= player.get_Field()->get_House_price())
 					{
 						build_houses();
-						player.getMoney() - _price_for_house;
-						std::cout << player.get_Name() << " hat jetzt noch " << player.getMoney() << " $." << std::endl;
+						player.set_Money(player.get_Money() - player.get_Field()->get_House_price());
+						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
 					}
 					else{}
 				}
 				else{}
 			}
-			else {}*/
+			else {}
 		}
 	}
 	else
@@ -85,10 +86,13 @@ void Property::enter(Player& player)
 
 Monopoly* Property::get_Monopoly() 
 {
-
 	return monopoly;
 }
 
+Monopoly* Property::get_House_price()
+{
+	return price_for_house;
+}
 
 Player* Property::get_Owner()
 {
