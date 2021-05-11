@@ -279,8 +279,8 @@ void Board::go_X_Steps(int iDice, Player* player)
 			if (player->getField()->getName() == "Go")
 			{
 				player->setMoney(player->getMoney() + 200);
-				std::cout << player->get_Name() << " erhaelt ";
-				SetConsoleTextAttribute(hConsole, 12);
+				std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+				SetConsoleTextAttribute(hConsole, 10);
 				std::cout << "200$." << std::endl;
 				SetConsoleTextAttribute(hConsole, 15);
 			}
@@ -298,6 +298,11 @@ void Board::go_X_Steps(int iDice, Player* player)
 				if (player->getField()->getName() == "Go")
 				{
 					player->setMoney(player->getMoney() + 200);
+					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+					SetConsoleTextAttribute(hConsole, 10);
+					std::cout << "200$." << std::endl;
+					SetConsoleTextAttribute(hConsole, 15);
+					
 				}
 			}
 			player->getField()->enter(*player);
@@ -311,6 +316,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 				player->getField()->enter(*player);
 			}
 
+			//kein dritter Pasch
 			else
 			{
 				//so viele Felder wie gewuerfelt fortbewegen
@@ -321,12 +327,17 @@ void Board::go_X_Steps(int iDice, Player* player)
 					if (player->getField()->getName() == "Go")
 					{
 						player->setMoney(player->getMoney() + 200);
+						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+						SetConsoleTextAttribute(hConsole, 10);
+						std::cout << "200$." << std::endl;
+						SetConsoleTextAttribute(hConsole, 15);
 					}
 				}
 				//Ausgabe des aktuellen Felds
 				player->getField()->enter(*player);
 			}
 		}
+		//kein zweiter Pasch
 		else
 		{
 			//so viele Felder wie gewuerfelt fortbewegen
@@ -337,6 +348,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 				if (player->getField()->getName() == "Go")
 				{
 					player->setMoney(player->getMoney() + 200);
+					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+					SetConsoleTextAttribute(hConsole, 10);
+					std::cout << "200$." << std::endl;
+					SetConsoleTextAttribute(hConsole, 15);
 				}
 			}
 			//Ausgabe des aktuellen Felds
@@ -344,7 +359,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 	}
 
-
+	//Falls kein Pasch
 	if (!Pasch)
 	{
 		//so viele Felder wie gewuerfelt fortbewegen
@@ -355,6 +370,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 			if (player->getField()->getName() == "Go")
 			{
 				player->setMoney(player->getMoney() + 200);
+				std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+				SetConsoleTextAttribute(hConsole, 10);
+				std::cout << "200$." << std::endl;
+				SetConsoleTextAttribute(hConsole, 15);
 			}
 		}
 		//Ausgabe des aktuellen Felds
