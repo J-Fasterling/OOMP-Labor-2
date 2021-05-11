@@ -279,56 +279,33 @@ void Board::go_X_Steps(int iDice, Player* player)
 	{
 		Pasch = true;
 
+		//Anzahl an Wuerfelaugen-Schritte auf dem Feld bewegen
 		for (int i = 0; i <= iDice - 1; i++)
 		{
 			player->setField(player->getField()->getNext());
 			if (player->getField()->getName() == "Go")
 			{
+				//Geld erhalten wenn ueber Go laeuft
 				player->setMoney(player->getMoney() + 200);
 				std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+				//verdienst wird gruen angezeigt
 				SetConsoleTextAttribute(hConsole, 10);
 				std::cout << "200$." << std::endl;
+				//zuruecksetzen auf Weiss
 				SetConsoleTextAttribute(hConsole, 15);
 			}
 		}
 		player->getField()->enter(*player);
-		throwDice();
-		cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
-
-		//ZWeiter Pasch
-		if (dice[0] == dice[1])
+		if (player->getField()->getName() != "Gehe ins Gefaengnis")
 		{
-			for (int i = 0; i <= iDice - 1; i++)
-			{
-				player->setField(player->getField()->getNext());
-				if (player->getField()->getName() == "Go")
-				{
-					player->setMoney(player->getMoney() + 200);
-					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-					SetConsoleTextAttribute(hConsole, 10);
-					std::cout << "200$." << std::endl;
-					SetConsoleTextAttribute(hConsole, 15);
-					
-				}
-			}
-			player->getField()->enter(*player);
 			throwDice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
 
-			//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
+			//Zweiter Pasch
 			if (dice[0] == dice[1])
 			{
-				player->setField(vBoard.at(10));
-				player->getField()->enter(*player);
-			}
-
-			//kein dritter Pasch
-			else
-			{
-				//so viele Felder wie gewuerfelt fortbewegen
 				for (int i = 0; i <= iDice - 1; i++)
 				{
-					//Aktuelles Feld auf das nachfolgende setzen
 					player->setField(player->getField()->getNext());
 					if (player->getField()->getName() == "Go")
 					{
@@ -337,10 +314,43 @@ void Board::go_X_Steps(int iDice, Player* player)
 						SetConsoleTextAttribute(hConsole, 10);
 						std::cout << "200$." << std::endl;
 						SetConsoleTextAttribute(hConsole, 15);
+
 					}
 				}
-				//Ausgabe des aktuellen Felds
 				player->getField()->enter(*player);
+				if (player->getField()->getName() != "Gehe ins Gefaengnis")
+				{
+					throwDice();
+					cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+
+					//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
+					if (dice[0] == dice[1])
+					{
+						player->setField(vBoard.at(10));
+						player->getField()->enter(*player);
+					}
+
+					//kein dritter Pasch
+					else
+					{
+						//so viele Felder wie gewuerfelt fortbewegen
+						for (int i = 0; i <= iDice - 1; i++)
+						{
+							//Aktuelles Feld auf das nachfolgende setzen
+							player->setField(player->getField()->getNext());
+							if (player->getField()->getName() == "Go")
+							{
+								player->setMoney(player->getMoney() + 200);
+								std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+								SetConsoleTextAttribute(hConsole, 10);
+								std::cout << "200$." << std::endl;
+								SetConsoleTextAttribute(hConsole, 15);
+							}
+						}
+						//Ausgabe des aktuellen Felds
+						player->getField()->enter(*player);
+					}
+				}
 			}
 		}
 		//kein zweiter Pasch
