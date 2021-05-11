@@ -288,7 +288,7 @@ int Board::throw_Dice()
 	else
 	{
 		//Augenzahl des 1. Wuerfel eingeben
-		cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+		cout << "Gib die Augenzahl fuer den ersten Wuerfel zwischen 1 & 6 ein: ";
 		cin >> dice[0];
 
 		//Fehlerhafte Eingabe
@@ -297,12 +297,12 @@ int Board::throw_Dice()
 			cin.clear();
 			cin.ignore();
 			cout << "Fehlerhafte eingabe! " << endl;
-			cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+			cout << "Gib die Augenzahl fuer den ersten Wuerfel 1 & 6 ein: ";
 			cin >> dice[0];
 		}
 
 		//Augenzahl des 2. Wuerfel eingeben
-		cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+		cout << "Gib die Augenzahl fuer den zweiten Wuerfel 1 & 6 ein: ";
 		cin >> dice[1];
 
 		//Fehlerhafte Eingabe
@@ -311,7 +311,7 @@ int Board::throw_Dice()
 			cin.clear();
 			cin.ignore();
 			cout << "Fehlerhafte eingabe! " << endl;
-			cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+			cout << "Gib die Augenzahl fuer den zweiten Wuerfel 1 & 6 ein: ";
 			cin >> dice[1];
 		}
 	}
