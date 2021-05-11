@@ -31,6 +31,7 @@ void Property::enter(Player& player)
 			std::cout << get_rent() << "$ ";
 			SetConsoleTextAttribute(hConsole, 15);
 			std::cout << "an Miete von " << player.get_Name() << std::endl;
+			std::cout << owner->get_Name() << " hat jetzt " << owner->getMoney() << " $."<< std::endl;
 		}
 		else{
 		}
