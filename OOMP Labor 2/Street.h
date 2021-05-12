@@ -4,7 +4,7 @@
 class Street :
     public Property {
 private:
-    //Array mit mieten/Haus auf dieser Strasse
+    //Array mit Mieten/Haeusern auf dieser Strasse
     int rent[6];
     //Anzahl der Haeuser
     int houses;
@@ -19,5 +19,8 @@ public:
 
     //Haeuser kaufen
     int build_houses();
+
+    //Haeuser bauen
+    void set_House(Field* fField);
 };
 

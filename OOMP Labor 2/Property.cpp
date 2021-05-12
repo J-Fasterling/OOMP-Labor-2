@@ -53,6 +53,7 @@ void Property::enter(Player& player)
 					if (player.get_Money() >= player.get_Field()->get_Monopoly()->get_PriceforHouse())
 					{
 						build_houses();
+						this->set_House();
 						player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());
 
 						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
@@ -111,4 +112,9 @@ int Property::get_Value()
 int Property::build_houses()
 {
 	return 0;
+}
+
+void Property::set_House()
+{
+	
 }

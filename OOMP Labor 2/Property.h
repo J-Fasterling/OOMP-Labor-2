@@ -36,4 +36,5 @@ public:
     int get_Value();
     //Haeuser bauen
     virtual int build_houses();
+    virtual void set_House();
 };

@@ -293,7 +293,7 @@ int Board::throw_Dice()
 		cin >> dice[0];
 
 		//Fehlerhafte Eingabe
-		while (std::cin.fail() || dice[0] < 1 || dice[0] > 6)
+		while (std::cin.fail() || dice[0] < 0 || dice[0] > 6)
 		{
 			cin.clear();
 			cin.ignore();
@@ -307,7 +307,7 @@ int Board::throw_Dice()
 		cin >> dice[1];
 
 		//Fehlerhafte Eingabe
-		while (std::cin.fail() || dice[1] < 1  || dice[1] > 6)
+		while (std::cin.fail() || dice[1] < 0  || dice[1] > 6)
 		{
 			cin.clear();
 			cin.ignore();

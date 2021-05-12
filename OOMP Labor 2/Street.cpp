@@ -43,3 +43,7 @@ int Street::build_houses()
 	}
 }
 
+void Street::set_House(Field* fField)
+{
+	rent[houses] = rent[houses +1];
+}
