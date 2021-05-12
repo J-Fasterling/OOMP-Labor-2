@@ -52,7 +52,8 @@ void Property::enter(Player& player)
 					if (player.get_Money() >= player.get_Field()->get_Monopoly()->get_PriceforHouse())
 					{
 						build_houses();
-						player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());//player.get_Money() - player.get_Field()->get_House_price());
+						player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());
+
 						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
 					}
 					else{}
