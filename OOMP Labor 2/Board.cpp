@@ -318,7 +318,6 @@ int Board::throw_Dice()
 	return dice[0] + dice[1];
 }
 
-
 int Board::get_Dice()
 {
 	return dice[0] + dice[1];
@@ -374,7 +373,9 @@ void Board::go_X_Steps(int iDice, Player* player)
 			//Zweiter Pasch
 			if (dice[0] == dice[1])
 			{
-				for (int i = 0; i <= iDice - 1; i++)
+				int iDice2 = get_Dice();
+
+				for (int i = 0; i <= iDice2 - 1; i++)
 				{
 					player->set_Field(player->get_Field()->get_Next());
 					if (player->get_Field()->get_Name() == "Go")
@@ -404,8 +405,9 @@ void Board::go_X_Steps(int iDice, Player* player)
 					//kein dritter Pasch
 					else
 					{
+						int iDice3 = get_Dice();
 						//so viele Felder wie gewuerfelt fortbewegen
-						for (int i = 0; i <= iDice - 1; i++)
+						for (int i = 0; i <= iDice3 - 1; i++)
 						{
 							//Aktuelles Feld auf das nachfolgende setzen
 							player->set_Field(player->get_Field()->get_Next());
@@ -423,26 +425,29 @@ void Board::go_X_Steps(int iDice, Player* player)
 					}
 				}
 			}
-		}
-		//kein zweiter Pasch
-		else
-		{
-			//so viele Felder wie gewuerfelt fortbewegen
-			for (int i = 0; i <= iDice - 1; i++)
+
+			//kein zweiter Pasch
+			if (dice[0] != dice[1])
 			{
-				//Aktuelles Feld auf das nachfolgende setzen
-				player->set_Field(player->get_Field()->get_Next());
-				if (player->get_Field()->get_Name() == "Go")
+				int iDice2 = get_Dice();
+
+				//so viele Felder wie gewuerfelt fortbewegen
+				for (int i = 0; i <= iDice2 - 1; i++)
 				{
-					player->set_Money(player->get_Money() + 200);
-					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-					SetConsoleTextAttribute(hConsole, 10);
-					std::cout << "200$." << std::endl;
-					SetConsoleTextAttribute(hConsole, 15);
+					//Aktuelles Feld auf das nachfolgende setzen
+					player->set_Field(player->get_Field()->get_Next());
+					if (player->get_Field()->get_Name() == "Go")
+					{
+						player->set_Money(player->get_Money() + 200);
+						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+						SetConsoleTextAttribute(hConsole, 10);
+						std::cout << "200$." << std::endl;
+						SetConsoleTextAttribute(hConsole, 15);
+					}
 				}
+				//Ausgabe des aktuellen Felds
+				player->get_Field()->enter(*player);
 			}
-			//Ausgabe des aktuellen Felds
-			player->get_Field()->enter(*player);
 		}
 	}
 

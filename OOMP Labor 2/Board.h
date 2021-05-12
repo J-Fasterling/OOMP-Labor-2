@@ -45,11 +45,11 @@ public:
 	Board();
 	~Board();
 
-	//Gibt die Wuerfelzahl zurueck
-	int get_Dice();
-
 	//gibt den Spielmodus zurueck
 	bool get_Playmode();
+
+	//gibt Wuerfelzahl zurueck
+	int get_Dice();
 
 	//Setzt den Spielmodus
 	void set_Playmode(bool playmode);
