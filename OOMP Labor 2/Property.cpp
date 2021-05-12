@@ -46,6 +46,7 @@ void Property::enter(Player& player)
 			//Wenn Feld einen Besitzer habt, pruefen, ob dieser ein Haus kaufen kann und will
 			if (this->get_Monopoly()->has_all(*this->get_Owner())) 
 			{
+				if(this->get_Monopoly()->get_name() == "Braun" && "Hellblau" && "Pink" && "Orange" && "Rot" && "Gelb" && "Gruen" && "Blau")
 				if (player.want_to_buy_Houses(*this, player))
 				{
 					
@@ -56,11 +57,11 @@ void Property::enter(Player& player)
 
 						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
 					}
-					else{}
+					
 				}
-				else{}
+				
 			}
-			else {}
+
 		}
 	}
 	else

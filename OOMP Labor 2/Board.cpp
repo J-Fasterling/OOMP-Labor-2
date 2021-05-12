@@ -288,6 +288,7 @@ int Board::throw_Dice()
 	else
 	{
 		//Augenzahl des 1. Wuerfel eingeben
+		cout << endl;
 		cout << "Gib die Augenzahl fuer den ersten Wuerfel zwischen 1 & 6 ein: ";
 		cin >> dice[0];
 
@@ -339,8 +340,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	//bool ob ein Pasch gewuerfelt wurde
 	bool Pasch = false;
+	bool Pasch2 = false;
 
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+	cout << endl;
 
 	//Wuerfelaugen auf Pasch ueberpruefen
 	if (dice[0] == dice[1])
@@ -369,10 +372,13 @@ void Board::go_X_Steps(int iDice, Player* player)
 		{
 			throw_Dice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+			cout << endl; 
+
 			int iDice2 = get_Dice();
 			//Zweiter Pasch
 			if (dice[0] == dice[1])
-			{				
+			{	 
+
 				for (int i = 0; i <= iDice2 - 1; i++)
 				{
 					player->set_Field(player->get_Field()->get_Next());
@@ -392,18 +398,21 @@ void Board::go_X_Steps(int iDice, Player* player)
 				{
 					throw_Dice();
 					cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+					cout << endl;
 
 					int iDice3 = get_Dice();
 					//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
 					if (dice[0] == dice[1])
 					{
+						Pasch2 = true;
 						player->set_Field(vBoard.at(10));
 						player->get_Field()->enter(*player);
 					}
 
 					//kein dritter Pasch
-					else
+					if (dice[0] != dice[1])
 					{
+						Pasch2 = true;
 						for (int i = 0; i <= iDice3 - 1; i++)
 						{
 							player->set_Field(player->get_Field()->get_Next());
@@ -421,11 +430,9 @@ void Board::go_X_Steps(int iDice, Player* player)
 					}
 				}
 			}
-
 			//kein zweiter Pasch
-			if (dice[0] != dice[1])
+			if (!Pasch2)
 			{
-
 				//so viele Felder wie gewuerfelt fortbewegen
 				for (int i = 0; i <= iDice2 - 1; i++)
 				{
@@ -445,7 +452,6 @@ void Board::go_X_Steps(int iDice, Player* player)
 			}
 		}
 	}
-
 	//Falls kein Pasch
 	if (!Pasch)
 	{
@@ -466,8 +472,6 @@ void Board::go_X_Steps(int iDice, Player* player)
 		//Ausgabe des aktuellen Felds
 		player->get_Field()->enter(*player);
 	}
-
-	
 }
 
 

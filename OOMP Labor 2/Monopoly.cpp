@@ -53,3 +53,4 @@ int Monopoly::get_PriceforHouse()
 {
 	return price_for_house;
 }
+
