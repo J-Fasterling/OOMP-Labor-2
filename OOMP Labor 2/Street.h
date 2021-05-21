@@ -18,9 +18,12 @@ public:
     int get_rent();
 
     //Haeuser kaufen
-    int build_houses();
+    int possible_to_build_houses(int iHouses);
 
     //Haeuser bauen
-    void set_House(Field* fField);
+    void set_House(Field* fField, int iHouses);
+
+    //get Haeuser
+    int get_House();
 };
 

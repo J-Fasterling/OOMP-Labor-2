@@ -46,21 +46,26 @@ void Property::enter(Player& player)
 			//Wenn Feld einen Besitzer habt, pruefen, ob dieser ein Haus kaufen kann und will
 			if (this->get_Monopoly()->has_all(*this->get_Owner())) 
 			{
-				if(this->get_Monopoly()->get_name() == "Braun" && "Hellblau" && "Pink" && "Orange" && "Rot" && "Gelb" && "Gruen" && "Blau")
-				if (player.want_to_buy_Houses(*this, player))
+				if (this->get_Monopoly()->get_name() == "Braun" && "Hellblau" && "Pink" && "Orange" && "Rot" && "Gelb" && "Gruen" && "Blau")
 				{
-					
-					if (player.get_Money() >= player.get_Field()->get_Monopoly()->get_PriceforHouse())
+					if (possible_to_build_houses(get_House()) == 1)
 					{
-						build_houses();
-						this->set_House();
-						player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());
+						if (player.want_to_buy_Houses(*this, player))
+						{
 
-						std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
+							if (player.get_Money() >= player.get_Field()->get_Monopoly()->get_PriceforHouse())
+							{
+									this->set_House(this, get_House());
+									player.set_Money(player.get_Money() - player.get_Field()->get_Monopoly()->get_PriceforHouse());
+
+									std::cout << player.get_Name() << " hat jetzt noch " << player.get_Money() << " $." << std::endl;
+							}
+							else {
+								std::cout << player.get_Name() << " hat nicht genuegend Geld, um sich ein Haus zu leisten." << std::endl;
+							}
+						}
 					}
-					
 				}
-				
 			}
 
 		}
@@ -109,12 +114,17 @@ int Property::get_Value()
 }
 
 
-int Property::build_houses()
+int Property::possible_to_build_houses(int iHouses)
 {
 	return 0;
 }
 
-void Property::set_House()
+void Property::set_House(Field* fField, int iHouses)
 {
 	
+}
+
+int Property::get_House()
+{
+	return 0;
 }

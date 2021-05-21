@@ -253,9 +253,20 @@ void Board::game_Engine()
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{
 			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
-			go_X_Steps(throw_Dice(), vPlayer.at(i));
-			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
-
+			if (vPlayer.at(i != 10))
+			{
+				go_X_Steps(throw_Dice(), vPlayer.at(i));
+				cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
+			}
+			/*if (vPlayer.at(i = 10) && )
+			{
+				if (want_to_leave_Jail())
+				throw_Dice();
+				if ( dice[0] == dice[1])
+				{
+					go_X_Steps(get_Dice(), vPlayer.at(i));
+				}
+			}*/
 			//Spiel wird beendet sobald ein Spieler pleite ist
 			if (vPlayer.at(i)->get_Money() <= 0) 
 			{
@@ -471,6 +482,36 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 		//Ausgabe des aktuellen Felds
 		player->get_Field()->enter(*player);
+	}
+}
+
+
+bool Board::want_to_leave_Jail(Field* fField, Player& player)
+{
+	//Eingabechar
+	char eingabe;
+	std::cout << player.get_Name() << " hat noch " << player.get_Money() << " $." << std::endl;
+	std::cout << "Moechtest du dich aus dem Gefaengnis freikaufen? (j/n): ";
+	std::cin >> eingabe;
+
+	//Fehlerhafte Eingabe !(j/n) abfangen
+	while (std::cin.fail() || (eingabe != 'j' && eingabe != 'n'))
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << "Fehlerhafte eingabe! " << std::endl;
+		std::cout << "Moechtest du dich aus dem Gefaengnis freikaufen?  (j/n): ";
+		std::cin >> eingabe;
+	}
+
+	//j = true / n = false
+	if (eingabe == 'j')
+	{
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 

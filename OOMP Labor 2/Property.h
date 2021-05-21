@@ -35,6 +35,7 @@ public:
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
-    virtual int build_houses();
-    virtual void set_House();
+    virtual int possible_to_build_houses(int iHouses);
+    virtual void set_House(Field* fField, int iHouses);
+    virtual int get_House();
 };

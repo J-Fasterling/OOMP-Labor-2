@@ -43,4 +43,6 @@ public:
 	//Abfrage ob Spieler Haeser kaufen will
 	bool want_to_buy_Houses(Property& property, Player& player);
 
+	
+
 };

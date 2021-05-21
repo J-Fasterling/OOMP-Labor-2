@@ -31,11 +31,11 @@ int Street::get_rent()
 	}
 }
 
-int Street::build_houses()
+int Street::possible_to_build_houses(int iHouses)
 {
-	if (houses < 5)
+	if (iHouses < 5)
 	{
-		return houses + 1;
+		return 1;
 	}
 	else
 	{
@@ -43,7 +43,12 @@ int Street::build_houses()
 	}
 }
 
-void Street::set_House(Field* fField)
+void Street::set_House(Field* fField, int iHouses)
 {
-	rent[houses] = rent[houses +1];
+	houses = iHouses + 1;
+}
+
+int Street::get_House()
+{
+	return houses;
 }
