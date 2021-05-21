@@ -10,7 +10,7 @@ private:
     int houses;
 
 public:
-    Street(std::string _name, int _value, Monopoly* _monopoly, Monopoly* _price_for_house,
+    Street(std::string _name, int _value, Monopoly* _monopoly, int price_for_house,
         int m1 = 0, int m2 = 0, int m3 = 0, int m4 = 0, int m5 = 0, int m6 = 0);
     ~Street();
 

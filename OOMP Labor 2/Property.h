@@ -14,12 +14,12 @@ private:
     //Kaufpreis Grundstuecks
     int value;
     //Kaufpreis Haus
-    Monopoly* price_for_house;
+    int price_for_house;
     //zugehoreiges Monopol
     Monopoly* monopoly;
 
 public:
-    Property(std::string _name, int _value = 0, Monopoly* _monopol = NULL, Monopoly* _price_for_house = NULL, Player* _owner = NULL);
+    Property(std::string _name, int _value = 0, Monopoly* _monopol = NULL, int price_for_house = 0, Player* _owner = NULL);
     ~Property();
 
     //virtuelle Funktio, die die Miete zurueckgibt

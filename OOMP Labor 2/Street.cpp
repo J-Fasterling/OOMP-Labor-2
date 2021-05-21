@@ -1,6 +1,6 @@
 #include "Street.h"
 
-Street::Street(std::string _name, int _value, Monopoly* _monopoly, Monopoly* _price_for_house,
+Street::Street(std::string _name, int _value, Monopoly* _monopoly, int price_for_house,
 	int m1, int m2, int m3, int m4, int m5, int m6)
 	: Property(_name, _value, _monopoly), houses {0}
 {

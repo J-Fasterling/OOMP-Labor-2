@@ -1,7 +1,7 @@
 #include "Property.h"
 
-Property::Property(std::string _name, int _value, Monopoly* _monopol, Monopoly* _price_for_house, Player* _owner) 
-	: Field(_name), value{ _value }, monopoly{ _monopol }, owner{ _owner }, price_for_house{ _price_for_house }{}
+Property::Property(std::string _name, int _value, Monopoly* _monopol, int price_for_house, Player* _owner) 
+	: Field(_name), value{ _value }, monopoly{ _monopol }, owner{ _owner }, price_for_house{ _monopol->get_PriceforHouse() }{}
 
 Property::~Property() {}
 
