@@ -25,5 +25,8 @@ public:
 
     //get Haeuser
     int get_House();
+
+    //Grundstueck an neuen Besitzer
+    void new_property_owner(Player* player);
 };
 

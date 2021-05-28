@@ -119,6 +119,7 @@ int Property::possible_to_build_houses(int iHouses)
 	return 0;
 }
 
+
 void Property::set_House(Field* fField, int iHouses)
 {
 	
@@ -127,4 +128,9 @@ void Property::set_House(Field* fField, int iHouses)
 int Property::get_House()
 {
 	return 0;
+}
+
+void Property::new_property_owner(Player *player)
+{
+	
 }

@@ -289,13 +289,20 @@ void Board::game_Engine()
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
-			if (vPlayer.at(i)->get_Money() <= 0) 
+			if (vPlayer.at(i)->get_broke() == true) 
 			{
-				std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
-				//give_properties_to_owner();
-				//Spieler der pleite ist loeschen
-				vPlayer.erase(vPlayer.begin()+i);
-				break;
+				if (vPlayer.at(i)->get_Field()->get_Owner())
+				{
+					Player* killerplayer;
+					Player* deadplayer;
+					killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
+					deadplayer = vPlayer.at(i);
+					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
+					deadplayer->get_Field()->get_Name()->new_property_owner(deadplayer, killerplayer);
+					//Spieler der pleite ist loeschen
+					vPlayer.erase(vPlayer.begin() + i);
+					break;
+				}
 			}
 		}
 		//Festlegen, dass das Programm beendet werden soll

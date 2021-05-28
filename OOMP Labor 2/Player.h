@@ -20,6 +20,8 @@ private:
 	bool is_in_jail;
 	//Rundencounter im Gefaengnis
 	int rounds_in_jail;
+	//Bankrott Attribut
+	bool broke;
 
 public:
 	Player(Field* fField, std::string sName);
@@ -60,5 +62,11 @@ public:
 
 	//Zaehlt Runden im Gefaegnis hoch
 	void set_rounds_in_jail();
+
+	//Player pleite setzen
+	bool set_broke();
+
+	//get Geldstatus Spieler
+	bool get_broke();
 
 };

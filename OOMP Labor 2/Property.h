@@ -28,14 +28,18 @@ public:
     void enter(Player& player);
     //gibt das zugehoreige Monopol aus
     Monopoly* get_Monopoly();
-    //Haueser Preis
-    //Monopoly* get_House_price();
     //gibt den zugehoreigen Besitzer aus
     Player* get_Owner();
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
     virtual int possible_to_build_houses(int iHouses);
+        //Haeuser zaehlen
+    //int count_houses_on_properties(Field *fField, Player& player);
+        //Haeuser setzen
     virtual void set_House(Field* fField, int iHouses);
+        //Haeseranzahl auf Feld
     virtual int get_House();
+    // Grundstuecke an neuen Besitzer geben
+    virtual void new_property_owner(Player *player);
 };

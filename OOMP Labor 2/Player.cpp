@@ -127,3 +127,20 @@ void Player::set_rounds_in_jail()
 		rounds_in_jail = 0;
 	}
 }
+
+bool Player::set_broke()
+{
+	if (get_Money() <= 0)
+	{
+		return broke = true;
+	}
+	else
+	{
+		return broke = false;
+	}
+}
+
+bool Player::get_broke()
+{
+	return broke;
+}
