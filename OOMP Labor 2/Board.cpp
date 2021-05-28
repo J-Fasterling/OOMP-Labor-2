@@ -292,12 +292,17 @@ void Board::game_Engine()
 			if (vPlayer.at(i)->get_Money() <= 0) 
 			{
 				std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
-				//Festlegen, dass das Programm beendet werden soll
-				gameBreak = true;
-				break; 
+				//give_properties_to_owner();
+				//Spieler der pleite ist loeschen
+				vPlayer.erase(vPlayer.begin()+i);
+				break;
 			}
 		}
-		
+		//Festlegen, dass das Programm beendet werden soll
+		/*if (vPlayer.size() == 1)
+		{
+			gameBreak = true;
+		}*/
 
 		//Spiel wird beendet
 		if (gameBreak)
@@ -535,6 +540,11 @@ bool Board::want_to_leave_Jail(Player& player)
 	{
 		return false;
 	}
+}
+
+void Board::give_properties_to_owner()
+{
+
 }
 
 
