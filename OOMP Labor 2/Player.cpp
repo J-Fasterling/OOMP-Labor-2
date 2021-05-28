@@ -3,7 +3,7 @@
 #include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
-	: money{ 1500 }, field{ fField }, name{ sName } {}
+	: money{ 1500 }, field{ fField }, name{ sName }, is_in_jail{false} {}
 
 Player::~Player() {}
 
@@ -95,3 +95,13 @@ bool Player::want_to_buy_Houses(Property& property, Player& player)
 	}
 }
 
+void Player::is_inmate(Player& player) 
+{
+	is_in_jail = true;
+
+}
+
+void Player::prison_break(Player& player)
+{
+	is_in_jail = false;
+}

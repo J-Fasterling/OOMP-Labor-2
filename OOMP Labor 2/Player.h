@@ -16,7 +16,8 @@ private:
 	Field* field;
 	//Name des Spielers
 	std::string name;
-
+	//Ist Spieler im Gefaengnis
+	bool is_in_jail;
 
 public:
 	Player(Field* fField, std::string sName);
@@ -43,6 +44,10 @@ public:
 	//Abfrage ob Spieler Haeser kaufen will
 	bool want_to_buy_Houses(Property& property, Player& player);
 
+	//Markiert Spieler als Gefaengnis Insassen
+	void is_inmate(Player& player);
 	
+	//Spieler kommt aus dem Gefaengnis
+	void prison_break(Player& player);
 
 };

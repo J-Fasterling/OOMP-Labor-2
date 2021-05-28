@@ -252,13 +252,10 @@ void Board::game_Engine()
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{
-			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
-			if (vPlayer.at(i != 10))
-			{
-				go_X_Steps(throw_Dice(), vPlayer.at(i));
-				cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
-			}
-			/*if (vPlayer.at(i = 10) && )
+			go_X_Steps(throw_Dice(), vPlayer.at(i));
+			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
+			
+			if (vPlayer.at(i = 10) && )
 			{
 				if (want_to_leave_Jail())
 				throw_Dice();
@@ -266,7 +263,8 @@ void Board::game_Engine()
 				{
 					go_X_Steps(get_Dice(), vPlayer.at(i));
 				}
-			}*/
+			}
+
 			//Spiel wird beendet sobald ein Spieler pleite ist
 			if (vPlayer.at(i)->get_Money() <= 0) 
 			{
@@ -416,6 +414,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 					if (dice[0] == dice[1])
 					{
 						Pasch2 = true;
+						player->is_inmate(*player);
 						player->set_Field(vBoard.at(10));
 						player->get_Field()->enter(*player);
 					}

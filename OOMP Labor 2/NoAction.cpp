@@ -13,15 +13,18 @@ void NoAction::enter(Player& player)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	Field::enter(player);
-	//Spieler Geld zuschreiben
-	player.set_Money(player.get_Money() + get_money);
-	std::cout << player.get_Name() << " ist auf Los gekommen und bekommt zusaetzlich ";
-	//Konsolenschriftfarbe auf gruen setzen
-	SetConsoleTextAttribute(hConsole, 10);
-	std::cout << "200$." << std::endl;
-	//Konsolenschriftfarbe zuruecksetzen
-	SetConsoleTextAttribute(hConsole, 15); 
-	
+
+	if(player.get_Field()->get_Name() == "Go")
+	{ 
+		//Spieler Geld zuschreiben
+		player.set_Money(player.get_Money() + get_money);
+		std::cout << player.get_Name() << " ist auf Los gekommen und bekommt zusaetzlich ";
+		//Konsolenschriftfarbe auf gruen setzen
+		SetConsoleTextAttribute(hConsole, 10);
+		std::cout << "200$." << std::endl;
+		//Konsolenschriftfarbe zuruecksetzen
+		SetConsoleTextAttribute(hConsole, 15);
+	}
 }
 
 Monopoly* NoAction::get_Monopoly() 

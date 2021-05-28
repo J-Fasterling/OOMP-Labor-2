@@ -12,9 +12,11 @@ GoToJail::~GoToJail() {}
 void GoToJail::enter(Player& player)
 {
 	//Spieler in das Gefaengnis setzen
+	player.is_inmate(player);
 	player.set_Field(jail);
 	Field::enter(player);
 	std::cout << player.get_Name() << " muss ins " << player.get_Field()->get_Name() << std::endl;
+
 }
 
 Monopoly* GoToJail::get_Monopoly() 
