@@ -18,6 +18,8 @@ private:
 	std::string name;
 	//Ist Spieler im Gefaengnis
 	bool is_in_jail;
+	//Rundencounter im Gefaengnis
+	int rounds_in_jail;
 
 public:
 	Player(Field* fField, std::string sName);
@@ -52,5 +54,11 @@ public:
 
 	//Gibt aus ob im Gefaengnis
 	bool get_is_in_jail();
+
+	//Gibt Runden im Gefaengnis zurueck
+	int get_rounds_in_jail();
+
+	//Zaehlt Runden im Gefaegnis hoch
+	void set_rounds_in_jail();
 
 };

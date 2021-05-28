@@ -252,15 +252,35 @@ void Board::game_Engine()
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{	
-			if (vPlayer.at(i = 10) && vPlayer.at(i)->get_is_in_jail() == true)
+			//Falls Spieler im Gefaengnis
+			if (vPlayer.at(i)->get_is_in_jail() == true)
 			{
-				if (want_to_leave_Jail())
-				throw_Dice();
-				if ( dice[0] == dice[1])
+				vPlayer.at(i)->set_rounds_in_jail();
+				bool leavejail = want_to_leave_Jail(*vPlayer.at(i));
+				if (leavejail == false)
 				{
+					throw_Dice();
+					if (dice[0] == dice[1])
+					{
+						go_X_Steps(get_Dice(), vPlayer.at(i));
+						vPlayer.at(i)->prison_break(*vPlayer.at(i));
+					}						
+					if (vPlayer.at(i)->get_rounds_in_jail() == 3 && dice[0] != dice[1])
+					{
+						cout << vPlayer.at(i)->get_Name() << " ist in der dritten Runde im Gefaengnis, hat keinen Pasch gewuerfelt und muss sich fuer 50$ freikaufen." << endl;
+						vPlayer.at(i)->set_Money(vPlayer.at(i)->get_Money() - 50);
+						go_X_Steps(get_Dice(), vPlayer.at(i));
+						vPlayer.at(i)->prison_break(*vPlayer.at(i));
+					}					
+				}
+				if (leavejail == true)
+				{
+					throw_Dice();
 					go_X_Steps(get_Dice(), vPlayer.at(i));
+					vPlayer.at(i)->prison_break(*vPlayer.at(i));
 				}
 			}
+			//Falls Spieler nicht im Gefaengnis ist
 			else
 			{
 				go_X_Steps(throw_Dice(), vPlayer.at(i));
@@ -358,7 +378,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 	cout << endl;
 
 	//Wuerfelaugen auf Pasch ueberpruefen
-	if (dice[0] == dice[1], player->get_is_in_jail() == false)
+	if (dice[0] == dice[1])
 	{
 		Pasch = true;
 
@@ -380,7 +400,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 		player->get_Field()->enter(*player);
 		//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-		if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
+		if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis", player->get_is_in_jail() == false)
 		{
 			throw_Dice();
 			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
@@ -466,7 +486,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 	}
 	//Falls kein Pasch
-	if (!Pasch, player->get_is_in_jail() == true)
+	if (!Pasch)
 	{
 		//so viele Felder wie gewuerfelt fortbewegen
 		for (int i = 0; i <= iDice - 1; i++)
@@ -487,8 +507,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 	}
 }
 
-
-bool Board::want_to_leave_Jail(Field* fField, Player& player)
+bool Board::want_to_leave_Jail(Player& player)
 {
 	//Eingabechar
 	char eingabe;
@@ -509,6 +528,7 @@ bool Board::want_to_leave_Jail(Field* fField, Player& player)
 	//j = true / n = false
 	if (eingabe == 'j')
 	{
+		player.set_Money(player.get_Money() - 50);
 		return true;
 	}
 	else

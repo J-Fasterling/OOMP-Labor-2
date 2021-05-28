@@ -55,6 +55,6 @@ public:
 	void set_Playmode(bool playmode);
 
 	//Abfrage ob aus Gefaengnis freikaufen
-	bool want_to_leave_Jail(Field* fField, Player& player);
+	bool want_to_leave_Jail(Player& player);
 };
 

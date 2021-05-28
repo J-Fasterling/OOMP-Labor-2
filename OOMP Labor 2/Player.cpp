@@ -3,7 +3,7 @@
 #include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
-	: money{ 1500 }, field{ fField }, name{ sName }, is_in_jail{false} {}
+	: money{ 1500 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }{}
 
 Player::~Player() {}
 
@@ -109,4 +109,21 @@ void Player::prison_break(Player& player)
 bool Player::get_is_in_jail()
 {
 	return is_in_jail;
+}
+
+int Player::get_rounds_in_jail()
+{
+	return rounds_in_jail;
+}
+
+void Player::set_rounds_in_jail()
+{
+	if (is_in_jail == true)
+	{
+		rounds_in_jail++;
+	}
+	else
+	{
+		rounds_in_jail = 0;
+	}
 }
