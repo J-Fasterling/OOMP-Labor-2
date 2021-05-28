@@ -105,3 +105,8 @@ void Player::prison_break(Player& player)
 {
 	is_in_jail = false;
 }
+
+bool Player::get_is_in_jail()
+{
+	return is_in_jail;
+}

@@ -50,4 +50,7 @@ public:
 	//Spieler kommt aus dem Gefaengnis
 	void prison_break(Player& player);
 
+	//Gibt aus ob im Gefaengnis
+	bool get_is_in_jail();
+
 };

@@ -251,11 +251,8 @@ void Board::game_Engine()
 
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
-		{
-			go_X_Steps(throw_Dice(), vPlayer.at(i));
-			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
-			
-			if (vPlayer.at(i = 10) && )
+		{	
+			if (vPlayer.at(i = 10) && vPlayer.at(i)->get_is_in_jail() == true)
 			{
 				if (want_to_leave_Jail())
 				throw_Dice();
@@ -264,6 +261,12 @@ void Board::game_Engine()
 					go_X_Steps(get_Dice(), vPlayer.at(i));
 				}
 			}
+			else
+			{
+				go_X_Steps(throw_Dice(), vPlayer.at(i));
+			}
+
+			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
 			if (vPlayer.at(i)->get_Money() <= 0) 
@@ -355,7 +358,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 	cout << endl;
 
 	//Wuerfelaugen auf Pasch ueberpruefen
-	if (dice[0] == dice[1])
+	if (dice[0] == dice[1], player->get_is_in_jail() == false)
 	{
 		Pasch = true;
 
@@ -463,7 +466,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 	}
 	//Falls kein Pasch
-	if (!Pasch)
+	if (!Pasch, player->get_is_in_jail() == true)
 	{
 		//so viele Felder wie gewuerfelt fortbewegen
 		for (int i = 0; i <= iDice - 1; i++)
