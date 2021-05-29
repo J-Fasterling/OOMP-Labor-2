@@ -30,6 +30,8 @@ public:
     Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* get_Owner();
+    Player* set_Owner_Bank();
+    Player* set_Owner_Player(Player& player);
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
@@ -41,5 +43,5 @@ public:
         //Haeseranzahl auf Feld
     virtual int get_House();
     // Grundstuecke an neuen Besitzer geben
-    virtual void new_property_owner(Player *player);
+    void new_property_owner(Player &deadplayer, Player &killerplayer);
 };

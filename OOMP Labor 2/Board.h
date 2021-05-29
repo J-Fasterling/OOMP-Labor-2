@@ -59,5 +59,6 @@ public:
 
 	//Spieler pleite seine Grundstuecke abgeben
 	void give_properties_to_owner();
+	void give_properties_to_bank(Player &player);
 };
 

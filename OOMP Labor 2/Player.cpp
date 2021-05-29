@@ -3,7 +3,7 @@
 #include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
-	: money{ 1500 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }{}
+	: money{ 201 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
 
 Player::~Player() {}
 
@@ -95,10 +95,14 @@ bool Player::want_to_buy_Houses(Property& property, Player& player)
 	}
 }
 
+/*Property* Player::set_Imperium()
+{
+	return imperium;
+}*/
+
 void Player::is_inmate(Player& player) 
 {
 	is_in_jail = true;
-
 }
 
 void Player::prison_break(Player& player)
@@ -130,7 +134,7 @@ void Player::set_rounds_in_jail()
 
 bool Player::set_broke()
 {
-	if (get_Money() <= 0)
+	if (money < 0)
 	{
 		return broke = true;
 	}

@@ -80,8 +80,14 @@ void Property::enter(Player& player)
 				owner = &player;
 
 				std::cout << player.get_Name() << " ist nun Inhaber von " << this->get_Name() << std::endl;
-				int test = player.get_Field()->get_Monopoly()->count_owned_properties(player);
-				std::cout << "Monopole: " << test << std::endl;
+				int i = 0;
+				while (player.imperium[i] != NULL)
+				{
+					i++;
+				}
+				player.imperium[i] = this;
+				int cntprop = player.get_Field()->get_Monopoly()->count_owned_properties(player);
+				std::cout << "Monopole: " << cntprop << std::endl;
 			}
 			else 
 			{
@@ -107,6 +113,15 @@ Player* Property::get_Owner()
 	return owner;
 }
 
+Player* Property::set_Owner_Bank()
+{
+	return owner = NULL;
+}
+
+Player* Property::set_Owner_Player(Player &player)
+{
+	return owner = &player;
+}
 
 int Property::get_Value()
 {
@@ -130,7 +145,19 @@ int Property::get_House()
 	return 0;
 }
 
-void Property::new_property_owner(Player *player)
+void Property::new_property_owner(Player& deadplayer, Player& killerplayer)
 {
-	
+	int i = 0;
+	int j = 0;
+
+	while (deadplayer.imperium[i] != NULL)
+	{
+		while (killerplayer.imperium[j] != NULL)
+		{
+			j++;
+		}
+		killerplayer.imperium[j] = deadplayer.imperium[i];
+		killerplayer.imperium[j]->set_Owner_Player(killerplayer);
+		i++;
+	}
 }

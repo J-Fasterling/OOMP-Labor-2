@@ -52,8 +52,3 @@ int Street::get_House()
 {
 	return houses;
 }
-
-void Street::new_property_owner(Player* player)
-{
-
-}

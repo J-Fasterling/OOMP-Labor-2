@@ -289,6 +289,9 @@ void Board::game_Engine()
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
+			
+			vPlayer.at(i)->set_broke();
+
 			if (vPlayer.at(i)->get_broke() == true) 
 			{
 				if (vPlayer.at(i)->get_Field()->get_Owner())
@@ -297,9 +300,16 @@ void Board::game_Engine()
 					Player* deadplayer;
 					killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
 					deadplayer = vPlayer.at(i);
-					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
-					deadplayer->get_Field()->get_Name()->new_property_owner(deadplayer, killerplayer);
+					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren und verliert seine Grundstuecke an " << killerplayer->get_Name() << endl;
+					deadplayer->imperium[i]->new_property_owner(*deadplayer, *killerplayer);
 					//Spieler der pleite ist loeschen
+					vPlayer.erase(vPlayer.begin() + i);
+					break;
+				}
+				if (vPlayer.at(i)->get_Field()->get_Name() == "Einkommenssteuer" || "Zusatzsteuer" || "Gefaengnis" || "Ereignisfeld" || "Gemeinschaftsfeld")
+				{
+					give_properties_to_bank(*vPlayer.at(i));
+					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl;
 					vPlayer.erase(vPlayer.begin() + i);
 					break;
 				}
@@ -411,89 +421,99 @@ void Board::go_X_Steps(int iDice, Player* player)
 			}
 		}
 		player->get_Field()->enter(*player);
-		//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-		if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis", player->get_is_in_jail() == false)
+		player->set_broke();
+		if (player->get_broke() == false)
 		{
-			throw_Dice();
-			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
-			cout << endl; 
+			//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
+			if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis", player->get_is_in_jail() == false)
+			{
+				throw_Dice();
+				cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+				cout << endl;
 
-			int iDice2 = get_Dice();
-			//Zweiter Pasch
-			if (dice[0] == dice[1])
-			{	 
-
-				for (int i = 0; i <= iDice2 - 1; i++)
+				int iDice2 = get_Dice();
+				//Zweiter Pasch
+				if (dice[0] == dice[1])
 				{
-					player->set_Field(player->get_Field()->get_Next());
-					if (player->get_Field()->get_Name() == "Go")
-					{
-						player->set_Money(player->get_Money() + 200);
-						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-						SetConsoleTextAttribute(hConsole, 10);
-						std::cout << "200$." << std::endl;
-						SetConsoleTextAttribute(hConsole, 15);
 
-					}
-				}
-				player->get_Field()->enter(*player);
-				//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-				if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
-				{
-					throw_Dice();
-					cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
-					cout << endl;
-
-					int iDice3 = get_Dice();
-					//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
-					if (dice[0] == dice[1])
+					for (int i = 0; i <= iDice2 - 1; i++)
 					{
-						Pasch2 = true;
-						player->is_inmate(*player);
-						player->set_Field(vBoard.at(10));
-						player->get_Field()->enter(*player);
-					}
-
-					//kein dritter Pasch
-					if (dice[0] != dice[1])
-					{
-						Pasch2 = true;
-						for (int i = 0; i <= iDice3 - 1; i++)
+						player->set_Field(player->get_Field()->get_Next());
+						if (player->get_Field()->get_Name() == "Go")
 						{
-							player->set_Field(player->get_Field()->get_Next());
-							if (player->get_Field()->get_Name() == "Go")
-							{
-								player->set_Money(player->get_Money() + 200);
-								std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-								SetConsoleTextAttribute(hConsole, 10);
-								std::cout << "200$." << std::endl;
-								SetConsoleTextAttribute(hConsole, 15);
+							player->set_Money(player->get_Money() + 200);
+							std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+							SetConsoleTextAttribute(hConsole, 10);
+							std::cout << "200$." << std::endl;
+							SetConsoleTextAttribute(hConsole, 15);
 
+						}
+					}
+					player->get_Field()->enter(*player);
+					player->set_broke();
+					if (player->get_broke() == false)
+					{
+						//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
+						if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
+						{
+							throw_Dice();
+							cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+							cout << endl;
+
+							int iDice3 = get_Dice();
+							//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
+							if (dice[0] == dice[1])
+							{
+								Pasch2 = true;
+								player->is_inmate(*player);
+								player->set_Field(vBoard.at(10));
+								player->get_Field()->enter(*player);
+							}
+
+							//kein dritter Pasch
+							if (dice[0] != dice[1])
+							{
+								Pasch2 = true;
+								for (int i = 0; i <= iDice3 - 1; i++)
+								{
+									player->set_Field(player->get_Field()->get_Next());
+									if (player->get_Field()->get_Name() == "Go")
+									{
+										player->set_Money(player->get_Money() + 200);
+										std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+										SetConsoleTextAttribute(hConsole, 10);
+										std::cout << "200$." << std::endl;
+										SetConsoleTextAttribute(hConsole, 15);
+
+									}
+								}
+								player->get_Field()->enter(*player);
+								player->set_broke();
 							}
 						}
-						player->get_Field()->enter(*player);
 					}
 				}
-			}
-			//kein zweiter Pasch
-			if (!Pasch2)
-			{
-				//so viele Felder wie gewuerfelt fortbewegen
-				for (int i = 0; i <= iDice2 - 1; i++)
+				//kein zweiter Pasch
+				if (!Pasch2)
 				{
-					//Aktuelles Feld auf das nachfolgende setzen
-					player->set_Field(player->get_Field()->get_Next());
-					if (player->get_Field()->get_Name() == "Go")
+					//so viele Felder wie gewuerfelt fortbewegen
+					for (int i = 0; i <= iDice2 - 1; i++)
 					{
-						player->set_Money(player->get_Money() + 200);
-						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-						SetConsoleTextAttribute(hConsole, 10);
-						std::cout << "200$." << std::endl;
-						SetConsoleTextAttribute(hConsole, 15);
+						//Aktuelles Feld auf das nachfolgende setzen
+						player->set_Field(player->get_Field()->get_Next());
+						if (player->get_Field()->get_Name() == "Go")
+						{
+							player->set_Money(player->get_Money() + 200);
+							std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+							SetConsoleTextAttribute(hConsole, 10);
+							std::cout << "200$." << std::endl;
+							SetConsoleTextAttribute(hConsole, 15);
+						}
 					}
+					//Ausgabe des aktuellen Felds
+					player->get_Field()->enter(*player);
+					player->set_broke();
 				}
-				//Ausgabe des aktuellen Felds
-				player->get_Field()->enter(*player);
 			}
 		}
 	}
@@ -516,6 +536,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 		//Ausgabe des aktuellen Felds
 		player->get_Field()->enter(*player);
+		player->set_broke();
 	}
 }
 
@@ -549,11 +570,16 @@ bool Board::want_to_leave_Jail(Player& player)
 	}
 }
 
-void Board::give_properties_to_owner()
+
+void Board::give_properties_to_bank(Player &player)
 {
-
+	int i = 0;
+	while (player.imperium[i] != NULL)
+	{
+		player.imperium[i]->set_Owner_Bank();
+		i++;
+	}
 }
-
 
 void Board::set_Monopolies() {
 
