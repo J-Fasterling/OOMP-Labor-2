@@ -1,6 +1,6 @@
 #include "Street.h"
 
-Street::Street(std::string _name, int _value, Monopoly* _monopoly,
+Street::Street(std::string _name, int _value, Monopoly* _monopoly, int price_for_house,
 	int m1, int m2, int m3, int m4, int m5, int m6)
 	: Property(_name, _value, _monopoly), houses {0}
 {
@@ -31,11 +31,11 @@ int Street::get_rent()
 	}
 }
 
-int Street::build_houses()
+int Street::possible_to_build_houses(int iHouses)
 {
-	if (houses < 5)
+	if (iHouses < 5)
 	{
-		return houses + 1;
+		return 1;
 	}
 	else
 	{
@@ -43,3 +43,12 @@ int Street::build_houses()
 	}
 }
 
+void Street::set_House(Field* fField, int iHouses)
+{
+	houses = iHouses + 1;
+}
+
+int Street::get_House()
+{
+	return houses;
+}

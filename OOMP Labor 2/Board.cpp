@@ -34,83 +34,83 @@ Board::Board()
 	//Fuellen des Spielbretts
 	Field* Go = new NoAction(200, "Go");
 	vBoard.push_back(Go);
-	Field* sBad = new Street("Badstrasse", 60, monopolies[0], 2, 10, 30, 90, 160, 250);
+	Field* sBad = new Street("Badstrasse", 60, monopolies[0], monopolies[0]->get_PriceforHouse(), 2, 10, 30, 90, 160, 250);
 	vBoard.push_back(sBad);
 	Field* aGem1 = new ActionField("Gemeinschaftsfeld");
 	vBoard.push_back(aGem1);
-	Field* sTurm = new Street("Turmstrasse", 60, monopolies[0], 4, 20, 60, 180, 320, 450);
+	Field* sTurm = new Street("Turmstrasse", 60, monopolies[0], monopolies[0]->get_PriceforHouse(), 4, 20, 60, 180, 320, 450);
 	vBoard.push_back(sTurm);
 	Field* tTax1 = new Tax(200, "Einkommensteuer");
 	vBoard.push_back(tTax1);
 	Field* rBahn1 = new Railroad("Suedbahnhof", monopolies[8]);
 	vBoard.push_back(rBahn1);
-	Field* sRing = new Street("Bohlweg", 100, monopolies[1], 6, 30, 90, 270, 400, 550);
+	Field* sRing = new Street("Bohlweg", 100, monopolies[1], monopolies[1]->get_PriceforHouse(), 6, 30, 90, 270, 400, 550);
 	vBoard.push_back(sRing);
 	Field* aGem2 = new ActionField("Ereignisfeld");
 	vBoard.push_back(aGem2);
-	Field* sCel = new Street("Celler Strasse", 100, monopolies[1], 6, 30, 90, 270, 400, 550);
+	Field* sCel = new Street("Celler Strasse", 100, monopolies[1], monopolies[1]->get_PriceforHouse(), 6, 30, 90, 270, 400, 550);
 	vBoard.push_back(sCel);
-	Field* sHanse = new Street("Hansestrasse", 120, monopolies[1], 8, 40, 100, 400, 450, 600);
+	Field* sHanse = new Street("Hansestrasse", 120, monopolies[1], monopolies[1]->get_PriceforHouse(), 8, 40, 100, 400, 450, 600);
 	vBoard.push_back(sHanse);
 	Field* gef1 = new ActionField("Gefaengnis");
 	vBoard.push_back(gef1);
-	Field* sHein = new Street("HeinrichNordhoff Strasse", 140, monopolies[2], 10, 50, 150, 450, 625, 750);
+	Field* sHein = new Street("HeinrichNordhoff Strasse", 140, monopolies[2], monopolies[2]->get_PriceforHouse(), 10, 50, 150, 450, 625, 750);
 	vBoard.push_back(sHein);
 	Field* uElek = new Utility("Elektrizitaetswerk", monopolies[9]);
 	vBoard.push_back(uElek);
-	Field* sFried = new Street("Friedrich Ebert Strasse", 140, monopolies[2], 10, 50, 150, 450, 625, 750);
+	Field* sFried = new Street("Friedrich Ebert Strasse", 140, monopolies[2], monopolies[2]->get_PriceforHouse(), 10, 50, 150, 450, 625, 750);
 	vBoard.push_back(sFried);
-	Field* sPorsch = new Street("Porsche Strasse", 160, monopolies[2], 12, 60, 180, 500, 700, 900);
+	Field* sPorsch = new Street("Porsche Strasse", 160, monopolies[2], monopolies[2]->get_PriceforHouse(), 12, 60, 180, 500, 700, 900);
 	vBoard.push_back(sPorsch);
 	Field* rBahn2 = new Railroad("Westbahnhof", monopolies[8]);
 	vBoard.push_back(rBahn2);
-	Field* sMuen = new Street("Muenchenerstrasse", 180, monopolies[3], 14, 70, 200, 550, 750, 950);
+	Field* sMuen = new Street("Muenchenerstrasse", 180, monopolies[3], monopolies[3]->get_PriceforHouse(), 14, 70, 200, 550, 750, 950);
 	vBoard.push_back(sMuen);
 	Field* aGem3 = new ActionField("Ereignisfeld");
 	vBoard.push_back(aGem3);
-	Field* sWien = new Street("Wiener Strasse", 180, monopolies[3], 14, 70, 200, 550, 750, 950);
+	Field* sWien = new Street("Wiener Strasse", 180, monopolies[3], monopolies[3]->get_PriceforHouse(), 14, 70, 200, 550, 750, 950);
 	vBoard.push_back(sWien);
-	Field* sBerlin = new Street("Berliner Strasse", 200, monopolies[3], 16, 80, 220, 600, 800, 1000);
+	Field* sBerlin = new Street("Berliner Strasse", 200, monopolies[3], monopolies[3]->get_PriceforHouse(), 16, 80, 220, 600, 800, 1000);
 	vBoard.push_back(sBerlin);
 	Field* naNoPark = new NoAction(0, "Frei Parken");
 	vBoard.push_back(naNoPark);
-	Field* sFifth = new Street("Fifth Avenue", 220, monopolies[4], 18, 90, 250, 700, 875, 1050);
+	Field* sFifth = new Street("Fifth Avenue", 220, monopolies[4], monopolies[4]->get_PriceforHouse(), 18, 90, 250, 700, 875, 1050);
 	vBoard.push_back(sFifth);
 	Field* aGem4 = new ActionField("Ereignisfeld");
 	vBoard.push_back(aGem4);
-	Field* sBroad = new Street("Broadway", 220, monopolies[4], 18, 90, 250, 700, 875, 1050);
+	Field* sBroad = new Street("Broadway", 220, monopolies[4], monopolies[4]->get_PriceforHouse(), 18, 90, 250, 700, 875, 1050);
 	vBoard.push_back(sBroad);
-	Field* sTime = new Street("Times Square", 200, monopolies[4], 20, 100, 300, 750, 925, 1100);
+	Field* sTime = new Street("Times Square", 200, monopolies[4], monopolies[4]->get_PriceforHouse(), 20, 100, 300, 750, 925, 1100);
 	vBoard.push_back(sTime);
 	Field* rBahn3 = new Railroad("Nordbahnhof", monopolies[8]);
 	vBoard.push_back(rBahn3);
-	Field* sLess = new Street("Lessingstrasse", 260, monopolies[5], 22, 110, 330, 800, 975, 1150);
+	Field* sLess = new Street("Lessingstrasse", 260, monopolies[5], monopolies[5]->get_PriceforHouse(), 22, 110, 330, 800, 975, 1150);
 	vBoard.push_back(sLess);
-	Field* sSchi = new Street("Schillerstrasse", 260, monopolies[5], 22, 110, 330, 800, 975, 1150);
+	Field* sSchi = new Street("Schillerstrasse", 260, monopolies[5], monopolies[5]->get_PriceforHouse(), 22, 110, 330, 800, 975, 1150);
 	vBoard.push_back(sSchi);
 	Field* uWass = new Utility("Wasserwerk", monopolies[9]);
 	vBoard.push_back(uWass);
-	Field* sGoet = new Street("Goethestrasse", 280, monopolies[5], 24, 120, 360, 850, 1025, 1200);
+	Field* sGoet = new Street("Goethestrasse", 280, monopolies[5], monopolies[5]->get_PriceforHouse(), 24, 120, 360, 850, 1025, 1200);
 	vBoard.push_back(sGoet);
 	Field* gGTJ = new GoToJail("Gehe ins Gefaengnis", gef1);
 	vBoard.push_back(gGTJ);
-	Field* sBoule = new Street("Boulevard South", 300, monopolies[6], 26, 130, 390, 900, 1100, 1275);
+	Field* sBoule = new Street("Boulevard South", 300, monopolies[6], monopolies[6]->get_PriceforHouse(), 26, 130, 390, 900, 1100, 1275);
 	vBoard.push_back(sBoule);
 	Field* aGem5 = new ActionField("Gemeinschaftsfeld");
 	vBoard.push_back(aGem5);
-	Field* sHigh = new Street("Highway 1", 300, monopolies[6], 26, 130, 390, 900, 1100, 1275);
+	Field* sHigh = new Street("Highway 1", 300, monopolies[6], monopolies[6]->get_PriceforHouse(), 26, 130, 390, 900, 1100, 1275);
 	vBoard.push_back(sHigh);
-	Field* sRoute = new Street("Route 66", 320, monopolies[6], 28, 150, 450, 1000, 1200, 1400);
+	Field* sRoute = new Street("Route 66", 320, monopolies[6], monopolies[6]->get_PriceforHouse(), 28, 150, 450, 1000, 1200, 1400);
 	vBoard.push_back(sRoute);
 	Field* rBahn4 = new Railroad("Hauptbahnhof", monopolies[8]);
 	vBoard.push_back(rBahn4);
 	Field* aGem6 = new ActionField("Ereignisfeld");
 	vBoard.push_back(aGem6);
-	Field* sPark = new Street("Parkstrasse", 350, monopolies[7], 35, 175, 500, 1100, 1300, 1500);
+	Field* sPark = new Street("Parkstrasse", 350, monopolies[7], monopolies[7]->get_PriceforHouse(), 35, 175, 500, 1100, 1300, 1500);
 	vBoard.push_back(sPark);
 	Field* tTax2 = new Tax(100, "Zusatzsteuer");
 	vBoard.push_back(tTax2);
-	Field* sSchl = new Street("Schlossallee", 400, monopolies[7], 50, 200, 600, 1400, 1700, 2000);
+	Field* sSchl = new Street("Schlossallee", 400, monopolies[7], monopolies[7]->get_PriceforHouse(), 50, 200, 600, 1400, 1700, 2000);
 	vBoard.push_back(sSchl);
 
 	//Verknuepfung der Felder
@@ -251,21 +251,75 @@ void Board::game_Engine()
 
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
-		{
-			//Spieler bewegt sich auf dem Feld X Schritte vorwaerts
-			go_X_Steps(throw_Dice(), vPlayer.at(i));
+		{	
+			//Falls Spieler im Gefaengnis
+			if (vPlayer.at(i)->get_is_in_jail() == true)
+			{
+				vPlayer.at(i)->set_rounds_in_jail();
+				bool leavejail = want_to_leave_Jail(*vPlayer.at(i));
+				if (leavejail == false)
+				{
+					throw_Dice();
+					if (dice[0] == dice[1])
+					{
+						go_X_Steps(get_Dice(), vPlayer.at(i));
+						vPlayer.at(i)->prison_break(*vPlayer.at(i));
+					}						
+					if (vPlayer.at(i)->get_rounds_in_jail() == 3 && dice[0] != dice[1])
+					{
+						cout << vPlayer.at(i)->get_Name() << " ist in der dritten Runde im Gefaengnis, hat keinen Pasch gewuerfelt und muss sich fuer 50$ freikaufen." << endl;
+						vPlayer.at(i)->set_Money(vPlayer.at(i)->get_Money() - 50);
+						go_X_Steps(get_Dice(), vPlayer.at(i));
+						vPlayer.at(i)->prison_break(*vPlayer.at(i));
+					}					
+				}
+				if (leavejail == true)
+				{
+					throw_Dice();
+					go_X_Steps(get_Dice(), vPlayer.at(i));
+					vPlayer.at(i)->prison_break(*vPlayer.at(i));
+				}
+			}
+			//Falls Spieler nicht im Gefaengnis ist
+			else
+			{
+				go_X_Steps(throw_Dice(), vPlayer.at(i));
+			}
+
 			cout << vPlayer.at(i)->get_Name() << " hat noch " << vPlayer.at(i)->get_Money() << "$." << endl << endl;
 
 			//Spiel wird beendet sobald ein Spieler pleite ist
-			if (vPlayer.at(i)->get_Money() <= 0) 
+			
+			vPlayer.at(i)->set_broke();
+
+			if (vPlayer.at(i)->get_broke() == true) 
 			{
-				std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren :(" << endl;
-				//Festlegen, dass das Programm beendet werden soll
-				gameBreak = true;
-				break; 
+				if (vPlayer.at(i)->get_Field()->get_Owner())
+				{
+					Player* killerplayer;
+					Player* deadplayer;
+					killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
+					deadplayer = vPlayer.at(i);
+					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren und verliert seine Grundstuecke an " << killerplayer->get_Name() << endl;
+					deadplayer->imperium[i]->new_property_owner(*deadplayer, *killerplayer);
+					//Spieler der pleite ist loeschen
+					vPlayer.erase(vPlayer.begin() + i);
+					break;
+				}
+				if (vPlayer.at(i)->get_Field()->get_Name() == "Einkommenssteuer" || "Zusatzsteuer" || "Gefaengnis" || "Ereignisfeld" || "Gemeinschaftsfeld")
+				{
+					give_properties_to_bank(*vPlayer.at(i));
+					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl;
+					vPlayer.erase(vPlayer.begin() + i);
+					break;
+				}
 			}
 		}
-		
+		//Festlegen, dass das Programm beendet werden soll
+		/*if (vPlayer.size() == 1)
+		{
+			gameBreak = true;
+		}*/
 
 		//Spiel wird beendet
 		if (gameBreak)
@@ -288,36 +342,36 @@ int Board::throw_Dice()
 	else
 	{
 		//Augenzahl des 1. Wuerfel eingeben
-		cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+		cout << endl;
+		cout << "Gib die Augenzahl fuer den ersten Wuerfel zwischen 1 & 6 ein: ";
 		cin >> dice[0];
 
 		//Fehlerhafte Eingabe
-		while (std::cin.fail() || dice[0] < 1 || dice[0] > 6)
+		while (std::cin.fail() || dice[0] < 0 || dice[0] > 6)
 		{
 			cin.clear();
 			cin.ignore();
 			cout << "Fehlerhafte eingabe! " << endl;
-			cout << "Gib die Augenzahl fuer den ersten Wuerfel ein: ";
+			cout << "Gib die Augenzahl fuer den ersten Wuerfel 1 & 6 ein: ";
 			cin >> dice[0];
 		}
 
 		//Augenzahl des 2. Wuerfel eingeben
-		cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+		cout << "Gib die Augenzahl fuer den zweiten Wuerfel 1 & 6 ein: ";
 		cin >> dice[1];
 
 		//Fehlerhafte Eingabe
-		while (std::cin.fail() || dice[1] < 1  || dice[1] > 6)
+		while (std::cin.fail() || dice[1] < 0  || dice[1] > 6)
 		{
 			cin.clear();
 			cin.ignore();
 			cout << "Fehlerhafte eingabe! " << endl;
-			cout << "Gib die Augenzahl fuer den zweiten Wuerfel ein: ";
+			cout << "Gib die Augenzahl fuer den zweiten Wuerfel 1 & 6 ein: ";
 			cin >> dice[1];
 		}
 	}
 	return dice[0] + dice[1];
 }
-
 
 int Board::get_Dice()
 {
@@ -340,8 +394,10 @@ void Board::go_X_Steps(int iDice, Player* player)
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	//bool ob ein Pasch gewuerfelt wurde
 	bool Pasch = false;
+	bool Pasch2 = false;
 
 	cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+	cout << endl;
 
 	//Wuerfelaugen auf Pasch ueberpruefen
 	if (dice[0] == dice[1])
@@ -365,87 +421,102 @@ void Board::go_X_Steps(int iDice, Player* player)
 			}
 		}
 		player->get_Field()->enter(*player);
-		//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-		if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
+		player->set_broke();
+		if (player->get_broke() == false)
 		{
-			throw_Dice();
-			cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
-
-			//Zweiter Pasch
-			if (dice[0] == dice[1])
+			//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
+			if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis", player->get_is_in_jail() == false)
 			{
-				for (int i = 0; i <= iDice - 1; i++)
+				throw_Dice();
+				cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+				cout << endl;
+
+				int iDice2 = get_Dice();
+				//Zweiter Pasch
+				if (dice[0] == dice[1])
 				{
-					player->set_Field(player->get_Field()->get_Next());
-					if (player->get_Field()->get_Name() == "Go")
-					{
-						player->set_Money(player->get_Money() + 200);
-						std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-						SetConsoleTextAttribute(hConsole, 10);
-						std::cout << "200$." << std::endl;
-						SetConsoleTextAttribute(hConsole, 15);
 
-					}
-				}
-				player->get_Field()->enter(*player);
-				//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-				if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
-				{
-					throw_Dice();
-					cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
-
-					//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
-					if (dice[0] == dice[1])
+					for (int i = 0; i <= iDice2 - 1; i++)
 					{
-						player->set_Field(vBoard.at(10));
-						player->get_Field()->enter(*player);
-					}
-
-					//kein dritter Pasch
-					else
-					{
-						//so viele Felder wie gewuerfelt fortbewegen
-						for (int i = 0; i <= iDice - 1; i++)
+						player->set_Field(player->get_Field()->get_Next());
+						if (player->get_Field()->get_Name() == "Go")
 						{
-							//Aktuelles Feld auf das nachfolgende setzen
-							player->set_Field(player->get_Field()->get_Next());
-							if (player->get_Field()->get_Name() == "Go")
+							player->set_Money(player->get_Money() + 200);
+							std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+							SetConsoleTextAttribute(hConsole, 10);
+							std::cout << "200$." << std::endl;
+							SetConsoleTextAttribute(hConsole, 15);
+
+						}
+					}
+					player->get_Field()->enter(*player);
+					player->set_broke();
+					if (player->get_broke() == false)
+					{
+						//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
+						if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis")
+						{
+							throw_Dice();
+							cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
+							cout << endl;
+
+							int iDice3 = get_Dice();
+							//Bei dreimaligem Pasch muss der Spieler ins Gefaengnis
+							if (dice[0] == dice[1])
 							{
-								player->set_Money(player->get_Money() + 200);
-								std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-								SetConsoleTextAttribute(hConsole, 10);
-								std::cout << "200$." << std::endl;
-								SetConsoleTextAttribute(hConsole, 15);
+								Pasch2 = true;
+								player->is_inmate(*player);
+								player->set_Field(vBoard.at(10));
+								player->get_Field()->enter(*player);
+							}
+
+							//kein dritter Pasch
+							if (dice[0] != dice[1])
+							{
+								Pasch2 = true;
+								for (int i = 0; i <= iDice3 - 1; i++)
+								{
+									player->set_Field(player->get_Field()->get_Next());
+									if (player->get_Field()->get_Name() == "Go")
+									{
+										player->set_Money(player->get_Money() + 200);
+										std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+										SetConsoleTextAttribute(hConsole, 10);
+										std::cout << "200$." << std::endl;
+										SetConsoleTextAttribute(hConsole, 15);
+
+									}
+								}
+								player->get_Field()->enter(*player);
+								player->set_broke();
 							}
 						}
-						//Ausgabe des aktuellen Felds
-						player->get_Field()->enter(*player);
 					}
 				}
-			}
-		}
-		//kein zweiter Pasch
-		else
-		{
-			//so viele Felder wie gewuerfelt fortbewegen
-			for (int i = 0; i <= iDice - 1; i++)
-			{
-				//Aktuelles Feld auf das nachfolgende setzen
-				player->set_Field(player->get_Field()->get_Next());
-				if (player->get_Field()->get_Name() == "Go")
+				//kein zweiter Pasch
+				if (!Pasch2)
 				{
-					player->set_Money(player->get_Money() + 200);
-					std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
-					SetConsoleTextAttribute(hConsole, 10);
-					std::cout << "200$." << std::endl;
-					SetConsoleTextAttribute(hConsole, 15);
+					//so viele Felder wie gewuerfelt fortbewegen
+					for (int i = 0; i <= iDice2 - 1; i++)
+					{
+						//Aktuelles Feld auf das nachfolgende setzen
+						player->set_Field(player->get_Field()->get_Next());
+						if (player->get_Field()->get_Name() == "Go")
+						{
+							player->set_Money(player->get_Money() + 200);
+							std::cout << player->get_Name() << " ist ueber Los gekommen und erhaelt ";
+							SetConsoleTextAttribute(hConsole, 10);
+							std::cout << "200$." << std::endl;
+							SetConsoleTextAttribute(hConsole, 15);
+						}
+					}
+					//Ausgabe des aktuellen Felds
+					player->get_Field()->enter(*player);
+					player->set_broke();
 				}
 			}
-			//Ausgabe des aktuellen Felds
-			player->get_Field()->enter(*player);
 		}
 	}
-
 	//Falls kein Pasch
 	if (!Pasch)
 	{
@@ -465,11 +536,50 @@ void Board::go_X_Steps(int iDice, Player* player)
 		}
 		//Ausgabe des aktuellen Felds
 		player->get_Field()->enter(*player);
+		player->set_broke();
 	}
-
-	
 }
 
+bool Board::want_to_leave_Jail(Player& player)
+{
+	//Eingabechar
+	char eingabe;
+	std::cout << player.get_Name() << " hat noch " << player.get_Money() << " $." << std::endl;
+	std::cout << "Moechtest du dich aus dem Gefaengnis freikaufen? (j/n): ";
+	std::cin >> eingabe;
+
+	//Fehlerhafte Eingabe !(j/n) abfangen
+	while (std::cin.fail() || (eingabe != 'j' && eingabe != 'n'))
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << "Fehlerhafte eingabe! " << std::endl;
+		std::cout << "Moechtest du dich aus dem Gefaengnis freikaufen?  (j/n): ";
+		std::cin >> eingabe;
+	}
+
+	//j = true / n = false
+	if (eingabe == 'j')
+	{
+		player.set_Money(player.get_Money() - 50);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+void Board::give_properties_to_bank(Player &player)
+{
+	int i = 0;
+	while (player.imperium[i] != NULL)
+	{
+		player.imperium[i]->set_Owner_Bank();
+		i++;
+	}
+}
 
 void Board::set_Monopolies() {
 

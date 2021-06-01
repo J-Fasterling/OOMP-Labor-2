@@ -40,6 +40,9 @@ public:
 	//gibt das zugehörige Monopol eines Feldes zurück
 	virtual Monopoly* get_Monopoly();
 
+	//gibt den Hauspreis zurueck
+	virtual Monopoly* get_House_price();
+
 	//Gibt den Besitzer des Felds zurueck
 	virtual Player* get_Owner();
 };

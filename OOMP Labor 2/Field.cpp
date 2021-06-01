@@ -41,10 +41,15 @@ std::string Field::get_Name()
 }
 
 
-Monopoly* Field::get_Monopoly(){
+Monopoly* Field::get_Monopoly()
+{
 	return NULL;
 }
 
+Monopoly* Field::get_House_price() 
+{
+	return NULL;
+}
 
 Player* Field::get_Owner()
 {

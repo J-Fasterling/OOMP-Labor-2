@@ -3,7 +3,7 @@
 #include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
-	: money{ 1500 }, field{ fField }, name{ sName } {}
+	: money{ 201 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
 
 Player::~Player() {}
 
@@ -66,7 +66,7 @@ bool Player::want_to_buy_Property(Property& property, Player& player)
 	}
 }
 
-bool Player::want_to_buy_Houses(Property& property, Player& player, Monopoly& _price_for_house)
+bool Player::want_to_buy_Houses(Property& property, Player& player)
 {
 	//Eingabechar
 	char eingabe;
@@ -93,4 +93,58 @@ bool Player::want_to_buy_Houses(Property& property, Player& player, Monopoly& _p
 	{
 		return false;
 	}
+}
+
+/*Property* Player::set_Imperium()
+{
+	return imperium;
+}*/
+
+void Player::is_inmate(Player& player) 
+{
+	is_in_jail = true;
+}
+
+void Player::prison_break(Player& player)
+{
+	is_in_jail = false;
+}
+
+bool Player::get_is_in_jail()
+{
+	return is_in_jail;
+}
+
+int Player::get_rounds_in_jail()
+{
+	return rounds_in_jail;
+}
+
+void Player::set_rounds_in_jail()
+{
+	if (is_in_jail == true)
+	{
+		rounds_in_jail++;
+	}
+	else
+	{
+		rounds_in_jail = 0;
+	}
+}
+
+bool Player::set_broke()
+{
+	if (money < 0)
+	{
+		return broke = true;
+	}
+	else
+	{
+		return broke = false;
+	}
+}
+
+bool Player::get_broke()
+{
+	return broke;
 }

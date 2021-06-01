@@ -13,11 +13,13 @@ private:
     Player* owner;
     //Kaufpreis Grundstuecks
     int value;
+    //Kaufpreis Haus
+    int price_for_house;
     //zugehoreiges Monopol
     Monopoly* monopoly;
 
 public:
-    Property(std::string _name, int _value = 0, Monopoly* _monopoly = NULL, Player* _owner = NULL);
+    Property(std::string _name, int _value = 0, Monopoly* _monopol = NULL, int price_for_house = 0, Player* _owner = NULL);
     ~Property();
 
     //virtuelle Funktio, die die Miete zurueckgibt
@@ -28,8 +30,18 @@ public:
     Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* get_Owner();
+    Player* set_Owner_Bank();
+    Player* set_Owner_Player(Player& player);
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
-    virtual int build_houses();
+    virtual int possible_to_build_houses(int iHouses);
+        //Haeuser zaehlen
+    //int count_houses_on_properties(Field *fField, Player& player);
+        //Haeuser setzen
+    virtual void set_House(Field* fField, int iHouses);
+        //Haeseranzahl auf Feld
+    virtual int get_House();
+    // Grundstuecke an neuen Besitzer geben
+    void new_property_owner(Player &deadplayer, Player &killerplayer);
 };
