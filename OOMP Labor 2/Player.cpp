@@ -5,7 +5,11 @@
 Player::Player(Field* fField, std::string sName)
 	: money{ 201 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
 
-Player::~Player() {}
+Player::~Player()
+{
+	field = NULL;
+	imperium = {};
+}
 
 
 std::string Player::get_Name()
@@ -132,6 +136,7 @@ void Player::set_rounds_in_jail()
 	}
 }
 
+//immer pruefen ob Geld vom Spieler groesser 0 ist
 bool Player::set_broke()
 {
 	if (money < 0)
@@ -144,6 +149,7 @@ bool Player::set_broke()
 	}
 }
 
+//getfunktion fuer Player Attribut
 bool Player::get_broke()
 {
 	return broke;

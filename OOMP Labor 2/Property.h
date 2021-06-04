@@ -30,8 +30,8 @@ public:
     Monopoly* get_Monopoly();
     //gibt den zugehoreigen Besitzer aus
     Player* get_Owner();
-    Player* set_Owner_Bank();
-    Player* set_Owner_Player(Player& player);
+    Player* set_owner_bank();
+    Player* set_owner_player(Player& player);
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
