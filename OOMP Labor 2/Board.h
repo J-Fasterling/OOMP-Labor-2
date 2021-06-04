@@ -28,9 +28,6 @@ private:
 	//bestimmt die Anzahl der Spieler und weist ihnen Namen zu
 	void choose_Players(int _playerCount, vector<string> names);
 
-	//erzeugt den allgemeine Spielablauf
-	void game_Engine();
-
 	//wuerfelt eine Zufallszahl
 	int throw_Dice();
 
@@ -42,8 +39,11 @@ private:
 
 
 public:
-	Board(int playerCount, vector<string> names);
+	Board(int playerCount, vector<string> names, char cPlaymode);
 	~Board();
+
+	//erzeugt den allgemeine Spielablauf
+	void game_Engine();
 
 	//gibt den Spielmodus zurueck
 	bool get_Playmode();

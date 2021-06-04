@@ -9,7 +9,7 @@
 #include "Utility.h"
 
 
-Board::Board(int playerCount, vector<string> names)
+Board::Board(int playerCount, vector<string> names, char cPlaymode)
 {
 	//Konsoelenschriftfarbe auf weiss setzen
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -119,6 +119,7 @@ Board::Board(int playerCount, vector<string> names)
 	//Weist den Monopolen die Objekte zu
 	set_Monopolies();
 
+	/*
 	//Auswahl des Spielmodus freies Spiel oder Testversion
 	char cPlaymode;
 	cout << endl << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
@@ -135,7 +136,7 @@ Board::Board(int playerCount, vector<string> names)
 	}
 
 	cout << endl << endl;
-
+	*/
 	//Playmode setzen
 	if (cPlaymode == 'a')
 	{
@@ -229,6 +230,7 @@ void Board::game_Engine()
 		//Spielzug fuer jeden Spieler
 		for (unsigned int i = 0; i <= vPlayer.size() - 1; i++)
 		{	
+			cout << "Spieler " << vPlayer.at(i)->get_Name() << " ist dran." << endl;
 			//Falls Spieler im Gefaengnis
 			if (vPlayer.at(i)->get_is_in_jail() == true)
 			{
@@ -276,7 +278,7 @@ void Board::game_Engine()
 				{
 					//Definiere welcher Spieler gelöscht wird und welcher die Grundstuecke bekommt
 					Player* killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
-					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren. Seine Grundstuecke erhaellt " << killerplayer->get_Name() << endl;
+					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren. Seine Grundstuecke erhaellt " << killerplayer->get_Name() << endl << endl;
 					vPlayer.at(i)->imperium[i]->new_property_owner(*vPlayer.at(i), *killerplayer);
 					//Spieler der pleite ist loeschen
 					delete vPlayer.at(i);
@@ -288,7 +290,7 @@ void Board::game_Engine()
 				{
 					//uebertraegt Properties an die Bank
 					give_properties_to_bank(*vPlayer.at(i));
-					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl;
+					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl << endl;
 					delete vPlayer.at(i);
 					vPlayer.erase(vPlayer.begin() + i);
 					break;
