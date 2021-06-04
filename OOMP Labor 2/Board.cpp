@@ -294,8 +294,10 @@ void Board::game_Engine()
 
 			if (vPlayer.at(i)->get_broke() == true) 
 			{
+				//prueft ob das Feld einen Besitzer hat
 				if (vPlayer.at(i)->get_Field()->get_Owner())
 				{
+					//Definiere welcher Spieler gelöscht wird und welcher die Grundstuecke bekommt
 					Player* killerplayer;
 					Player* deadplayer;
 					killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
@@ -306,8 +308,10 @@ void Board::game_Engine()
 					vPlayer.erase(vPlayer.begin() + i);
 					break;
 				}
+				//prueft ob das Grundstueck der Bank gehoert
 				if (vPlayer.at(i)->get_Field()->get_Name() == "Einkommenssteuer" || "Zusatzsteuer" || "Gefaengnis" || "Ereignisfeld" || "Gemeinschaftsfeld")
 				{
+					//uebertraegt Properties an die Bank
 					give_properties_to_bank(*vPlayer.at(i));
 					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl;
 					vPlayer.erase(vPlayer.begin() + i);
@@ -576,7 +580,7 @@ void Board::give_properties_to_bank(Player &player)
 	int i = 0;
 	while (player.imperium[i] != NULL)
 	{
-		player.imperium[i]->set_Owner_Bank();
+		player.imperium[i]->set_owner_bank();
 		i++;
 	}
 }
