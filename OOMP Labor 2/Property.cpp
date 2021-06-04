@@ -85,6 +85,7 @@ void Property::enter(Player& player)
 				{
 					i++;
 				}
+				//Schreibt Grundstueck ins Array des Spielers
 				player.imperium[i] = this;
 				int cntprop = player.get_Field()->get_Monopoly()->count_owned_properties(player);
 				std::cout << "Monopole: " << cntprop << std::endl;

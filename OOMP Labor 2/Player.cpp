@@ -5,7 +5,11 @@
 Player::Player(Field* fField, std::string sName)
 	: money{ 201 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
 
-Player::~Player() {}
+Player::~Player()
+{
+	field = NULL;
+	imperium = {};
+}
 
 
 std::string Player::get_Name()

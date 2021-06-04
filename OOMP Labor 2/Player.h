@@ -57,8 +57,6 @@ public:
 	//Abfrage ob Spieler Haeser kaufen will
 	bool want_to_buy_Houses(Property& property, Player& player);
 
-	//Properties in Array speichern
-	//Property* set_Imperium();
 	//Array erstellen mit allen Grundstuecken die Spieler gehören
 	Property* imperium[28] = { 0 };
 
