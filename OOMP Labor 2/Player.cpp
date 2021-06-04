@@ -132,6 +132,7 @@ void Player::set_rounds_in_jail()
 	}
 }
 
+//immer pruefen ob Geld vom Spieler groesser 0 ist
 bool Player::set_broke()
 {
 	if (money < 0)
@@ -144,6 +145,7 @@ bool Player::set_broke()
 	}
 }
 
+//getfunktion fuer Player Attribut
 bool Player::get_broke()
 {
 	return broke;

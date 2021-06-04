@@ -113,12 +113,14 @@ Player* Property::get_Owner()
 	return owner;
 }
 
-Player* Property::set_Owner_Bank()
+//Property owner loeschen sodass Grundstuekc wieder gekauft werden kann
+Player* Property::set_owner_bank()
 {
 	return owner = NULL;
 }
 
-Player* Property::set_Owner_Player(Player &player)
+//Grundstuekcseigentuemer festlegen
+Player* Property::set_owner_player(Player &player)
 {
 	return owner = &player;
 }
@@ -149,7 +151,8 @@ void Property::new_property_owner(Player& deadplayer, Player& killerplayer)
 {
 	int i = 0;
 	int j = 0;
-
+	
+	//Geht neue Grundstuecke durch und schreibt sie ins Besitzarray des Killerplayer
 	while (deadplayer.imperium[i] != NULL)
 	{
 		while (killerplayer.imperium[j] != NULL)
@@ -157,7 +160,7 @@ void Property::new_property_owner(Player& deadplayer, Player& killerplayer)
 			j++;
 		}
 		killerplayer.imperium[j] = deadplayer.imperium[i];
-		killerplayer.imperium[j]->set_Owner_Player(killerplayer);
+		killerplayer.imperium[j]->set_owner_player(killerplayer);
 		i++;
 	}
 }
