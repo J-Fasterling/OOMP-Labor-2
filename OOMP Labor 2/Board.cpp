@@ -9,7 +9,7 @@
 #include "Utility.h"
 
 
-Board::Board()
+Board::Board(int playerCount, vector<string> names)
 {
 	//Konsoelenschriftfarbe auf weiss setzen
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -146,7 +146,7 @@ Board::Board()
 		set_Playmode(true);
 	}
 	//Mitspieler bestimmen
-	choose_Players();
+	choose_Players(playerCount, names);
 
 	//Eiegentlische Spielmechanik wird gestartet
 	game_Engine();
@@ -198,35 +198,12 @@ void Board::create_Playboard()
 }
 
 
-void Board::choose_Players()
+void Board::choose_Players(int _playerCount, vector<string> names)
 {
-	cout <<"=====================================================";
-	cout << endl << endl;
-	cout << "                 SPIELERAUSWAHL" << endl;
-	cout << "                ----------------" << endl << endl;
-	int playerCount;
-
-	cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
-	cin >> playerCount;
-
-	//Fehlerhafte Eingabe abfangen
-	while (std::cin.fail() || playerCount > 4 || playerCount < 1)
-	{
-		cin.clear();
-		cin.ignore();
-		cout << "Fehlerhafte eingabe! " << endl;
-		cout << "Bitte waehle eine Anzahl an Spielern aus (1-4): ";
-		cin >> playerCount;
-	}
-
 	//Gefragte Anzahl an Spielern erzeugen
-	for (int i = 1; i <= playerCount; i++)
+	for (int i = 0; i <= _playerCount - 1; i++)
 	{
-		cout << endl << "Geben Sie den Namen des " << i << ". Spielers an: ";
-		string sName;
-		cin >> sName;
-
-		vPlayer.push_back(new Player(vBoard.at(0), sName));
+		vPlayer.push_back(new Player(vBoard.at(0), names.at(i)));
 	}
 
 	cout << "=====================================================" << endl << endl;
@@ -298,13 +275,11 @@ void Board::game_Engine()
 				if (vPlayer.at(i)->get_Field()->get_Owner())
 				{
 					//Definiere welcher Spieler gelöscht wird und welcher die Grundstuecke bekommt
-					Player* killerplayer;
-					Player* deadplayer;
-					killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
-					deadplayer = vPlayer.at(i);
-					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren und verliert seine Grundstuecke an " << killerplayer->get_Name() << endl;
-					deadplayer->imperium[i]->new_property_owner(*deadplayer, *killerplayer);
+					Player* killerplayer = vPlayer.at(i)->get_Field()->get_Owner();
+					std::cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren. Seine Grundstuecke erhaellt " << killerplayer->get_Name() << endl;
+					vPlayer.at(i)->imperium[i]->new_property_owner(*vPlayer.at(i), *killerplayer);
 					//Spieler der pleite ist loeschen
+					delete vPlayer.at(i);
 					vPlayer.erase(vPlayer.begin() + i);
 					break;
 				}
@@ -314,16 +289,17 @@ void Board::game_Engine()
 					//uebertraegt Properties an die Bank
 					give_properties_to_bank(*vPlayer.at(i));
 					cout << vPlayer.at(i)->get_Name() << " ist pleite und hat verloren, seine Grundstuecke gehen an die Bank" << endl;
+					delete vPlayer.at(i);
 					vPlayer.erase(vPlayer.begin() + i);
 					break;
 				}
 			}
 		}
 		//Festlegen, dass das Programm beendet werden soll
-		/*if (vPlayer.size() == 1)
+		if (vPlayer.size() == 1)
 		{
 			gameBreak = true;
-		}*/
+		}
 
 		//Spiel wird beendet
 		if (gameBreak)

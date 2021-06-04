@@ -3,6 +3,7 @@
 //#include "Field.h"
 #include <stdio.h>
 #include <string>
+#include <array>
 
 class Field;
 class Property;
@@ -58,7 +59,7 @@ public:
 	bool want_to_buy_Houses(Property& property, Player& player);
 
 	//Array erstellen mit allen Grundstuecken die Spieler gehören
-	Property* imperium[28] = { 0 };
+	std::array<Property*, 28> imperium = { };
 
 	//Gefaengnis
 	//Markiert Spieler als Gefaengnis Insassen

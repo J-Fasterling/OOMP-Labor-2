@@ -7,8 +7,14 @@ Player::Player(Field* fField, std::string sName)
 
 Player::~Player()
 {
-	field = NULL;
-	imperium = {};
+	field = nullptr;
+	
+	for (int i = imperium.size() - 1; i >= 0; i--)
+	{
+		imperium[i] = nullptr;
+	}
+
+
 }
 
 
@@ -139,7 +145,7 @@ void Player::set_rounds_in_jail()
 //immer pruefen ob Geld vom Spieler groesser 0 ist
 bool Player::set_broke()
 {
-	if (money < 0)
+	if (money <= 0)
 	{
 		return broke = true;
 	}

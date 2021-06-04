@@ -26,7 +26,7 @@ private:
 	void create_Playboard();
 
 	//bestimmt die Anzahl der Spieler und weist ihnen Namen zu
-	void choose_Players();
+	void choose_Players(int _playerCount, vector<string> names);
 
 	//erzeugt den allgemeine Spielablauf
 	void game_Engine();
@@ -42,7 +42,7 @@ private:
 
 
 public:
-	Board();
+	Board(int playerCount, vector<string> names);
 	~Board();
 
 	//gibt den Spielmodus zurueck
