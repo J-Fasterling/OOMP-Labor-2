@@ -17,17 +17,11 @@ private:
 	//Name des Felds
 	std::string name;	
 
-//protected:
-	//Board Pointer
-	
 
 public:
 	Field(std::string _name, Field* _next = NULL, Field* _prev = NULL);
 	~Field();
-
-	friend class Board;
 	Board* board;
-	//friend class Board;
 	//Ausgabe, welcher Spieler welches Feld betreten hat
 	virtual void enter(Player& player) = 0;
 
