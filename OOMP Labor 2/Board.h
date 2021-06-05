@@ -6,6 +6,7 @@
 
 using namespace std;
 
+[Serializable]
 class Board
 {
 private:
