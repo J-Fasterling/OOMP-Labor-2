@@ -1,4 +1,5 @@
 #include "Utility.h"
+#include "Board.h"
 
 Utility::Utility(std::string _name, Monopoly* _monopoly)
 	: Property(_name, 150, _monopoly), dice_factor_single{ 4 },
@@ -15,12 +16,12 @@ int Utility::get_rent()
 	if (this->get_Monopoly()->has_all(*this->get_Owner()))
 	{
 		//Wuerfelzahl mit Monopolfaktor multiplizieren
-		return dice_factor_monopoly * (board->get_Dice());
+		return dice_factor_monopoly * (Field::board->get_Dice());
 	}
 	else
 	{
 		//Wuerfelzahl mit normalem Faktor multiplizieren
-		return dice_factor_single * (board->get_Dice());
+		return dice_factor_single * (Field::board->get_Dice());
 	}
 }
 

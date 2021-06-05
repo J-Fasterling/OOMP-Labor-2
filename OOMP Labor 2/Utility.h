@@ -3,6 +3,7 @@
 
 class Utility :
     public Property {
+    class Board;
 private:
     //Multiplikator der Wuerfelzahl ohne Monopol
     int dice_factor_single;
