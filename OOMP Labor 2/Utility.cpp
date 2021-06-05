@@ -15,12 +15,12 @@ int Utility::get_rent()
 	if (this->get_Monopoly()->has_all(*this->get_Owner()))
 	{
 		//Wuerfelzahl mit Monopolfaktor multiplizieren
-		return dice_factor_monopoly * ((rand() % ((12 + 2) - 2)) + 2);
+		return dice_factor_monopoly * (board->get_Dice());
 	}
 	else
 	{
 		//Wuerfelzahl mit normalem Faktor multiplizieren
-		return dice_factor_single * ((rand() % ((12 + 2) - 2)) + 2);
+		return dice_factor_single * (board->get_Dice());
 	}
 }
 

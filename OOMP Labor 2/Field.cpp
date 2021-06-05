@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <iostream>
 #include <string>
+#include "Board.h"
 
 Field::Field(std::string _name, Field* _next, Field* _prev) 
 	: name{ _name }, next{ _next }, prev{_prev}{

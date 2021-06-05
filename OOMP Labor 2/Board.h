@@ -6,7 +6,6 @@
 
 using namespace std;
 
-[Serializable]
 class Board
 {
 private:
@@ -43,6 +42,7 @@ public:
 	Board(int playerCount, vector<string> names, char cPlaymode);
 	~Board();
 
+	friend class Field;
 	//erzeugt den allgemeine Spielablauf
 	void game_Engine();
 
