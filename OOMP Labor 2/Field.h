@@ -22,6 +22,7 @@ protected:
 
 public:
 	Field(std::string _name, Field* _next = NULL, Field* _prev = NULL);
+	Field(std::string _name, Board* _board);
 	~Field();
 
 	//Ausgabe, welcher Spieler welches Feld betreten hat

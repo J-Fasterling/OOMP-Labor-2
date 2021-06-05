@@ -1,4 +1,5 @@
 #include <random>
+#include <chrono>
 #include "Board.h"
 #include "NoAction.h"
 #include "Street.h"
@@ -36,7 +37,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(Go);
 	Field* sBad = new Street("Badstrasse", 60, monopolies[0], monopolies[0]->get_PriceforHouse(), 2, 10, 30, 90, 160, 250);
 	vBoard.push_back(sBad);
-	Field* aGem1 = new ActionField("Gemeinschaftsfeld");
+	Field* aGem1 = new ActionField(this, "Gemeinschaftsfeld");
 	vBoard.push_back(aGem1);
 	Field* sTurm = new Street("Turmstrasse", 60, monopolies[0], monopolies[0]->get_PriceforHouse(), 4, 20, 60, 180, 320, 450);
 	vBoard.push_back(sTurm);
@@ -46,17 +47,17 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(rBahn1);
 	Field* sRing = new Street("Bohlweg", 100, monopolies[1], monopolies[1]->get_PriceforHouse(), 6, 30, 90, 270, 400, 550);
 	vBoard.push_back(sRing);
-	Field* aGem2 = new ActionField("Ereignisfeld");
+	Field* aGem2 = new ActionField(this, "Ereignisfeld");
 	vBoard.push_back(aGem2);
 	Field* sCel = new Street("Celler Strasse", 100, monopolies[1], monopolies[1]->get_PriceforHouse(), 6, 30, 90, 270, 400, 550);
 	vBoard.push_back(sCel);
 	Field* sHanse = new Street("Hansestrasse", 120, monopolies[1], monopolies[1]->get_PriceforHouse(), 8, 40, 100, 400, 450, 600);
 	vBoard.push_back(sHanse);
-	Field* gef1 = new ActionField("Gefaengnis");
+	Field* gef1 = new ActionField(this, "Gefaengnis");
 	vBoard.push_back(gef1);
 	Field* sHein = new Street("HeinrichNordhoff Strasse", 140, monopolies[2], monopolies[2]->get_PriceforHouse(), 10, 50, 150, 450, 625, 750);
 	vBoard.push_back(sHein);
-	Field* uElek = new Utility("Elektrizitaetswerk", monopolies[9]);
+	Field* uElek = new Utility("Elektrizitaetswerk", monopolies[9], this);
 	vBoard.push_back(uElek);
 	Field* sFried = new Street("Friedrich Ebert Strasse", 140, monopolies[2], monopolies[2]->get_PriceforHouse(), 10, 50, 150, 450, 625, 750);
 	vBoard.push_back(sFried);
@@ -66,7 +67,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(rBahn2);
 	Field* sMuen = new Street("Muenchenerstrasse", 180, monopolies[3], monopolies[3]->get_PriceforHouse(), 14, 70, 200, 550, 750, 950);
 	vBoard.push_back(sMuen);
-	Field* aGem3 = new ActionField("Ereignisfeld");
+	Field* aGem3 = new ActionField(this, "Ereignisfeld");
 	vBoard.push_back(aGem3);
 	Field* sWien = new Street("Wiener Strasse", 180, monopolies[3], monopolies[3]->get_PriceforHouse(), 14, 70, 200, 550, 750, 950);
 	vBoard.push_back(sWien);
@@ -76,7 +77,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(naNoPark);
 	Field* sFifth = new Street("Fifth Avenue", 220, monopolies[4], monopolies[4]->get_PriceforHouse(), 18, 90, 250, 700, 875, 1050);
 	vBoard.push_back(sFifth);
-	Field* aGem4 = new ActionField("Ereignisfeld");
+	Field* aGem4 = new ActionField(this, "Ereignisfeld");
 	vBoard.push_back(aGem4);
 	Field* sBroad = new Street("Broadway", 220, monopolies[4], monopolies[4]->get_PriceforHouse(), 18, 90, 250, 700, 875, 1050);
 	vBoard.push_back(sBroad);
@@ -88,7 +89,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(sLess);
 	Field* sSchi = new Street("Schillerstrasse", 260, monopolies[5], monopolies[5]->get_PriceforHouse(), 22, 110, 330, 800, 975, 1150);
 	vBoard.push_back(sSchi);
-	Field* uWass = new Utility("Wasserwerk", monopolies[9]);
+	Field* uWass = new Utility("Wasserwerk", monopolies[9], this);
 	vBoard.push_back(uWass);
 	Field* sGoet = new Street("Goethestrasse", 280, monopolies[5], monopolies[5]->get_PriceforHouse(), 24, 120, 360, 850, 1025, 1200);
 	vBoard.push_back(sGoet);
@@ -96,7 +97,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(gGTJ);
 	Field* sBoule = new Street("Boulevard South", 300, monopolies[6], monopolies[6]->get_PriceforHouse(), 26, 130, 390, 900, 1100, 1275);
 	vBoard.push_back(sBoule);
-	Field* aGem5 = new ActionField("Gemeinschaftsfeld");
+	Field* aGem5 = new ActionField(this, "Gemeinschaftsfeld");
 	vBoard.push_back(aGem5);
 	Field* sHigh = new Street("Highway 1", 300, monopolies[6], monopolies[6]->get_PriceforHouse(), 26, 130, 390, 900, 1100, 1275);
 	vBoard.push_back(sHigh);
@@ -104,7 +105,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(sRoute);
 	Field* rBahn4 = new Railroad("Hauptbahnhof", monopolies[8]);
 	vBoard.push_back(rBahn4);
-	Field* aGem6 = new ActionField("Ereignisfeld");
+	Field* aGem6 = new ActionField(this, "Ereignisfeld");
 	vBoard.push_back(aGem6);
 	Field* sPark = new Street("Parkstrasse", 350, monopolies[7], monopolies[7]->get_PriceforHouse(), 35, 175, 500, 1100, 1300, 1500);
 	vBoard.push_back(sPark);
@@ -112,6 +113,20 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(tTax2);
 	Field* sSchl = new Street("Schlossallee", 400, monopolies[7], monopolies[7]->get_PriceforHouse(), 50, 200, 600, 1400, 1700, 2000);
 	vBoard.push_back(sSchl);
+
+	//Kartenstapel mischen
+	for (int i = 1; i <= 10; i++)
+	{
+		card_Index_Action.push_back(i);
+		card_Index_Community.push_back(i);
+	}
+
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	auto rng = std::default_random_engine(seed);
+
+	std::shuffle(card_Index_Action.begin(), card_Index_Action.end(), rng);
+	std::shuffle(card_Index_Community.begin(), card_Index_Community.end(), rng);
+
 
 	//Verknuepfung der Felder
 	create_Playboard();
@@ -221,6 +236,8 @@ void Board::game_Engine()
 				if (leavejail == false)
 				{
 					throw_Dice();
+					if (dice[0] != dice[1])
+						cout << vPlayer.at(i)->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt." << endl;
 					if (dice[0] == dice[1])
 					{
 						go_X_Steps(get_Dice(), vPlayer.at(i));
@@ -389,7 +406,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 		if (player->get_broke() == false)
 		{
 			//Der Spieler darf bei betreten des Gefaengnis nicht erneut Wuerfeln
-			if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis", player->get_is_in_jail() == false)
+			if (player->get_Field()->get_Name() != "Gehe ins Gefaengnis" && player->get_is_in_jail() == false)
 			{
 				throw_Dice();
 				cout << player->get_Name() << " hat eine " << dice[0] << " und eine " << dice[1] << " gewuerfelt" << endl;
@@ -548,6 +565,17 @@ void Board::give_properties_to_bank(Player &player)
 vector<Field*> Board::get_Playboard()
 {
 	return vBoard;
+}
+
+vector<int> Board::get_Index_Action()
+{
+	return card_Index_Action;
+}
+
+
+vector<int> Board::get_Index_Community()
+{
+	return card_Index_Community;
 }
 
 void Board::set_Monopolies() {

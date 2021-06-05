@@ -37,6 +37,8 @@ private:
 	//Setzt die Monopole
 	void set_Monopolies();
 
+	std::vector<int> card_Index_Action;
+	std::vector<int> card_Index_Community;
 
 public:
 	Board(int playerCount, vector<string> names, char cPlaymode);
@@ -63,5 +65,9 @@ public:
 	//Spieler pleite seine Grundstuecke abgeben
 	void give_properties_to_owner();
 	void give_properties_to_bank(Player &player);
+
+	std::vector<int> get_Index_Action();
+
+	std::vector<int> get_Index_Community();
 };
 
