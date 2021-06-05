@@ -12,7 +12,7 @@ class Player
 {
 private:
 	//Kontostand des Spielers
-	int money;
+	double money;
 	//aktuelles Feld des Spielers
 	Field* field;
 	//Name des Spielers
@@ -40,10 +40,10 @@ public:
 
 	//Geldzustand
 	//Setzt den Kontostand des Spielers 
-	void set_Money(int iMoney);
+	void set_Money(double iMoney);
 
 	//Gibt den Kontostand des Spielers aus
-	int get_Money();
+	double get_Money();
 
 	//Player pleite setzen
 	bool set_broke();

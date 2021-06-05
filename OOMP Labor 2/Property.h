@@ -20,6 +20,7 @@ private:
 
 public:
     Property(std::string _name, int _value = 0, Monopoly* _monopol = NULL, int price_for_house = 0, Player* _owner = NULL);
+    Property(int _value, std::string _name, Monopoly* _monopol, Board* _board);
     ~Property();
 
     //virtuelle Funktio, die die Miete zurueckgibt

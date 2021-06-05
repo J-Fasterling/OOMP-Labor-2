@@ -66,9 +66,6 @@
     <ClCompile Include="Board.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="ActionCards.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -105,9 +102,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionCards.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

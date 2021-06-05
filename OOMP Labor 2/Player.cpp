@@ -35,13 +35,13 @@ Field* Player::get_Field()
 	return field;
 }
 
-void Player::set_Money(int iMoney)
+void Player::set_Money(double iMoney)
 {
 	money = iMoney;
 }
 
 
-int Player::get_Money()
+double Player::get_Money()
 {
 	return money;
 }
