@@ -3,6 +3,10 @@
 Property::Property(std::string _name, int _value, Monopoly* _monopol, int price_for_house, Player* _owner) 
 	: Field(_name), value{ _value }, monopoly{ _monopol }, owner{ _owner }, price_for_house{ _monopol->get_PriceforHouse() }{}
 
+Property::Property(int _value, std::string _name, Monopoly* _monopol, Board* _board)
+	: Field(_name, _board), value{ _value }, monopoly{ _monopol }, price_for_house{ _monopol->get_PriceforHouse() }{}
+
+
 Property::~Property() {}
 
 int Property::get_rent()

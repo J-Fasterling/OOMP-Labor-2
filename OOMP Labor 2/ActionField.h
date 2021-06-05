@@ -1,3 +1,4 @@
+#include <vector>
 #include "Field.h"
 
 #pragma once
@@ -6,9 +7,16 @@ class ActionField :
 {
 private:
     template<class T>
-    T chooseAction(int card, Player& player);
+    T chooseActioncard(int card, Player& player);
+    template<class T>
+    T chooseCommunitycard(int card, Player& player);
+
+    int action_cnt = 0;
+
+    int community_cnt = 0;
+
 public:
-    ActionField(std::string _name = "Action Field");
+    ActionField(Board* _board, std::string _name = "Action Field");
     ~ActionField();
 
     //Ereignis wenn man das Feld betritt

@@ -1,8 +1,8 @@
 #include "Utility.h"
 #include "Board.h"
 
-Utility::Utility(std::string _name, Monopoly* _monopoly)
-	: Property(_name, 150, _monopoly), dice_factor_single{ 4 },
+Utility::Utility(std::string _name, Monopoly* _monopoly, Board* _board)
+	: Property(150, _name, _monopoly, _board), dice_factor_single{ 4 },
 	dice_factor_monopoly {10} {
 	std::cout << "Feldname " << _name << std::endl; 
 }
