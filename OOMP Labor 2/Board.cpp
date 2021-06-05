@@ -567,6 +567,11 @@ vector<Field*> Board::get_Playboard()
 	return vBoard;
 }
 
+vector<Player*> Board::get_Player()
+{
+	return vPlayer;
+}
+
 vector<int> Board::get_Index_Action()
 {
 	return card_Index_Action;
