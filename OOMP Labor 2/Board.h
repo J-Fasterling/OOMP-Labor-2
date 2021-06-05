@@ -58,6 +58,8 @@ public:
 	//Abfrage ob aus Gefaengnis freikaufen
 	bool want_to_leave_Jail(Player& player);
 
+	std::vector<Field*> get_Playboard();
+
 	//Spieler pleite seine Grundstuecke abgeben
 	void give_properties_to_owner();
 	void give_properties_to_bank(Player &player);

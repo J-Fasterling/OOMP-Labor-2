@@ -73,7 +73,7 @@ void Property::enter(Player& player)
 			{
 				if (this->get_Monopoly()->get_name() == "Braun" && "Hellblau" && "Pink" && "Orange" && "Rot" && "Gelb" && "Gruen" && "Blau")
 				{
-					if (possible_to_build_houses(get_House()) == 1)
+					if (possible_to_build_houses(player, get_House()) == 1)
 					{
 						if (player.want_to_buy_Houses(*this, player))
 						{
@@ -157,7 +157,7 @@ int Property::get_Value()
 }
 
 
-int Property::possible_to_build_houses(int iHouses)
+int Property::possible_to_build_houses(Player& player, int iHouses)
 {
 	return 0;
 }

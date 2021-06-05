@@ -35,5 +35,9 @@ public:
 
 	//Preis eines Hauses
 	int get_PriceforHouse();
+
+	int get_Properties();
+
+	//vector<Field
 };
 

@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionCards.cpp" />
     <ClCompile Include="ActionField.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Field.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionCards.h" />
     <ClInclude Include="ActionField.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Field.h" />

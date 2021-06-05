@@ -18,13 +18,12 @@ public:
     int get_rent();
 
     //Haeuser kaufen
-    int possible_to_build_houses(int iHouses);
+    int possible_to_build_houses(Player& player, int iHouses);
 
     //Haeuser bauen
     void set_House(Field* fField, int iHouses);
 
     //get Haeuser
     int get_House();
-
 };
 

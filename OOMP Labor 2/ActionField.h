@@ -4,6 +4,9 @@
 class ActionField :
     public Field
 {
+private:
+    template<class T>
+    T chooseAction(int card, Player& player);
 public:
     ActionField(std::string _name = "Action Field");
     ~ActionField();

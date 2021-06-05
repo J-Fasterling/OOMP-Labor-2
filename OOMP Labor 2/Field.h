@@ -24,7 +24,6 @@ public:
 	Field(std::string _name, Field* _next = NULL, Field* _prev = NULL);
 	~Field();
 
-	Board* board;
 	//Ausgabe, welcher Spieler welches Feld betreten hat
 	virtual void enter(Player& player) = 0;
 
@@ -48,6 +47,8 @@ public:
 
 	//Gibt den Besitzer des Felds zurueck
 	virtual Player* get_Owner();
+
+	friend class Monopoly;
 
 
 };

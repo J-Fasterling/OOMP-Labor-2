@@ -1,4 +1,5 @@
 #include "Street.h"
+#include "Monopoly.h"
 
 Street::Street(std::string _name, int _value, Monopoly* _monopoly, int price_for_house,
 	int m1, int m2, int m3, int m4, int m5, int m6)
@@ -31,8 +32,14 @@ int Street::get_rent()
 	}
 }
 
-int Street::possible_to_build_houses(int iHouses)
+int Street::possible_to_build_houses(Player& player, int iHouses)
 {
+	for (int i = player.get_Field()->get_Monopoly()->get_Properties(); i > 0; i--)
+	{
+		//if(player.get_Field()->get_Monopoly().)
+	}
+	//if(iHouses == player.get_Field()->get_Monopoly().)
+
 	if (iHouses < 5)
 	{
 		return 1;

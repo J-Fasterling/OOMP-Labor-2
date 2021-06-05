@@ -63,7 +63,7 @@ public:
 
 	//Gefaengnis
 	//Markiert Spieler als Gefaengnis Insassen
-	void is_inmate(Player& player);
+	void is_inmate();
 	
 	//Spieler kommt aus dem Gefaengnis
 	void prison_break(Player& player);

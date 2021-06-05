@@ -110,7 +110,7 @@ bool Player::want_to_buy_Houses(Property& property, Player& player)
 	return imperium;
 }*/
 
-void Player::is_inmate(Player& player) 
+void Player::is_inmate() 
 {
 	is_in_jail = true;
 }

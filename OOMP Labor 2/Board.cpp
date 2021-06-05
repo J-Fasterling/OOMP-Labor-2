@@ -119,24 +119,6 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	//Weist den Monopolen die Objekte zu
 	set_Monopolies();
 
-	/*
-	//Auswahl des Spielmodus freies Spiel oder Testversion
-	char cPlaymode;
-	cout << endl << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
-	cin >> cPlaymode;
-
-	//Fehlerhafte Eingabe
-	while (std::cin.fail() || cPlaymode != 'a' && cPlaymode != 'm')
-	{
-		cin.clear();
-		cin.ignore();
-		cout << "Fehlerhafte eingabe! " << endl;
-		cout << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
-		cin >> cPlaymode;
-	}
-
-	cout << endl << endl;
-	*/
 	//Playmode setzen
 	if (cPlaymode == 'a')
 	{
@@ -447,7 +429,7 @@ void Board::go_X_Steps(int iDice, Player* player)
 							if (dice[0] == dice[1])
 							{
 								Pasch2 = true;
-								player->is_inmate(*player);
+								player->is_inmate();
 								player->set_Field(vBoard.at(10));
 								player->get_Field()->enter(*player);
 							}
@@ -561,6 +543,11 @@ void Board::give_properties_to_bank(Player &player)
 		player.imperium[i]->set_owner_bank();
 		i++;
 	}
+}
+
+vector<Field*> Board::get_Playboard()
+{
+	return vBoard;
 }
 
 void Board::set_Monopolies() {

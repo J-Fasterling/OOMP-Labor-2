@@ -35,7 +35,7 @@ public:
     //Preis des Grunstuecks zurueckgeben
     int get_Value();
     //Haeuser bauen
-    virtual int possible_to_build_houses(int iHouses);
+    virtual int possible_to_build_houses(Player& player, int iHouses);
         //Haeuser zaehlen
     //int count_houses_on_properties(Field *fField, Player& player);
         //Haeuser setzen
