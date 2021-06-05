@@ -122,7 +122,7 @@ void Property::enter(Player& player)
 		}
 	}
 }
-
+//Test
 
 Monopoly* Property::get_Monopoly() 
 {
