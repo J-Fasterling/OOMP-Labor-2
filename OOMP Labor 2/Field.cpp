@@ -40,6 +40,11 @@ Field* Field::get_Next()
 	return next;
 }
 
+Field* Field::get_Prev()
+{
+	return prev;
+}
+
 
 std::string Field::get_Name()
 {

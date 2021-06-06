@@ -62,6 +62,9 @@ public:
 
 	std::vector<Field*> get_Playboard();
 
+	//Gibt Spieler Vector zurueck
+	std::vector<Player*> get_Player();
+
 	//Spieler pleite seine Grundstuecke abgeben
 	void give_properties_to_owner();
 	void give_properties_to_bank(Player &player);

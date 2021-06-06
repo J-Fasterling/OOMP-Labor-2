@@ -37,6 +37,9 @@ public:
 	//Gibt das nachfolgende Feld zurueck
 	Field* get_Next();
 
+	//Gibt das vorherige Feld zurueck
+	Field* get_Prev();
+
 	//Gibt den Namen des Felds zurueck
 	std::string get_Name();
 
