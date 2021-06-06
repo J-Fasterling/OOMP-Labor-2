@@ -48,16 +48,38 @@ T ActionField::chooseActioncard(int card, Player& player)
 		switch (card)
 		{
 		case 1:
-			std::cout << "Du hast Geburtstag! Du bekommst 200$" << std::endl;
-			return 200;
+			std::cout << "Rücke vor bis zur HeinrichNordhoff Strasse." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein.";
+
+			while (player.get_Field()->get_Name() != "HeinrichNordhoff Strasse")
+			{
+				player.set_Field(player.get_Field()->get_Next());
+
+				if (player.get_Field()->get_Name() == "Go")
+				{
+					money_on_GO = 400;
+				}
+			}
+			player.get_Field()->enter(player);
+			return money_on_GO;
 			break;
 		case 2:
 			std::cout << "Du wurdest bestohlen! Du verlierst 100$" << std::endl;
 			return -100;
 			break;
 		case 3:
-			std::cout << "Heute ist ein schoener Tag. Ruhe dich etwas aus." << std::endl << "Es passiert nichts." << std::endl;
-			return 0;
+			std::cout << "Ruecke vor bis zum naechsten Bahnhof." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein." << std::endl;
+
+			while (player.get_Field()->get_Name() != "Nordbahnhof"  && player.get_Field()->get_Name() != "Westbahnhof" && player.get_Field()->get_Name() != "Hauptbahnhof" && player.get_Field()->get_Name() != "Suedbahnhof")
+			{
+				player.set_Field(player.get_Field()->get_Next());
+
+				if (player.get_Field()->get_Name() == "Go")
+				{
+					money_on_GO = 400;
+				}
+			}
+			player.get_Field()->enter(player);
+			return money_on_GO;
 			break;
 		case 4:
 			std::cout << "Gehe in das Gefaengnis!" << std::endl << "Begib dich direkt dorthin." << std::endl << "Ziehe keine 400$ ein." << std::endl;
@@ -76,13 +98,13 @@ T ActionField::chooseActioncard(int card, Player& player)
 			return 0;
 			break;
 		case 6:
-			std::cout << "Du bist zum Vorstand gewaehlt worden." << std::endl << "Zahle jedem Spieler 50$." << std::endl;
+			std::cout << "Du bist zum Vorstand gewaehlt worden." << std::endl << "Zahle jedem Spieler 20$." << std::endl;
 
 			for (unsigned int i = 0; i <= (board->get_Player().size() - 1); i++)
 			{
-				board->get_Player().at(i)->set_Money(board->get_Player().at(i)->get_Money() + 50);
-				amount_to_pay += 50;
+				board->get_Player().at(i)->set_Money(board->get_Player().at(i)->get_Money() + 20);
 			}
+			amount_to_pay = (board->get_Player().size()) * -20;
 			return amount_to_pay;
 			break;
 		case 7:
@@ -139,7 +161,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			player.get_Field()->enter(player);
 			return money_on_GO;
 			break;
-		case 14:
+		/*case 14:
 			std::cout << "Zahle eine Strafe von 200$ oder nimm eine Gemeinschaftskarte." << std::endl;
 
 			//Eingabechar
@@ -160,7 +182,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 
 			if (eingabe == 'j')
 			{
-				T ActionField::chooseCommunitycard(card, player);
+				chooseCommunitycard(card, player);
 				return 0;
 				break;
 			}
@@ -168,29 +190,13 @@ T ActionField::chooseActioncard(int card, Player& player)
 			{
 				return -200;
 				break;
-			}
+			}*/
 		case 15:
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
 			return 0;
-			break;
-		case 16:
-			std::cout << "Rücke vor bis zur HeinrichNordhoff Strasse." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein.";
-
-			while (player.get_Field()->get_Name() != "HeinrichNordhoff Strasse")
-			{
-				player.set_Field(player.get_Field()->get_Next());
-
-				if (player.get_Field()->get_Name() == "Go")
-				{
-					money_on_GO = 400;
-				}
-			}
-			player.get_Field()->enter(player);
-			return money_on_GO;
-			break;
-			
+			break;			
 
 		default:
 			return 0;
@@ -207,13 +213,82 @@ T ActionField::chooseActioncard(int card, Player& player)
 template<class T>
 T ActionField::chooseCommunitycard(int card, Player& player)
 {
+	int amount_to_get{ 0 };
+
 	if (player.get_Field()->get_Name() != "Gefaengnis")
 	{
 		switch (card)
 		{
 		case 1:
-
+			std::cout << "Bank-Irrtum zu deinen Gunsten." << std::endl << "Ziehe 400$ ein." << std::endl;
+			return 400;
+			break;
+		case 2:
+			std::cout << "Aus Lagerverkaeufen erhaelst du: 500$" << std::endl;
+			return 500;
+			break;
+		case 3:
+			std::cout << "Dein Auto muss in die Werkstatt. Zahle 100$." << std::endl;
+			return -100;
+			break;
+		case 4:
+			std::cout << "Arzt-Kosten. Zahle 100$." << std::endl;
+			return -100;
+			break;
+		case 5:
+			std::cout << "Zahle Schulgeld: 150$" << std::endl;
+			return -150;
+			break;
+		case 6:
+			std::cout << "Gehe in das Gefaengnis!" << std::endl << "Begib dich direkt dorthin." << std::endl << "Ziehe keine 400$ ein." << std::endl;
+			player.is_inmate();
+			player.set_Field(Field::board->get_Playboard().at(10));
+			player.get_Field()->enter(player);
 			return 0;
+			break;
+		case 7:
+			std::cout << "Ruecke vor bis auf LOS." << std::endl;
+			player.set_Field(board->get_Playboard().at(0));
+			player.get_Field()->enter(player);
+			return 0;
+			break;
+		case 8:
+			std::cout << "Du erbst 500$." << std::endl;
+			return 500;
+			break;
+		case 9:
+			std::cout << "Du hast einem Kreuzwortraetsel-Wettbewerb gewonnen." << std::endl << "Ziehe 200$ ein." << std::endl;
+			return 200;
+			break;
+		case 10:
+			std::cout << "Du erhaelst den Corona-Bonus vom Staat: 350$." << std::endl;
+			return 350;
+			break;
+		case 11:
+			std::cout << "Du erhaelst auf Vorzugs-Aktion 7 Prozent Dividende: 600$" << std::endl;
+			return 600;
+			break;
+		case 12:
+			std::cout << "Es ist dein Geburtstag." << std::endl << "Ziehe von jedem Spieler 50$ ein" << std::endl;
+
+			for (unsigned int i = 0; i <= (board->get_Player().size() - 1); i++)
+			{
+				board->get_Player().at(i)->set_Money(board->get_Player().at(i)->get_Money() - 50);
+			}
+			amount_to_get = (board->get_Player().size()) * 50;
+			return amount_to_get;
+			break;
+		case 13:
+			std::cout << "Du hast den 2.Preis in einem Schoenheitswettbewerb gewonnen." << std::endl << "Ziehe 200$ ein." << std::endl;
+			return 200;
+			break;
+		case 14:
+			std::cout << "Einkommenssteuer-Rueckzahlung: 500$" << std::endl;
+			return 500;
+			break;
+		case 15:
+			std::cout << "Zahle an das Krankenhaus: 150" << std::endl;
+			return -150;
 			break;
 
 		default:
