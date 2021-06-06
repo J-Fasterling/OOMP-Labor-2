@@ -115,7 +115,7 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 	vBoard.push_back(sSchl);
 
 	//Kartenstapel mischen
-	for (int i = 1; i <= 10; i++)
+	for (int i = 1; i <= 15; i++)
 	{
 		card_Index_Action.push_back(i);
 		card_Index_Community.push_back(i);
