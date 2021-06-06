@@ -16,7 +16,7 @@ void ActionField::enter(Player& player)
 
 	if (player.get_Field()->get_Name() == "Ereignisfeld")
 	{
-		if (action_cnt == 10)
+		if (action_cnt == 15)
 		{
 			action_cnt = 0;
 		}
@@ -26,7 +26,7 @@ void ActionField::enter(Player& player)
 	}
 	else
 	{
-		if (community_cnt == 10)
+		if (community_cnt == 15)
 		{
 			community_cnt = 0;
 		}
@@ -104,7 +104,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			{
 				board->get_Player().at(i)->set_Money(board->get_Player().at(i)->get_Money() + 20);
 			}
-			amount_to_pay = (board->get_Player().size()) * -20;
+			amount_to_pay = -40; //(board->get_Player().size()) * -20;
 			return amount_to_pay;
 			break;
 		case 7:
@@ -112,10 +112,19 @@ T ActionField::chooseActioncard(int card, Player& player)
 			return 500;
 			break;
 		case 8:
-			std::cout << "Ruecke vor bis zur Schlossallee." << std::endl;
-			player.set_Field(board->get_Playboard().at(40));
+			std::cout << "Rücke vor bis zur Schlossallee." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein.";
+
+			while (player.get_Field()->get_Name() != "Schlossallee")
+			{
+				player.set_Field(player.get_Field()->get_Next());
+
+				if (player.get_Field()->get_Name() == "Go")
+				{
+					money_on_GO = 400;
+				}
+			}
 			player.get_Field()->enter(player);
-			return 0;
+			return money_on_GO;
 			break;
 		case 9:
 			std::cout << "Strafe fuer zu schnelles Fahren: 300$" << std::endl;
