@@ -16,7 +16,7 @@ void Tax::enter(Player& player)
 	Field::enter(player);
 
 	//Spieler bezahlt Steuern
-	player.set_Money(player.get_Money() - amount);
+	player.set_Money(player.get_Money() - (double) amount);
 	std::cout << player.get_Name() << " muss ";
 	//Konsolenschriftfarbe auf rot setzen
 	SetConsoleTextAttribute(hConsole, 12);
