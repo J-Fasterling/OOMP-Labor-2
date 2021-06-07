@@ -225,7 +225,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
-			return 0;
+			return 200;
 			break;			
 
 		default:
@@ -280,7 +280,7 @@ T ActionField::chooseCommunitycard(int card, Player& player)
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
-			return 0;
+			return 200;
 			break;
 		case 8:
 			std::cout << "Du erbst 500$." << std::endl;
