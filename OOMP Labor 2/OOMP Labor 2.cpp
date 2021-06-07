@@ -16,9 +16,37 @@
 ######################################################################################*/
 
 
+void checkPlayerInput(int& playerCount)
+{
+	cout << "Bitte waehle eine Anzahl an Spielern aus (2-4): ";
+	cin >> playerCount;
+
+	if (std::cin.fail() || playerCount > 4 || playerCount < 2)
+	{
+		cin.clear();
+		cin.ignore();
+		throw invalid_argument("Fehlerhafte Eingabe!");
+	}
+}
+
+void checkModeInput(char& cPlayMode)
+{
+	cout << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
+	cin >> cPlayMode;
+
+	if (std::cin.fail() || cPlayMode != 'a' && cPlayMode != 'm')
+	{
+		cin.clear();
+		cin.ignore();
+		throw invalid_argument("Fehlerhafte Eingabe!");
+	}
+}
+
+
 int main()
 {
 	vector<string> names;
+	bool correctInput = true;
 
 	cout << "=====================================================";
 	cout << endl << endl;
@@ -26,20 +54,20 @@ int main()
 	cout << "                ----------------" << endl << endl;
 	int playerCount;
 
-	cout << "Bitte waehle eine Anzahl an Spielern aus (2-4): ";
-	cin >> playerCount;
-
-	//Fehlerhafte Eingabe abfangen
-	while (std::cin.fail() || playerCount > 4 || playerCount < 2)
+	do
 	{
-		cin.clear();
-		cin.ignore();
-		cout << "Fehlerhafte eingabe! " << endl;
-		cout << "Bitte waehle eine Anzahl an Spielern aus (2-4): ";
-		cin >> playerCount;
+		try
+		{
+			checkPlayerInput(playerCount);
+			correctInput = true;
+		}
+		catch (invalid_argument& e)
+		{
+			cerr << e.what() << endl;
+			correctInput = false;
+		}
+	} 	while (!correctInput);
 
-
-	}
 
 	for (int i = 1; i <= playerCount; i++)
 	{
@@ -50,20 +78,25 @@ int main()
 		names.push_back(sName);
 	}
 
+	cout << endl;
+
 	//Auswahl des Spielmodus freies Spiel oder Testversion
 	char cPlaymode;
-	cout << endl << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
-	cin >> cPlaymode;
 
 	//Fehlerhafte Eingabe
-	while (std::cin.fail() || cPlaymode != 'a' && cPlaymode != 'm')
+	do
 	{
-		cin.clear();
-		cin.ignore();
-		cout << "Fehlerhafte eingabe! " << endl;
-		cout << "Moechtest du automatisch oder manuell wuerfeln (a/m)? ";
-		cin >> cPlaymode;
-	}
+		try
+		{
+			checkModeInput(cPlaymode);
+			correctInput = true;
+		}
+		catch (invalid_argument& e)
+		{
+			cerr << e.what() << endl;
+			correctInput = false;
+		}
+	} while (!correctInput);
 
 	cout << endl << endl;
 
