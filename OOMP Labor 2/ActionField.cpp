@@ -127,7 +127,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			break;
 
 		case 8:
-			std::cout << "Ruecke vor bis zur Schlossallee." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein.";
+			std::cout << "Ruecke vor bis zur Schlossallee." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein." << std:endl;
 
 			while (player.get_Field()->get_Name() != "Schlossallee")
 			{
