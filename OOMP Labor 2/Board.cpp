@@ -121,9 +121,11 @@ Board::Board(int playerCount, vector<string> names, char cPlaymode)
 		card_Index_Community.push_back(i);
 	}
 
+	//Seed des random generators
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	auto rng = std::default_random_engine(seed);
 
+	//durchmischen der Aktions-/Gemeinschaftskarten
 	std::shuffle(card_Index_Action.begin(), card_Index_Action.end(), rng);
 	std::shuffle(card_Index_Community.begin(), card_Index_Community.end(), rng);
 

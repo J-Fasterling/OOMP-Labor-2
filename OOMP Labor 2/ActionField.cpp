@@ -73,7 +73,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 
 		case 2:
 			std::cout << "Du wurdest bestohlen! Du verlierst 100$" << std::endl;
-			return -100;
+			return (const int) -100;
 			break;
 
 		case 3:
@@ -123,7 +123,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 
 		case 7:
 			std::cout << "Die Bank zahlt dir eine Dividende: 500$" << std::endl;
-			return 500;
+			return (uint16_t) 500;
 			break;
 
 		case 8:
@@ -144,7 +144,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 
 		case 9:
 			std::cout << "Strafe fuer zu schnelles Fahren: 300$" << std::endl;
-			return -300;
+			return (const double) -300;
 			break;
 
 		case 10:
@@ -172,7 +172,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 
 		case 12:
 			std::cout << "Miete- und Anleihezinsen werden faellig. Die Bank zahlt dir 300$." << std::endl;
-			return 300;
+			return (const float) 300;
 			break;
 
 		case 13:
@@ -217,7 +217,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			}
 			else
 			{
-				return -200;
+				return (long float) -200;
 				break;
 			}
 
@@ -225,7 +225,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
-			return 200;
+			return (const int) 200;
 			break;			
 
 		default:
@@ -251,23 +251,23 @@ T ActionField::chooseCommunitycard(int card, Player& player)
 		{
 		case 1:
 			std::cout << "Bank-Irrtum zu deinen Gunsten." << std::endl << "Ziehe 400$ ein." << std::endl;
-			return 400;
+			return (int) 400;
 			break;
 		case 2:
 			std::cout << "Aus Lagerverkaeufen erhaelst du: 500$" << std::endl;
-			return 500;
+			return (long double) 500;
 			break;
 		case 3:
 			std::cout << "Dein Auto muss in die Werkstatt. Zahle 100$." << std::endl;
-			return -100;
+			return (long float) -100;
 			break;
 		case 4:
 			std::cout << "Arzt-Kosten. Zahle 100$." << std::endl;
-			return -100;
+			return (const double) -100;
 			break;
 		case 5:
 			std::cout << "Zahle Schulgeld: 150$" << std::endl;
-			return -150;
+			return (const float) -150;
 			break;
 		case 6:
 			std::cout << "Gehe in das Gefaengnis!" << std::endl << "Begib dich direkt dorthin." << std::endl << "Ziehe keine 400$ ein." << std::endl;
@@ -288,15 +288,15 @@ T ActionField::chooseCommunitycard(int card, Player& player)
 			break;
 		case 9:
 			std::cout << "Du hast einem Kreuzwortraetsel-Wettbewerb gewonnen." << std::endl << "Ziehe 200$ ein." << std::endl;
-			return 200;
+			return (const int) 200;
 			break;
 		case 10:
 			std::cout << "Du erhaelst den Corona-Bonus vom Staat: 350$." << std::endl;
-			return 350;
+			return (long long int) 350;
 			break;
 		case 11:
 			std::cout << "Du erhaelst auf Vorzugs-Aktion 7 Prozent Dividende: 600$" << std::endl;
-			return 600;
+			return (float) 600;
 			break;
 		case 12:
 			std::cout << "Es ist dein Geburtstag." << std::endl << "Ziehe von jedem Spieler 50$ ein" << std::endl;
@@ -310,15 +310,15 @@ T ActionField::chooseCommunitycard(int card, Player& player)
 			break;
 		case 13:
 			std::cout << "Du hast den 2.Preis in einem Schoenheitswettbewerb gewonnen." << std::endl << "Ziehe 200$ ein." << std::endl;
-			return 200;
+			return (double) 200;
 			break;
 		case 14:
 			std::cout << "Einkommenssteuer-Rueckzahlung: 500$" << std::endl;
-			return 500;
+			return (uint16_t) 500;
 			break;
 		case 15:
 			std::cout << "Zahle an das Krankenhaus: 150" << std::endl;
-			return -150;
+			return (long int) -150;
 			break;
 
 		default:

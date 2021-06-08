@@ -11,8 +11,10 @@ private:
     template<class T>
     T chooseCommunitycard(int card, Player& player);
 
+    //Aktuell gezogene Aktionsakarte
     int action_cnt = 0;
 
+    //Aktuell gezogene Gemeinschaftskarte
     int community_cnt = 0;
 
 public:

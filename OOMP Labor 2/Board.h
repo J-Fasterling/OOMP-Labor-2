@@ -69,8 +69,10 @@ public:
 	void give_properties_to_owner();
 	void give_properties_to_bank(Player &player);
 
+	//Vector mit Index der Actionkarten
 	std::vector<int> get_Index_Action();
 
+	//Vector mit Index der Gemeinschafftskarten
 	std::vector<int> get_Index_Community();
 };
 
