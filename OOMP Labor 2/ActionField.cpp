@@ -127,7 +127,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			break;
 
 		case 8:
-			std::cout << "Rücke vor bis zur Schlossallee." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein.";
+			std::cout << "Ruecke vor bis zur Schlossallee." << std::endl << "Wenn du ueber LOS kommst ziehe 400$ ein." << std::endl;
 
 			while (player.get_Field()->get_Name() != "Schlossallee")
 			{
@@ -225,7 +225,7 @@ T ActionField::chooseActioncard(int card, Player& player)
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
-			return 0;
+			return 200;
 			break;			
 
 		default:
@@ -280,7 +280,7 @@ T ActionField::chooseCommunitycard(int card, Player& player)
 			std::cout << "Ruecke vor bis auf LOS." << std::endl;
 			player.set_Field(board->get_Playboard().at(0));
 			player.get_Field()->enter(player);
-			return 0;
+			return 200;
 			break;
 		case 8:
 			std::cout << "Du erbst 500$." << std::endl;
