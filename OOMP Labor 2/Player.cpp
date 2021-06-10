@@ -3,7 +3,7 @@
 #include "Property.h"
 
 Player::Player(Field* fField, std::string sName)
-	: money{ 201 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
+	: money{ 1500 }, field{ fField }, name{ sName }, is_in_jail{ false }, rounds_in_jail{ 0 }, broke{ false }{}
 
 Player::~Player()
 {
